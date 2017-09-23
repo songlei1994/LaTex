@@ -1,0 +1,94 @@
+\documentclass[cs4size, a4paer, cs4size, oneside, openany]{bitbs-xetex} 
+% 设置图形文件的搜索路径
+\graphicspath{{figure/}{figures/}{logo/}{logos/}{graph/}{graphs}}
+%\cdot
+%%========================================
+%% 在bitmaster-xetex.cls中定义的有用命令
+%%========================================
+% \cndash 中文破折号
+% 可伸长的数学箭头、等号
+% \myRightarrow{}{}
+% \myLeftarrow{}{}
+% \myBioarrow{}{}
+% \myLongEqual{}{}
+% \upcite{} 上标引用
+% \intab为a->b积分
+% \int2pi [-pi,pi]上积分
+% \int2t  [-T,T]上积分
+%%========================================
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%% 封面
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+% 中文封面内容
+\title{毕业设计（论文）题目：}
+\institute{数学与统计学院}
+\author{宋\qquad 雷}
+\major{数学与应用数学}
+\classnumber{17011202}
+\advisor{蒋立宁教授}
+\outadvisor{无}
+\school{北京理工大学}
+\studentnumber{1120122817}
+
+% 封面,具体见.cls
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%% 前言
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\frontmatter
+\pagenumbering{Roman}
+% 目录
+\tableofcontents
+
+% 摘要
+%\include{body/abstract}
+
+% 表格索引
+%\listoftables
+%\addcontentsline{toc}{chapter}{\listfigurename} %将表格索引加入全文目录
+% 主要符号、缩略词对照表
+% \include{body/symbol}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%% 正文
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\mainmatter
+
+%% 各章正文内容
+\include{body/chap1}
+\include{body/chapter02}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%% 附录(章节编号重新计算，使用字母进行编号)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\appendix
+
+% 附录中编号形式是"A-1"的样子
+\renewcommand\theequation{\Alph{chapter}--\arabic{equation}}
+\renewcommand\thefigure{\Alph{chapter}--\arabic{figure}}
+\renewcommand\thetable{\Alph{chapter}--\arabic{table}}
+
+%\include{body/app1} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%% 文后(无章节编号)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\backmatter
+
+% 参考文献
+% 使用 BibTeX
+% 包含参考文献文件.bib
+{\zihao{5}\bibliography{reference/chap1,reference/chap2}
+}
+% 发表文章目录
+%\include{body/pub}
+
+% 致谢
+%\include{body/thanks}
+
+\end{document}

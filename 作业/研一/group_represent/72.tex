@@ -1,0 +1,113 @@
+\documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}\zihao{-4}~群表示论~\today}
+\fancyhead[LO]{\usebox{\mygraphic}\zihao{-4}~群表示论~\today}
+\fancyhead[RO,RE]{\zihao{-4} 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,headsep=0.5cm,footskip=1cm,left=1.0cm,right=1.0cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\zihao{-4}
+\noindent
+\\
+1.假设这样的$H$存在.记$X=\{t_iH\}_{i=1}^r$为$G$关于的左陪集,其中$t_i$为陪集代表元.$G$左乘作用到$X$上,得到$G$到$S_r$的一个同态$\varphi$,由于$\ker\varphi\triangleleft G$,而$G$,为单群,并且显然$\ker\varphi\neq G$,故$\varphi$为单同态,加之$|G|\geq r!=|S_r|$,所以$G=S_r$.
+但是$A_r$为$S_r$的正规子群,故$S_r$非单群,矛盾.\\
+3.用反证法.设$G$非本原且$\Delta$为一非本原集.则存在元素$\alpha,\beta,\gamma$使$\alpha,\beta\in \Delta,\alpha\neq\beta,\gamma\notin \Delta$.考虑群$G_{\alpha},$以及二元组对$(\alpha,\lambda_1),(\alpha,\lambda_2),\lambda_1,\lambda_2\in \Omega-\{\alpha\}$.由双传递性,存在在$g\in G,\alpha^g=\alpha,\lambda_1^g=\lambda_2\Rightarrow g\in G_{\alpha}$,所以$G_{\alpha}$在$\Omega-\{\alpha\}$上传递.但因对任意的$g\in G_{\alpha}$有$\Delta\cap\Delta^g\neq\emptyset,$故$\Delta=\Delta^g$,于是$\Delta^{G_{\alpha}}=\Delta.$这说明不存在$G_{\alpha}$的元素把$\beta$变为$\gamma$,与$G_{\alpha}$在$\Omega-\{\alpha\}$传递矛盾.\\
+5.任取$y\in N$,则$y^g\in N$.记$\overline{y^g}$表示$N$中与$y^g$共轭的元素,那么$\overline{y^g}=\{y^{gn}|n\in N\}\subseteq
+ y^G$.并且$y^g\in \overline{y^g}$,从而$y^G\subseteq \bigcup_{g\in G}\overline{y^g}$.这就说明了$y$在$G$中的共轭类由$y$在$N$中共轭类组成.记为$y^G=\bigcup C_i$.我们要说明$|C_i|$都相等,这是由于,对于每个$C_i$,存在$g\in G$,使得$y^g\in C_i$,那么$|C_i|=|N|/|C_N(y^g)|=|N|/|C_G(y)\cap N|=N/|C_G(y)^g\cap N|=|N|/|(C_G(y)\cap N)^g|=|N|/|C_N(y)|$.再让$G$共轭作用到$X=\{C_i\}$上,这显然是个传递作用.考虑$C_1$的稳定子$Stab(C_1)$,由于共轭类是个划分$C_1^g=C_1\Leftrightarrow \exists n\in G,y^{ng}=y\Leftrightarrow ng\in C_g(y)\Leftrightarrow g\in NC_G(y)
+$.所以$Stab(C_1)=NC_G(y)$再用命题?可知$X$与$NC_G(y)$关于$G$的陪集之间有个双射.\\
+7.$C_G(y^g)=\{h|y^{gh}=y^g,h\in G\}=\{h|y^{ghg^{-1}}=y,h\in G\}=\{t^g|y^t=y,t\in G\}=\{t|y^t=y,h\in G\}^g=(C_G(y))^g$\\
+1.由于$|GL(2,2)|=6$,且不为循环群,所以$GL(2,2)\cong\Sigma_3.$\\
+2.记$F_4=\{0,1,\alpha,\alpha^2\}$,其中$\alpha^2=1+\alpha$.我们构造一个单同态为
+\[1\to \left( \begin{array}{cc}
+1 & 0\\
+0 & 1\\
+\end{array}\right) ,\alpha\to \left( \begin{array}{cc}
+0 & 1\\
+1 & 1\\
+\end{array}\right) ,\alpha^2\to \left( \begin{array}{cc}
+1 & 1\\
+1 & 0\\
+\end{array}\right)\]
+容易验证这也是一个环嵌入.由西罗定理可知,$A_3$是$\Sigma_3$中唯一的3子群.并且$GL(2,2)\cong\Sigma_3$,所以$\varphi$对应着$A_3$到$\Sigma_3$的含入.\\
+3.同上,我们可以将$\mathbb{F}_4$看作是$\mathbb{F}_2$上的向量空间,基为$\{1,\alpha\}$,那么$GL(n,4)$中的元素可以唯一地表示为$A+\alpha B$的形式其中$A,B\in \mathcal{M}_2(\mathbb{F}_2)$.我们构造映射为
+\[A+\alpha B\to \left( \begin{array}{cc}
+A & B\\
+B & A+B\\
+\end{array}\right) \]
+下面先验证这是$GL(n,4)\to \mathcal{M}_2(\mathbb{F}_2)$的一个单同态.由于向量空间元素关于基分解的唯一性,单射是显然的,下面验证同态.
+\[\varphi((C+\alpha D)(A+\alpha B))= \left( \begin{array}{cc}
+C & D\\
+D & C+D\\
+\end{array}\right) \left( \begin{array}{cc}
+A & B\\
+B & A+B\\
+\end{array}\right)\]
+\[\left( \begin{array}{cc}
+CA+DB & DA+CB+DB\\
+DA+CB+DB  & DA+CB+CA\\
+\end{array}\right)\]
+\[=CA+DB+\alpha(DA+CB+DB)=\left( \begin{array}{cc}
+CA+DB & DA+CB+DB\\
+DA+CB+DB & CA+CB+DA\\
+\end{array}\right) \]
+需要说明的是由于在特征2的域上,所以$2DB=0$.\\
+然后需要验证这个映射将$GL(n,4)$映入$GL(2n,2)$.\\
+通过行列变换
+\[\left( \begin{array}{cc}
+C & D\\
+D & C+D
+\end{array}\right) \to \left( \begin{array}{cc}
+C+\alpha D & D\\
+\alpha C+(1+\alpha)D & C+D\\
+\end{array}\right)\]\[ \to \left( \begin{array}{cc}
+C+\alpha D & D\\
+C+\alpha D & C+\alpha D\\
+\end{array}\right) \to\left( \begin{array}{cc}
+0 & C+(1+\alpha)D\\
+C+\alpha D & C+\alpha D\\
+\end{array}\right)  \]
+记$f(t)=det\left( C+tD\right)$.
+由于$f(\alpha)\neq 0$,所以$f(t)\neq 0$.若$f(\alpha+1)=0$,那么当$\deg{f}>2$时,我们有$f$可约,否则$\mathbb{F}_4/\mathbb{F}_2$就不是二次扩张了,那么可以找到$f'$使得$\deg{f'}<\deg{f},f'(\alpha+1)=0$,一直这么下去,我们最终会找到一个$F_2$上的二次不可约多项式,但注意到$\mathbb{F}_2$上的二次不可约多项式只有$x^2+x+1$,$\alpha+1$不满足!所以$f(\alpha+1)\neq 0$,这说明这个映射确实将$GL(n,4)$映入$GL(2n,2)$.\\
+4.我们先选取一个$F_{q^2}$上的$n$维线性空间$V$,记基为$\{v_1,\cdots,v_n\}$,任取$G\in GL(n,p^2)$,用它来构造一个$\mathbb{F}_{q^2}$线性映射$\varphi_G$.将$\mathbb{F}_{q^2}$视为$F_{q}$的二次扩张,记$\mathbb{F}_{q^2}=F_{q}(\alpha),\alpha^2=m\alpha+n$.自然的可以将$V$看作$\mathbb{F}_q$上以$\{v_1,\cdots,v_n,\alpha v_1,\cdots,\alpha v_n\}$为基的向量空间.这时$\varphi_G$可以很自然地看作$F_q$线性映射,(先将$\varphi_G$视为$V$上映射,将结果整理为$F_q$线性组合形式,不难看出这时$\varphi$是一个$F_q$线性映射)在这组基下有另外一个矩阵$\Phi(G)$,经过计算我们有:若将$G$分解为$A+\alpha B,A,B\in \mathcal{M}_n(\mathbb{F}_q)$
+则
+\[G\to \left(\begin{array}{cc}
+A & nB\\
+B & A+mB\\
+\end{array} \right) \]
+同态的验证如上题,不再重复.而$\det(G)\neq 0\Leftrightarrow \ker\varphi=0\Leftrightarrow  \det{\Phi(G)}\neq 0.$
+从而这给出了$GL(n,p^2)\to GL(2n,p)$的一个同态.\\
+7.不难看出$T=B\cap N$,$N=TW$,$T\cap W=I$,我们只需要证明$N=N_G(T)$即可.\\
+不妨设域不为$\mathbb{F}_2$.取$t=diag\{k+1,1,\cdots,1\},k\neq 0$,任取$M=(a_{ij})\in N_G(T)$,由$M^{-1}tM\in T$我们有
+\[\left( \begin{array}{cccc}
+A_{11} & A_{21} & \cdots & A_{n1}\\
+A_{12} & A_{22} & \cdots & A_{n2}\\
+\vdots & \vdots & \vdots & \vdots\\
+A_{1n} & A_{2n} & \cdots & A_{nn}\\
+\end{array}\right)\left( \begin{array}{cccc}
+(k+1)a_{11} & (k+1)a_{12} & \cdots & (k+1)a_{1n}\\
+a_{21} & a_{22} & \cdots & a_{2n}\\
+\vdots & \vdots & \vdots & \vdots\\
+a_{n1} & a_{n2} & \cdots & a_{nn}\\
+\end{array}\right)\in T  \]
+即
+\[\left( \begin{array}{cccc}
+\det(M)+ka_{11}A_{11} & ka_{12}A_{11} & \cdots & ka_{1n}A_{11}\\
+ka_{11}A_{12} & \det(M)+ka_{12}A_{12} & \cdots & ka_{1n}A_{12}\\
+\vdots & \vdots & \vdots & \vdots\\
+ka_{11}A_{1n} & ka_{12}A_{1n} & \cdots & \det(M)+ka_{1n}A_{1n}\\
+\end{array}\right) \in T\]
+由于$M\in GL(n,q)$于是存在某个$i$,使得$A_{1i}\neq 0$,则$a_{1j}=0,j\neq i$,则第一行只有$a_{1i}\neq 0$.同样的我们可以知道每一行只有一个不为零的数.加之$M\in GL(n,q)$,我们得出$M\in N$,即$N_{G}(T)\subset N$,另一半是由于$N=TW$,在省去下标的形式下,$T^{-1}W^{-1}TWT=T^{-1}(W^{-1}TW)T=T^{-1}TT=T$,所以$N=N_{G}(T)$.那么$T\trianglerighteq N,N=T\rtimes W$.
+\end{document}

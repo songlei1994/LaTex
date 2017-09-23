@@ -1,0 +1,46 @@
+\documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}}
+\fancyhead[LO]{\usebox{\mygraphic}}
+\fancyhead[RO,RE]{ 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,left=0.7cm,right=0.7cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\noindent
+\zihao{-4}
+1.证明:$\mathbb{C}P^n$的上同调环$H^*(\mathbb{C}P^n)\cong \mathbb{Z}[\xi]/(\xi ^{n+1}=0)$\\
+对维数做数学归纳法,$n=1$时显然成立.考虑$n>1$,此时含入映射$i$诱导同构$H^p(\mathbb{C}P^n)\to H^p(\mathbb{C}P^{n-1}),p\leq 2n-2.$设$\xi$为$H^2(\mathbb{C}P^{n})$生成元,则$i^*(\xi)$为$H^2(\mathbb{C}P^{n-1})$中的非零元.根据假设,$i^*(\xi^{n-1})=(i^*(\xi))^{n-1}\neq 0$,所以$\xi^{n-1}\neq 0,$它是$H^{2n-2}(\mathbb{C}P^{n})$中的非零元.再由定理2.14,并注意到$H^*(\mathbb{C}P^n)$中只有一个生成元,故$H^{2n-2}(\mathbb{C}P^n)$与$H^{2}(\mathbb{C}P^n)$中非零元的上积必是非零元素.所以$\xi^n=\xi^{n-1}\smile \xi\neq 0.$\\
+2.设$M,N$为有向连通的$n$维流形.映射$f:M\to N$的度$\deg f$定义为$f_*[M]=(\deg f)\cdot[N]$决定的整数.证明:若$\deg f\neq 0$,则$\beta_p(M)\leq\beta_p(N),\forall p\in\mathbb{Z}$.\\
+假设存在$p\in\mathbb{Z}$使得$\beta_p(M)<\beta_p(N)$.由Poincare对偶及万有系数定理$\beta^p(M)<\beta^p(N)$,从而映射$f^p:H^p(N)\to H^p(M)$,将$H^p(N)$中某个元素$\eta$映为0.任取$\beta\in H^{n-p}(N)$,由卡积的自然性,$\langle \beta,\eta\frown f_*[M]\rangle=\langle \beta,f_*(f^*(\eta)\frown[M])\rangle=\langle \beta,f_*(0\frown[M])\rangle=\langle\beta,0\rangle=0$,这与定理2.12中的对偶配对矛盾.\\
+3.设$M,N$为$n$维闭流形,$M$可定向,$N$不可定向.$f:M\rightarrow N$.证明:$f_*=0,H_n(M;\mathbb{Z}_2)\rightarrow H_n(N;\mathbb{Z}_2)$.\\
+使用万有系数定理的自然性,我们有交换图表.\\
+\[\begin{array}{ccccccc}
+0  \rightarrow & H_n(M)\otimes \mathbb{Z}_2& \xrightarrow{\mu}& H_n(M;\mathbb{Z}_2)& \xrightarrow{\varphi} & Tor_1(H_{n-1}(M);\mathbb{Z}_2)&\rightarrow ~0\\
+&\downarrow          &                  &\downarrow f_*&             &\downarrow  f'     \\
+0  \rightarrow & H_n(N)\otimes \mathbb{Z}_2& \xrightarrow{\mu}& H_n(N;\mathbb{Z}_2)& \xrightarrow{\psi} & Tor_1(H_{n-1}(N);\mathbb{Z}_2)&\rightarrow ~0\\
+\end{array}
+\]
+对于$M$,由$Poincare$对偶,我们有$H^n(M)\cong H_0(M)\cong \mathbb{Z}$,而由万有系数定理,$H^{n}(M)\cong Hom(H_n(M),\mathbb{Z})\bigoplus Ext(H_{n-1}(M),\mathbb{Z})$,而$Ext(H_{n-1}(M),\mathbb{Z})$同构于$H_{n-1}(M)$的挠子群,于是$H_{n-1}(M)$无挠.那么$Tor_1(H_{n-1}(M),\mathbb{Z}_2)=0$.
+接着我们看
+\[\begin{array}{ccc}
+H_n(M;\mathbb{Z}_2)&\xrightarrow{\varphi} & Tor_1(H_{n-1}(M),\mathbb{Z}_2)\\
+\downarrow~f_*& &\downarrow~f'\\
+H_n(N;\mathbb{Z}_2)&\xrightarrow{\psi} & Tor_1(H_{n-1}(N),\mathbb{Z}_2)\\
+\end{array}
+\]
+$0=f'\varphi=\psi f_*$由$N$不可定向可知$H_n(N)=0$,从而$\psi$
+为同构,那么就有$f_*=0$.\\
+4.设$M$为不可定向流形.证明:$H_1(M,\mathbb{Z}_2)\neq 0$,并由此推出$H_1(M)\neq 0$.\\
+注意到$M$中全体$1$维胞腔之和$z=\sum s_i$是一条闭链.如果$H_1(M;\mathbb{Z}_2)=0$,这说明$z$是一条边缘链,即存在$x\in C_2(M);\mathbb{Z}_2$,使得$\partial x=z$,但对于正则胞腔复形来说$[s^q_i:s^{q-1}_j]=\pm 1$而取$\mathbb{Z}_2$时,不计较符号全为1.这就说明了每个2维胞腔不能有公共的1维胞腔,这与连通性矛盾.从而$H_1(M;\mathbb{Z}_2)\neq 0$,再由万有系数定理我们易知$H_1(M)\neq 0$.
+\end{document}

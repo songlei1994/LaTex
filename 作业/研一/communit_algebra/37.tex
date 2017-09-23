@@ -1,0 +1,38 @@
+\documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}}
+\fancyhead[LO]{\usebox{\mygraphic}}
+\fancyhead[RO,RE]{ 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,left=0.7cm,right=0.7cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\zihao{4}
+\noindent
+1.充分性:若$s\in S$使得$sM=0$,固定$m\in M$,利用$s(tm-sm_2)=0$可知$\forall(m_2,t),(m_2,t)\simeq (m,s),$所以$S^{-1}M=0$;然后我们证明必性,当$S^{-1}M=0$时,那么$S^{-1}A=Ann(S^{-1}M)=S^{-1}(Ann(M))$,考虑$S^{-1}A$中单位元,则存在$m\in Ann(M),s_1,s_2\in S$使得$s_1(m-s_2)=0$从而$s_1m=s_1s_2\in S$,取$s=s_1m$就完成了证明.\\
+2.记$x=a/(1+c)\in S^{-1}\mathfrak{a},$对于任意的$y=b/(1+d)\in S^{-1}A$.注意到$a,c,d$均为理想$\mathfrak
+{a}$中元素,我们有$1+xy=1+ab/(1+c+d+cd)$在$S^{-1}A$上有逆$(1+c+d+cd)/(1+ab+c+d+cd)$.所以$S^{-1}\mathfrak{a}$包含在$S^{-1}A$的大根中.\\
+14.记$f:A\rightarrow A/\mathfrak{a}$为自然投射.由于$f$是满射，那么对于$A/\mathfrak{a}$的任意一个极大理想$m$,$f^{-1}(m)$都是$A$中的极大理想.对于任意的$m+\mathfrak{a}M$存在$a\in A/f^{-1}(m)$使得$am=0$那么$(a+\mathfrak{a})(m+\mathfrak{a}M)=\mathfrak{a}M$.所以$(M/\mathfrak{a}M)_m=0$,由$3.8$我们有$M/\mathfrak{a}M=0$那么$M=\mathfrak{a}M$.\\
+15.（此证明为习题后提示）令$x_1,x_2,\cdots x_n$是一个生成元集,$e_1,e_2,\cdots ,e_n$是$F$的典范基.由$\phi(e_i)=x_i$定义$\phi:F\rightarrow F$同态.那么$\phi$是满射，我们只需证明它是单射即可.由(3.9)我们可以设$A$为局部环，设$N$为$\phi$的核，令$k:A/m$为$A$的同余类域.由于$F$是平坦$A-$模.正合序$0\rightarrow N\rightarrow F\rightarrow
+F\rightarrow 0$产生正合序列$0\rightarrow k\otimes N\rightarrow k\times F\rightarrow k\otimes F\rightarrow 0.$$k\otimes F=k^n$为$k$上$n$维向量空间；$1\otimes \phi$是满的，因而是单的，所以$k\otimes N=0$.又由第二章习题12，$N$是有限生成的，因此由$Nakayama$引理我们得到了$N=0$,所以$\phi$为同构.\\
+4.由于$\mathbb{Z}[t]/(2,t)=\mathbb{Z}_2$是一个域，那么$\mathfrak{m}$为极大理想.而由$\mathbb{Z}[t]/(4,t)$只有一个零因子(自然是幂零的)我们得到$\mathfrak{p}$为素理想.很显然$r(\mathfrak{q})=m$并且对于每一个$n$,$\mathfrak{m}^n\neq q$.\\
+5.我们计算得到$\mathfrak{p}_1\cap \mathfrak{p}_2=(x,yz)$，所以$\mathfrak{p}_1\cap \mathfrak{p}_2 \cap \mathfrak{m}^2=(x,yz)\cap (x^2,xy,yz,y^2,yz,z^2)=(x^2,xy,xz,yz)=\mathfrak{p}_1\mathfrak{p}_2$,故$\mathfrak{p}_1\cap \mathfrak{p}_2 \cap \mathfrak{m}^2$为准素分解.容易验证分解是约简的.而$\mathfrak{p}_1,\mathfrak{p}_2$是孤立的，$\mathfrak{m}$是嵌入的.\\
+7.(1)由于$a[x]$包含在$a$在$A[x]$中生成的理想$\sum aA[x]$中,再加之$a[x]$为理想,我们得到$a^e=a[x]$.\\
+(2)由第二次作业可知.$A[x]/p[x]\cong (A/p)[x];$再由$(A/p)$为整环,
+我们得到$(A/p)[x]$也为整环，从而$p[x]$为素理想.\\
+(3)同样我们有$A[x]/\mathfrak{q}[x]\cong (A/\mathfrak{q})[x]$.设$f\in (A/\mathfrak{q})[x]$为零因子,由提示我们利用第一章练习2(iii)我们知道存在非零的$a\in A/\mathfrak{q}$使得$af=0$,所以$f$的每个系数都是$A/\mathfrak{q}$中的零因子。由于$\mathfrak{q}$是准素的,从而$f$的每个系数都是幂零的.由第一章练习2(ii)$f$是$(A/\mathfrak{q})[x]$中的幂零元,从而$\mathfrak{q}[x]$是准素的.\\
+(4)利用(1)有$\mathfrak{q}_i^e=\mathfrak{q}_i[x]$,我们得到$\mathfrak{a}^e=\mathfrak{a}[x]=(\cap_{i=1}^n\mathfrak{q}_i)[x]=\cap_{i=1}^n\mathfrak{q}_i[x]=\cap_{i=1}^n\mathfrak{q}_i^e$.然后利用(2)(3)我们知道$\cap_{i=1}^n\mathfrak{q}_i[x]$确实是一个准素分解,而极小性容易验证.\\
+(5)我们有$r(\mathfrak{q}^e)\subset r(\mathfrak{q})^e$,即$r(\mathfrak{q}[x])\subset \mathfrak{p}[x]$,另一部分包含是显然的.所以我们证明了$r(\mathfrak{q}[x])=\mathfrak{p}[x]$,再利用$r$运算的单调性以及(4)的分解形式,我们得到$\mathfrak{p}$确实为极小素理想.\\
+8.由于$k[x_1,\cdots,x_n][x_{n+1}]=k[x_1,\cdots,x_{n+1}]$,$(x_1,\cdots,x_i)[x_{i+1}]=(x_1,\cdots,x_{i+1})$,再利用习题7我们只需要证明$k$是$k[x_1,\cdots,x_n]$素理想就可以了,这是显然的.\\
+再利用$(x_1,\cdots,x_n)^m[x_{n+1}^m]=(x_1,\cdots,x_{n+1})^m$,同样利用习题7,我们类似的给出了准素的证明.
+\end{document}

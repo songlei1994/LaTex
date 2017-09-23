@@ -1,0 +1,50 @@
+\documentclass[b5paper,twoside]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}\zihao{-4}~群表示论~\today}
+\fancyhead[LO]{\usebox{\mygraphic}\zihao{-4}~群表示论~\today}
+\fancyhead[RO,RE]{\zihao{-4} 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,headsep=0.5cm,footskip=1cm,left=1.0cm,right=1.0cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\zihao{-4}
+\noindent\\
+\textbf{P95}\\
+2.充分性显然.必要性,对于群$GL(n,F)$,取$H=\{fI\mid f\in F\}$,则$H\lhd GL(n,F)$且为Abel群.那么由$GL(n,F)$有合成列可知$H$有合成列,那么$H$为有限Abel群,从而$F$为有限域.\\
+\textbf{P104}\\
+9.对于下中心群列$\Gamma_n$.使用归纳法,$i=1$时$\varphi(G)=G.$当$i>1$时,
+$\varphi(\Gamma_i)=\varphi([\Gamma_{i-1},G])=[\varphi(\Gamma_{i-1}),\varphi(G)]=[\Gamma_{i-1},G]=\Gamma_i$\\
+(2)对于上中心群列,同样使用数学归纳法.$\forall \varphi \in Aut(G)$,在$G/Z_{n-1}$上诱导出一个自然的同构.注意求中心运算与同构映射可交换.一方面$\varphi(Z_n/Z_{n-1})\cong\varphi(Z_n)/\varphi(Z_{n-1})=\varphi(Z_n)/Z_{n-1}$,同时
+$\varphi(Z_n/Z_{n-1})=\varphi(Z(G/Z_{n-1}))\cong Z(\varphi(G/Z_{n-1}))= Z(G/Z_{n-1})=Z_n/Z_{n-1}.$由对应原理$\varphi(Z_n)=Z_n$.\\
+10.我们证明如下引理.设$G$是幂零群,
+\[G=K_1\geq K_2\geq \cdots \geq K_{s+1}=1\]
+是$G$的一个中心群列.则\\
+(1)$K_i\geq G_i,i=1,2,\cdots,s+1$.\\
+(2)$K_{s+1-j}\leq Z_j(G),j=0,\cdots,s$\\
+对$i$使用归纳法.当$i=1$时,$K_1=G=\Gamma_1,$结论成立.下面设$i>1,$且$K_{i-1}\geq \Gamma_{i-1}$.因为$\Gamma_i=[\Gamma_{i-1},G]\leq [K_{i-1},G]$.而由$K_{i-1}\leq Z(G/K_i)$,那么$\forall k\in K_{i-1},g\in G$,我们有$kK_igK_i=gK_ikK_i$,即$k^{-1}gkg\in K_i$,换种说法就是$[K_{i-1},G]\leq K_i$,所以$\Gamma_i\leq K_i$.\\
+(2)对$j$使用数学归纳法.当$j=0$时,$K_{s+1}=1=Z_0(G)$,结论成立.下设$j>0$,且$K_{s+1-{j-1}}\leq Z_{j-1}(G),$要证明$K_{s+1-j}\leq Z_{j}(G)$,记自然投射$\varphi:G\to G/Z_{j-1}$.这等价于证明$\varphi(K_{s+1-j})\subseteq \varphi(Z_{j-1})=Z(G/Z_{j-1})$.和上问一样,这等价于$[K_{s+1-j},G]\leq Z_{j-1}(G)$,而我们有$[K_{s+1-j},G]\leq K_{s+1-(j-1)}$再利用归纳假设即可获得证明.\\
+因为$G$幂零,存在中心群列
+\[G=K_1\geq K_2\geq \cdots \geq k_{s+1}=1\]
+由引理可知$K_i\geq \Gamma_i,K_{s+1-j}\leq Z_j(G)$,取$i=s+1,j=s$,即得$\Gamma_{s+1}=1,,Z_s(G)=G.$这说明下中心群列终止于1,下中心群列终止于$G$.\\
+而由定义,上下中心群列都是中心群列,所以充分性显然.\\
+\textbf{P118}\\
+1.定义$U$线性变换$\mathbf{A}$在基$\{\alpha_1,\cdots,\alpha_n\}$下的矩阵为$\mathbf{A}(\alpha_1,\cdots,\alpha_n)=(\alpha_1,\cdots,\alpha_n)A$.对于$U$中的元素,我们考虑它在基下的坐标,以及坐标在$\rho(g)$下的变化.若$\alpha=(\alpha_1,\cdots,\alpha_n)X,\rho(g)\alpha=(\alpha_1,\cdots,\alpha_n)\rho(g)X$.记$U,V$的基分别为$\{\alpha_1,\cdots,\alpha_n\},\{\beta_1,\cdots,\beta_n\}$,对于$U,V$间的线性变换$\mathbf{M}$,定义矩阵为$\mathbf{M}(\alpha_1,\cdots,\alpha_n)=(\beta_1,\cdots,\beta_n)M$中的$M$,同样可以计算出坐标的变化为$X\to MX$.由于元素与坐标一一对应,我们只考虑坐标的变化与线性变换对应矩阵的关系.\\
+如果$U\cong V$,那么存在线性变换$\mathbf{M}$,$\mathbf{M}(\rho(g)\alpha)=\tau(g)(\mathbf{M}\alpha)$,转换为坐标形式,那么$M\rho(g)X=\tau(g)MX$.再由$\alpha$的任意性,$X$可以消去.\\
+如果$M\rho(g)=\tau(g)M$,定义线性变换为$\mathbf{M}(\alpha_1,\cdots,\alpha_n)=(\beta_1,\cdots,\beta_n)M$,那么同样有$\mathbf{M}(\rho(g)\alpha)=\tau(g)(\mathbf{M}\alpha)$.\\
+2.定义$F\sigma\to F$的映射为$f\sigma\to f.$不难验证这是一个$FG$模同构.若还有子模同构于$F$,首先作为$F-$模,即$F-$向量空间它们是同构的,故维数为1,可记为$F\beta$.记同构映射为$\varphi$,那么$\varphi(g\beta)=g\varphi(\beta)\Rightarrow \varphi(g\beta)=\varphi(\beta)\Rightarrow g\beta=\beta$,这说明$\beta$中每个$g_i$的系数是相同的,从而$F\beta=F\sigma$.\\
+3.首先我们给出$\Delta$作为$F-$模的一组基为$\{g_1-g_2,g_1-g_3,\cdots,g_1-g_n\}$.从而可知$\Delta$作为$F-$模是$n-1$维的.定义$FG/\Delta\to F$的映射为$\sum f_ig_i+\Delta \to \sum f_i$,由$\Delta$的定义可知是良定义的.不难验证是$FG-$模同构.\\
+若存在$FG-$子模$S$满足$FG/S\cong F$,记同构映射为$\varphi$,那么$\varphi(g(h+S))=\varphi(h+S),\forall g\in G,h\in FG$.那么$\varphi(gh+S)=g\varphi(h+S),\forall g\in G,h\in FG$,从而$gh+S=h+S$,也就是说$gh-h\in S,\forall g\in G,h\in FG$.记$X=\{gh-h,\forall g\in G,h\in FG\},$定义$H=\langle X \rangle$为$FG-$模,那么$\{g_1-g_2,g_1-g_3,\cdots,g_1-g_n\}\in H$,考虑$F-$模结构,自然有$\Delta\subset H$,同时注意到$\epsilon(gh-h)=0$,$\epsilon (X)=0$,而$H=\langle X \rangle=\sum FG\cdot X$,从而$\epsilon(h)=\sum\epsilon(FG)\epsilon(X)=0$,说明$H\subseteq \Delta$.同时$H\subseteq S$,注意到作为$F-$模它们是有着相同的维数,所以包含关系意味着相等,从而$\Delta=H=S$.\\
+4.验证即可,$\epsilon(f\sigma)=f|G|=0$,从而$F\sigma\subseteq \Delta$.如果存在$FG-$子模$M$,使得$FG=\Delta\oplus M$,那么$M\cong FG/\Delta\cong F$,由2可知$M=F\sigma,$那么$M\subseteq \Delta$,与直和矛盾,从而$\Delta$不是直和因子,推出$FG$不是半单的.\\
+\end{document}

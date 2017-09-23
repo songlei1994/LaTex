@@ -1,0 +1,25 @@
+\documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}\zihao{-4}~组合数学~\today}
+\fancyhead[LO]{\usebox{\mygraphic}\zihao{-4}~组合数学~\today}
+\fancyhead[RO,RE]{\zihao{-4} 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,headsep=0.5cm,footskip=1cm,left=1.0cm,right=1.0cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\zihao{-4}
+\noindent
+右乘$E_{ij}$,提取$i$列,放到$j$列.左乘$E_{ij}$,提取$j$行,放到$i$行.
+\end{document}

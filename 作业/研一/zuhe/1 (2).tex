@@ -1,0 +1,36 @@
+% !TeX encoding = UTF-8
+\documentclass[b5paper]{ctexart}
+\newcommand{\qa}[2]{\left[ \substack{\vspace{1pt}\\#1\vspace{3pt}\\#2\vspace{1pt}}\right]}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}\zihao{-4}~组合数学~\today}
+\fancyhead[LO]{\usebox{\mygraphic}\zihao{-4}~组合数学~\today}
+\fancyhead[RO,RE]{\zihao{-4} 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,headsep=0.5cm,footskip=1cm,left=1.0cm,right=1.0cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\zihao{-4}
+\noindent
+\\
+\textbf{\zihao{4}补交第6次作业}\\
+12.(a)对应$x_1+x_2+\cdots+x_m=n$的非负解个数为$\binom{n-1}{m-1}$.\\
+(b)$(x+x^2+\cdots+x^k)^m$\\
+(c)令$a_{m+1}=a_0$,则$x+x^2+\cdots+x^m$是单峰且自反的.由11知$\{c(k,m,n)\}$的生成函数是单峰且自反的,那么自然有$(c)(d)$成立.\\
+13.\[\lim_{q\to 1}\left[ r\right]=\lim_{q\to 1}\dfrac{1-q^r}{1-q}=r\]
+(2)$\qa{r}{k+1}=\dfrac{(1-q^{r-k})\cdots(1-q^r)}{(1-q)\cdots(1-q^{k+1})}=\dfrac{1-q^{r-k}}{1-q^{k+1}}\qa{r}{k}$,两边取极限并使用归纳假设即可.\\
+2.(a)如果这条闭途径不是奇圈,设奇圈为$v_0v_1\cdots v_{2n+1}v_0$,那么一定有某个$v_i$出现了两次即出现形式$v_0line(1)v_iline(2)v_iline(3)v_0$,那么$v_0line(1)v_iline(3)v_0,v_iline(2)v_i$恰好将原来的奇途径分为两段,那么至少有一个为奇途径,从而由归纳法原\\
+(b)如途径$v_0v_1v_2v_3v_2v_4v_0$中就没有.\\
+3.若$K_3\not\subseteq G$,则对任意$uv\in E$,有$d(u)+d(v)\leq 2n$,从而
+\[\sum_{uv\in E}(d(u)+d(v))\leq 2n(n^2+1)\]
+另一方面,有
+\[\sum_{uv\in E}(d(u)+d(v))=\sum_{u\in V}d^2(u)\geq \dfrac{\left( \sum_{u\in V}d(u)\right)^2}{2n},\]
+从而$n^2+1\leq n^2$,矛盾.\\
+5.考虑�

@@ -1,0 +1,32 @@
+% !TeX encoding = UTF-8
+\documentclass[b5paper]{ctexart}
+\newcommand{\qa}[2]{\left[ \substack{\vspace{1pt}\\#1\vspace{3pt}\\#2\vspace{1pt}}\right]}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}\zihao{-4}~组合数学~\today}
+\fancyhead[LO]{\usebox{\mygraphic}\zihao{-4}~组合数学~\today}
+\fancyhead[RO,RE]{\zihao{-4} 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,headsep=0.5cm,footskip=1cm,left=1.0cm,right=1.0cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\noindent
+\zihao{-4}
+\\
+8.我们取色数为$k$的导出子图中顶点数最小的记为$G$即可.那么任意的$v\in V$,都有$|V(G-v)|<|V(G)|$,于是$\chi(G-v)<k$.\\
+9.注意到与$G$的任意极大匹配$M$中的边关联的$2|M|$个顶点构成$G$的一个点覆盖.从而$2|M|\geq \beta(G)\geq \alpha'(G)$.\\
+10.对于点覆盖$S$,我们有$|S|\Delta(G)\geq \sum_{k\in S}d(k)\geq |E(G)|$,于是$|S|\geq \dfrac{|E(G)|}{\Delta(G)}$,对左边取$\min$,便有$\beta(G)\geq \dfrac{|E(G)|}{\Delta(G)}$,在由$\alpha(G)+\beta(G)=|V(G)|$.便有$\alpha(G)\leq |V(G)|-\dfrac{|E(G)|}{\Delta(G)}$.\\
+11.如果$G$不是弦图,那么存在$G$的一个长度大于3的圈,不妨记为$v_1v_2\cdots v_mv_1$,没有弦,按照$G$的定义即是$V(T_i)\cap V(T_j)=\emptyset \Leftrightarrow |j-i|\neq 1$.任取$T_1$与$T_2$,$T_2$与$T_3$的公共顶点$s_1,s_2$,由$V(T_1)\cap V(T_2)\neq \emptyset$可知存在$T_2$中路径连接$s_1,s_2$,再由$V(T_3)\cap V(T_1)=\emptyset$可知,可选取$s_3\in T_2\cap T_3$,并且$s_2,s_3$之间有路径$T_3$中的路径连接,一直这样下去,对于$T_m$,由于$V(T_m)\cap V_1\neq \emptyset$,那么$s_m$与$s_1$之间就有路径,那么就得到了原来的树中的一条闭迹.由这条闭迹就可以得到树的一个闭圈.\\
+13.(1)如果$G$不连通,那么由$G$的真导出子图完美可知每个联通分支都是完美的,记连通分支为$G_1,\cdots,G_k$,对于$G$的任一导出子图$H$,关于连通分支有自然的分解$H=\bigsqcup_{i=1}^kH_i,H_i=H\cap G_i$,而且$H_i\lhd G_k$,那么$\chi(H_i)=\omega(H_i),$注意到$\chi(H)=\max\{\chi(H_i)\},\omega(H)=\max\{\omega(H_i)\}$,于是$\chi(H)=\omega(H)$,那么$G$是完美的,矛盾!\\
+(2)对于任意的导出子图$H\lhd G$,有$\overline{H}\lhd \overline{G}$,且$\alpha(H)=\omega(\overline{H})$,以及导出子图关系是传递的,再利用定理7.3.6即可完成证明.\\
+(3)如果$\omega(G)=1$,由于$G$连通,如果$|V(G)|\geq 2$那么$G$中至少有1条边,于是$\omega(G)\geq 2$,矛盾.那么$G=K_1$,这时是完美的,也矛盾.从而$\omega(G)\geq 2$.\\
+(4)如果$\alpha(G)=1$,于是对于任意的$u,v\in V(G),uv\in E(G)$,那么$G$为完全图,自然是完美的,矛盾!\\
+(5)注意到$\alpha(G-v)=\theta(G-v)\geq \theta(G)-1\geq \alpha(G)\geq \alpha(G-v)$,那么等号成立.
+\end{document}

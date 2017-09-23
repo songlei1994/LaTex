@@ -1,0 +1,71 @@
+\documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}\zihao{-4}~组合数学~\today}
+\fancyhead[LO]{\usebox{\mygraphic}\zihao{-4}~组合数学~\today}
+\fancyhead[RO,RE]{\zihao{-4} 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,left=0.7cm,right=0.7cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\noindent
+\zihao{-4}
+3.(b)使用例1.3.6中的插空法,为$21!C_{22}^55!.$\\
+(d)$C_{13}^1C_4^3C_{12}^1C_4^2,$恰含两对是指不出现3同张1对以及4张一样的情况$C_{13}^2(C_4^2)^2C_{44}^1$\\
+(e)第一问,使用定理1.3.12可知数目为$C_{29}^4$;第二问$(26)^4.$\\
+(h)$\dfrac{18!}{(5!4!2!)^2}$,$\dfrac{(mn)!}{(n!)^mm!}$.\\
+(i)有$(5+1)(7+1)-1=47$种选法.\\
+4.先让7为女士坐成一排,有$7!$种方法,在选出5个位置给绅士,有$C_8^5$种选法,在让绅士排个顺序,有$5!$种方法,由乘法原理,共有$7!5!C_8^5$种方法.\\
+坐成一圈时情况类似,只是女士的坐法与空隙数有变化,总的方法数为$6!5!C_7^5=$\\
+7.依照$x_1$被选取的次数分类,不难得出答案为
+\[\sum_{i=0}^5C_{r+k-i-2}^{k-2}=C_{r+k-1}^{k-1}-C_{r+k-7}^{k-1}\]
+8.对于$i$个$A$,和$j$个$B$,所有的排法相当于在$i+j$个位置中为$i$个$A$选取位置,即为$C_{i+j}^i$,那么总的排法为
+\[\sum_{i=0}^m\sum_{j=0}^nC_{i+j}^i-1=C_{m+n+2}^{n+1}-2\]
+10.考虑多重集$\{n\cdot x_1,n\cdot x_2\cdots n\cdot x_k\}$的全排列数,为$(nk)!/(n!)^k$为整数,所以$(n!)^k|(nk)!$\\
+11.(a)
+\[C_n^kC_k^j=\dfrac{n!}{k!(n-k)!}\dfrac{k!}{j!(k-j)!}=\dfrac{n!}{j!(n-j)!}\dfrac{(n-j)!}{(k-j)!(n-k)!}=C_n^jC_{n-j}^{k-j}\]
+(c)注意到$C_{n-k}^{n-m}C_n^k=C_{n-k}^{m-k}C_n^k=C_n^mC_m^k$,所以原式$=\sum\limits_kC_n^mC_m^k=2^mC_n^m.$\\
+(d)记$a_n=\sum\limits_{k=0}^nC_{n+k}^n2^{-k}$,利用$Pascal$恒等式可以得到
+\[a_{n+1}=a_n+\dfrac{1}{2}a_{n+1}\]
+利用$a_1=2$可知$a_n=2^n$\\
+(e)用两种方式计算$(1+x)^{n+l}(1+y)^l(1+x+y)^l$中$x^{l+k}y^l$的系数\\
+(1)将$x$视为常数计算$y^l$的系数,再计算这个系数中$x^{l+k}$的系数,得到等式左边.\\
+(2)将$y$视为常数计算$x^{l+k}$的系数,注意到此时$(1+x)^{n+l}$中金$x^i(i\geq l)$有贡献,再计算这个系数中$y^l$的系数,化简得到右边.\\
+(g)$C_{-a}^n=\dfrac{(-a)(-a-1)\cdots(-a-n+1)}{n!}$\\
+$=(-1)^n\dfrac{(a+n-1)(a+n-2)\cdots (a)}{n!}=(-1)^nC_{a+n-1}^n$\\
+1.记这样的长为$n$的序列个数为$a_n$,按首位字符分为两类:当首位为$0$时,第2位一定为$1$,那么之后的选取数与$a_{n-2}$相同;当首位为$1$时,有$a_{n-1}$种选取方法.故$a_n=a_{n-1}+a_{n-2}$,而$a_1=2,a_2=3$,那么
+\[a_n=F_{n+2}=\dfrac{1}{\sqrt{5}}\left( \dfrac{1+\sqrt{5}}{2}\right)^{n+2}-\dfrac{1}{\sqrt{5}}\left( \dfrac{1-\sqrt{5}}{2}\right)^{n+2} \]
+4.对于$a(n,r)$分为两类:选取了$n$,那么必然没有选取$n-1$,之后的选取数为在$n-2$个数中选取$r-1$个数,为$a(n-2,r-1)$;没有选取$n$,则有$a(n-1,r)$种可能.所以$a(n,r)=a(n-1,r)+a(n-2,r-1)$,我们使用数学归纳法证明$a(n,r)=C_{n-r+1}^r
+ $.$(n,r)=(0,0),(1,1)$时成立,设$n\geq 2,r\geq 1$时成立,由
+\[\begin{array}{rlrl}
+a(n+1,r)& =a(n,r)+a(n-1,r-1) & a(n,r+1)&=a(n-1,r+1)+a(n-2,r)\\
+&=C_{n-r+1}^r+C_{n-r+1}^{r-1}& &=C_{n-r-1}^{r+1}+C_{n-r-1}^r\\
+&=C_{n-r+2}^r & &=C_{n-r}^{r+1}
+\end{array}\]
+所以$a(n,r)=C_{n-r+1}^r$.\\
+6.记这样的$n$位数个数为$h_n$,使用定理$2.3.47$,我们可以知道指数型生成函数为
+\[\begin{array}{rl}
+h(x)&=\left( 1+\dfrac{x^2}{2!}+\dfrac{x^4}{4!}+\cdots\right)^2\left( \dfrac{x}{1!}+\dfrac{x^2}{2!}+\cdots\right)\left( 1+\dfrac{x}{1!}+\dfrac{x^2}{2!}+\cdots\right)^2 \vspace{3pt}\\
+&=\left( \dfrac{e^x+e^{-x}}{2}\right)^2(e^x-1)e^{2x}=\dfrac{1}{4}\left(e^{5x}-e^{4x}+2e^{3x}-2e^{2x}+e^x-1 \right) 
+\end{array}\]
+所以$h_n=\dfrac{5^n-4^n+2\cdot 3^n-2\cdot 2^n+1}{4}$.\\
+7.固定住$k$,通过观察得到$f_{k+l}=f_{k+l}f_l+f_kf_{l-1}$.下证明之,当$l=2$时,此即$f_{k+2}=f_{k+1}f_2+f_kf_1=f_{k+1}+f_k$,成立.对于$l+1$的情形,我们有\[\begin{array}{rl}
+f_{k+l+1}&=f_{k+l}+f_{k+l-1}\\
+ &=f_{k+1}f_l+f_kf_{l-1}
+ +f_{k+1}f_{l-1}+f_kf_{l-2}\\
+ &=f_{k+1}(f_l+f_{l-1})+f_k(f_{l-1}+f_{l-2}\\
+ &=f_{k+1}f_{l+1}+f_kf_{l}
+\end{array}\]
+接着我们取$l=k$,有$f_{2k}=f_{k+1}f_k+f_kf_{k-1}$,从而$f_k|f_{2k}$,注意到$f_{mk}=f_{k+1}f_{(m-1)k}+f_kf_{(m-1)k-1}$,再使用一次数学归纳法我们便得到,对于$k|n$,有$f_k|f_n$.
+\end{document}

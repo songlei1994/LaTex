@@ -1,0 +1,27 @@
+\documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}}
+\fancyhead[LO]{\usebox{\mygraphic}}
+\fancyhead[RO,RE]{ \zihao{-4}宋雷~1601210073}
+\fancyfoot[c]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,left=0.7cm,right=0.7cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\usepackage{exscale} 
+\usepackage{relsize} 
+\begin{document}
+\pagestyle{plain}
+\noindent
+\zihao{-4}
+1.由$H^*(P^2;\mathbb{Z}_2)$推出$H^*(mP^2;\mathbb{Z}_2)$的上同调环,给出一维的上积即可.\\
+仿造课上使用的方法,记$Y=\bigsqcup\limits_{i=1}^mP^2$,为$m$个莫比乌斯带的无交并,$Z=\bigvee\limits_{i=1}^mP^2$为$m$个莫比乌斯带的一点并,$X=mP^2$.由多边形表示我们可以给出$X\to Z$的链映射,先将每条莫比乌斯带粘合前的三条边画出，此时在中心有一正$m$边形，商掉这个$m$边形的映射$g$诱导了$g_{\#}:S^*(Z;\mathbb{Z}_2)\to S^*(X;\mathbb{Z}_2)$.取$H^*(Y;\mathbb{Z}_2)$的生成元$\{v_i,a_i,t_i\},i=1,\cdots,m$,$H^*(Y;\mathbb{Z}_2)$的对偶基为$\{v^*_i,a^*_i,t^*_i\},i=1,\cdots,m$.由$H^*(P^2;\mathbb{Z}_2)$的上同调环结构我们有$a^*_i\smile a^*_j=\delta_{ij}t_i^*$.取$H^*(Z;\mathbb{Z}_2)$的生成元$\{v_i,a_i,t_i\},i=1,\cdots,m$,$H^*(Z;\mathbb{Z}_2)$的对偶基为$\{v^*_i,a^*_i,t^*_i\},i=1,\cdots,m$,而$f^*:H^*(Z;\mathbb{Z}_2)\to H^*(Y;\mathbb{Z}_2)$在$p=1,2$时是同构,那么在$H^*(Z;\mathbb{Z}_2)$中,也有$a^*_i\smile a^*_j=\delta_{ij}t_i^*$.计算映射度得出$g_{\#}(t)=t_1+\cdots+t_m$,诱导出分次环同态$g^*:H^*(Z;\mathbb{Z}_2)\to\H^*(Y;\mathbb{Z}_2)$.取
+$H^*(X;\mathbb{Z}_2)$的生成元$\{v,a_i,t\},i=1,\cdots,m$,$H^*(Z;\mathbb{Z}_2)$的对偶基为$\{v,a^*_i,t\},i=1,\cdots,m$,那么$g^*(a_i^*)=a_i^*,g^*(t_i^*)=t^*$,故在$mP^2$中,$a_i^*\smile a_j^*=g^*(a_i^*)\smile g^*(a_j^*)=g^*(a_i^*\smile a_j^*)=\delta_{ij}t^*$
+\end{document}

@@ -1,0 +1,64 @@
+\documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}\zihao{-4}~2016北大数分}
+\fancyhead[LO]{\usebox{\mygraphic}\zihao{-4}~2016北大数分}
+\fancyhead[RO,RE]{博士数学论坛}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,left=0.7cm,right=0.7cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\noindent
+1.$(15')$用开覆盖定理证明闭区间上连续函数必一致连续
+
+2.$(15')$$f(x)$是$[a,b]$上的实函数.叙述关于Riemann和
+\[\sum_{k=1}^n f(t_i)(x_i-x_{i-1})\]
+
+的Cauchy准则(不用证明)并用你叙述的Cauchy准则证明闭区间上的单调函数可积
+
+3.$(15')$$(a,b)$上的连续函数$f(x)$有反函数.证明反函数连续
+
+4.$(15')$$f(x_1,x_2,x_3)$是$C^2$映射,
+\[\frac{\partial f}{\partial x_1}(x_1^0,x_2^0,x_3^0)\not =0\]
+证明关于$f$的隐函数定理$x_1=x_1(x_2,x_3)$
+
+证明$x_1=x_1(x_2,x_3)$二次可微并求出
+\[\frac{\partial^2 x_1}{\partial x_2\partial x_3}\]的表达式
+
+5.$(15')$$n\ge m, f:U\subseteq R^n\rightarrow R^m$是$C^1$映射,$U$为开集且$f$的Jacobi矩阵秩处处为$m$
+
+证明$f$将$U$中的开集映为开集
+
+6.$(15')$\[x_1=\sqrt{2},x_{n+1}=\sqrt{2+x_n}\]证明$x_n$收敛并求极限值
+
+7.$(15')$证明
+\[\int_0^{+\infty}\frac{\sin x}{x}dx\]收敛并求值.写出计算过程
+
+8.$(15')$(A)证明存在$[a,b]$上的多项式序列$p_n(x)$使得
+\[\int_a^b p_i(x)p_j(x)dx=\delta_{i,j}\]
+并使得对于$[a,b]$上的连续函数$f(x)$若
+\[\int_a^b f(x)p_n(x)dx=0,\forall n\]必有$f\equiv 0$
+
+(B)设$g(x)$在$[a,b]$平方可积,$g$关于A中$p_n$的展式系数为
+
+\[g(x)\sim\int_a^b g(x)p_n(x)dx\]
+问
+\[\int_a^b g^2(x)dx=\sum_{n=1}^{+\infty}\left[\int_a^b g(x)p_n(x)dx\right]^2\]是否成立
+
+9.$(15')$\[\mbox{正项级数}\sum_{n=1}^{+\infty} a_n\mbox{收敛},\lim_{n\to +\infty}b_n=0\]
+
+\[c_n=a_1b_n+a_2b_{n-1}+\dots +a_nb_1,\mbox{证明}c_n\mbox{收敛并求}\lim_{n\to +\infty}c_n\]
+
+10.$(15')$幂级数\[\sum_{n=1}^{+\infty} a_nx^n\]
+收敛半径为$R,0<R<+\infty$,证明\[\sum_{n=1}^{+\infty} a_nR^n\mbox{收敛的充要条件为}\sum_{n=1}^{+\infty} a_nx^n\mbox{在}[0,R)\mbox{一致收敛}\]
+
+\end{document}

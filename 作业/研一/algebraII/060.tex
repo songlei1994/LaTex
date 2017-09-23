@@ -1,0 +1,43 @@
+\documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}}
+\fancyhead[LO]{\usebox{\mygraphic}}
+\fancyhead[RO,RE]{\zihao{-4} 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,left=0.7cm,right=0.7cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\noindent
+\zihao{-4}
+\textbf{替换引理:}若$M=M_1\oplus \cdots \oplus M_n,M_i,i=1,2,\cdots,n$为单模.$\pi_i$是$M$到$M_i$的投射,若$\exists \sigma \in End(M)$,使得$\pi\circ \sigma|_{M_i}$为$M_i$的自同构;那么
+\[M=M_1\oplus \cdots \oplus \sigma(M_i)\oplus \cdots \oplus M_n \]
+证明:$\pi\circ \sigma|_{M_i}$为$M_i$的自同构,那么
+$M_i\xrightarrow{\sigma}\sigma(M_i)\xrightarrow{\pi_i}\pi\circ \sigma{M_i}=M_i$因此,$\sigma|_{M_i},\pi_i|_{\sigma(M_i)}$是自同构.记$U=M_1\oplus \cdots \oplus M_{i-i}\oplus M_{i+1}\oplus \cdots \oplus M_n$.下面证明$\sigma(M_i)\cap U=\{0\}$.若存在$x\in \sigma(M_i)\cap U$,那么$\pi_i x=0$,注意到$\pi_i|_{\sigma(M_i)}$为同构映射,那么$x=0$.\\
+然后由于$\sigma(M_i)\cong M_i$,所以$\dim \sigma(M_i)\oplus U=\dim M$,自然的有$\sigma(M_i)\oplus U\subset M$,因此$\sigma(M_i)\oplus U= M$.或者$\forall x\in M,\pi_i m\in M_i,$于是存在唯一的$m'\in \sigma(M_i)$使得$\pi_im'=\pi_im$,那么$\pi_i(m'-m)=0$,于是$m'-m\in \ker \pi_i=U$,于是$m=(m-m')+m'$,故$\sigma(M_i)\oplus U=M.$\\
+\textbf{定理:}若$M=M_1\oplus \cdots \oplus M_s=M'_1\oplus \cdots \oplus M'_t,$那么$s=t$,且在适当交换$M'_i$顺序后有$M_i\cong M'_i$.\\
+证明:记$\pi_i$为$M$到$M_i$的投射,$\sigma_j$为$M$到$M'_j$的投射.那么$M_1=\pi_1(M_1)=\pi_1(\sigma_1+\cdots+\sigma_t)(M_1)=(\pi_1\sigma_1)(M_1)\oplus \cdots \oplus (\pi_1\sigma_t)(M_1)$.注意到$M$为单模,那么必存在$j_1$使得$M_1\cong (\pi_1\sigma_{j_1})(M_1)$而$(\pi_1\sigma_{j})(M_1)=0,j\neq j_1$,那么我们有$\sigma_{j_1}(M_1)\neq \{0\}$,且$\pi\sigma_{j_1}$为$M_1$上自同构.同理我们有$M'_{j_1}=\sigma_{j_1}(M)=(\sigma_{j_1\pi_1})(M)\oplus\cdots\oplus (\sigma_{j_1}\pi_s)(M)=\sigma_{j_1}(M_1)\oplus\cdots\oplus \sigma_{j_1}(M_s)$.注意到$\sigma_{j_1}(M_1)\neq \{0\}$,$M'_{j_1}$为单模,那么$\sigma_{j_1}(M_1)=\sigma_{j_1}(M)=M'_{j_1}$.使用替换引理我们不难有$M_1\cong M'_{j_1}$.使用$s$次后,我们将形式1化为形式2,注意维数即可完成证明.\\
+5.$\Rightarrow$,由定理2.4,$V=M_1\oplus\cdots \oplus M_k$,其中$M_i$为不可约模.令$V_j=\bigoplus_{i\neq j}M_i$,注意到$V/V_j\cong M_j$,而$M_j$不可约,于是$V_j$是极大的.而$\bigcap_{j=1}^kV_j=\{0\}$,那么所有极大子模的交作为它的子集自然为0.\\
+$\Leftarrow$由于$V$是有限维的,存在$V$的$k$个极大子模$V_1,\cdots,V_k$使得$\bigcap_{i=1}^kV_i=\{0\}$.令$N_i=\bigcap_{j\neq i}V_j,i=1,\cdots,k.$这时$N_i$一定是不可约的,如果$N_i$有一非平凡子模$M_i$,那么$V_i\oplus M_i\neq V$,与$V_i$的极大性矛盾.由于$N_i\cap V_i=\{0\}$,而$ \sum_{j\neq i}N_j\subset V_i$,那么$N_i\cap\left( \sum_{j\neq i}N_j\right)=\{0\}$,于是$ \sum_{i=1}^kN_i$是直和.而$\dim \sum_{i=1}^kN_i=\sum_{i=1}^k\left( \dim N_i\right)=\sum_{i=1}^k\dim V/V_i.$令$\overline{V}=V/V_1\oplus\cdots \oplus V/V_k$.考虑$V$到$\overline{V}$的映射
+\[\varphi:v\mapsto (vV_1,\cdots,vV_k).\]
+不难验证$\varphi$为同态,其核为$V_1\cap\cdots\cap V_k=\{0\}$.那么$\dim V\leq \dim \overline{V}=\sum_{i=1}^kN_i$,于是我们有$\dim V=\sum_{i=1}^kN_i$,所以$V=\bigoplus_{i=1}^kN_i$为不可约模的直和,是完全可约的.\\
+6.同构的不可约模有相同的零化子,所以$J(A)$与不可约代表的选取无关,是良定义的.\\
+(1)不难验证每个$Ann(M_i)$都是$A$的双边理想.而$\cap$是封闭性运算,所以$J(A)$也是双边理想.\\
+(2)由同态基本定理,我们知道$V/M$中的模与$V$中包含$M$的模有着一一对应.所以$M$为极大子模时,$V/M$为单模.于是$(V/M)J(A)=\{0\}$,那么$VJ(A)\subset M.$但是有$M\subsetneqq V$,于是$VJ(A) \subsetneqq V$.\\
+(3)对于右正则模$A^{\circ}$,由于$A^{\circ}J(A)\subsetneqq A^{\circ}$,将之视之为线性空间的包含关系,那么$J(A)$作用一次维数下降一维,于是$A^{\circ}J(A)^n=\{0\}$,但是$1\in A$,于是$J(A)^n=0$.\\
+(4)只需证明对于任一不可约$A$模$V$,有$VI=\{0\}$,若否,由$V$的不可约性我们有$VI=V$于是$VI^n=V\forall n\in\mathbb{N}$,与结论(3)矛盾.\\
+7.$(1)\Rightarrow (2)$由$6.4$可知.$(2)\Rightarrow (3)$显然.$(3)\Rightarrow (1)$由$6.1$可知成立.下面证明$(1)\Leftrightarrow (4)$\\
+由定理2.6可知$A$半单等价于右正则模$A^{\circ}$完全可约,再由$5$可知等价于$A$的所有极大右理想的交为$\{0\}$.我们证明$J(A)$为$A$的所有极大右理想之交$D$即可.假定$x\in J(A)$,$M$是$A$任一极大右理想,那么$A/M$为不可约模,$(A/M)x=0$,也就是说$Ax\subset M$,由于$1\in
+ A$,于是$x\in M$,由$M$的任意性,我们有$x\in D$.同时利用引理3.1我们可以改写$J(A)$的定义为$J(A)=\{x|x\in A,Ax\subset D\}$.\\
+ 任取$x\in D$,则对任意的$a\in A$,我们断言必有$(1-xa)A=A$.若否,则有$(1-xa)A\subset M,$对某个极大右理想$M$成立.于是$1-xa\in M$,而$xa\in M,1\in M,$矛盾.这说明$1-xa$可逆,从而$1-ax
+ $也可逆(在这里我们实现了换序).对于固定的$a\in A$,如果存在$x\in D$使得$ax\not\in D$,那么一定存在极大右理想$M'$使得$ax\not\in M'$,我们构造$M'+aD$为右理想的和,若$M'+aD=A$,那么存在$m\in M',x\in D$使得$m+ax=1$即$m=1-ax$,但$1-ax$是可逆的,矛盾.于是$M'+aD\neq A$,但它严格包含$M'$,与极大性矛盾.所以对于固定的$a\in A$,$aD\subset D$,从而$AD \subset D$,也就是说$D\subset J(A)$,这样我们完成了另一半证明.
+\end{document}

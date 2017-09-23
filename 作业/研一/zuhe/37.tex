@@ -1,0 +1,39 @@
+% !TeX encoding = UTF-8
+\documentclass[b5paper]{ctexart}
+\newcommand{\qa}[2]{\left[ \substack{#1\vspace{6pt}\\#2}\right]}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}\zihao{-4}~组合数学~\today}
+\fancyhead[LO]{\usebox{\mygraphic}\zihao{-4}~组合数学~\today}
+\fancyhead[RO,RE]{\zihao{-4} 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,headsep=0.5cm,footskip=1cm,left=1.0cm,right=1.0cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\zihao{-4}
+\noindent
+\\
+4.定义$h(\omega_j)$为第$j$步向右走后,横线所在的高度,这个量与$\omega_j$之前1的个数,以及$\omega_j$代表的横线与横轴所夹的方格数相同.我们固定住$j$,去求$i<j$时$\omega_i<\omega_j$的个数
+\[coinv(\omega)=\sum_{j=0}^n\sum_{\substack{i<j\\
+\omega_i<\omega_j}}1=\sum_{\omega_j=1}\sum_{\substack{i<j\\
+\omega_i<\omega_j}}1=\sum_{\omega_j=1}h(\omega_j)=area(CW_n)+\dbinom{n+1}{2}\]
+那么
+\[\sum_{\omega\in CW_n}q^{coinv(\omega)-\binom{n+1}{2}}=\sum_{\omega\in CW_n}q^{area(\omega)}=C_n(q)\]
+7.(a)利用数学归纳法,去计算$x^k$的系数
+\[q^{\binom{k}{2}}\qa{n}{k} +q^nq^{\binom{k-1}{2}}\qa{n}{k-1}=q^{\binom{n}{2}}\qa{n}{k} +q^{n+1-k}\qa{n}{k-1}=q^{\binom{k}{2}}\qa{n+1}{k}\]
+(b)\\
+9.(a)$s(n,1)$为$S_n$中轮换数为1的置换个数.这相当于$[n]$的圆排列数,为$(n-1)!$,加上符号即为$(-1)^{n-1}(n-1)!$.\\
+(b)$S_n$中恰有$n-1$个轮换,则完全由那个$2-$轮换决定,个数为$\dbinom{n}{2}$.\\
+10.(a)将$[n]$分为1块的划分数自然是1.\\
+(b)利用递推关系$S(n,2)=2S(n-1,2)+S(n-1,1)$即可证明.\\
+(c)分成$n-1$块时,分法完全由那个2元子集决定,故为$\dbinom{n}{2}$.\\
+(d)按单元子集的个数分类,不难得知单子集个数只能是$n-3$,$n-4$.有$n-2$个单元子集的分法数为$\dbinom{n}{3}$,有$n-4$个单元子集,还需要2个分块,但每个分块要大于1,故只能都是2元分块,而4个元素分为2块有4种可能,合在一起即为$\dbinom{n}{3}+4\dbinom{n}{4}$\\
+11.(b)记$h(x)=fg$,$\deg{f(x)}=n,\deg{g(x)}=m$.那么$x^{m+n}h(x^{-1})=[x^nf(x^{-1})][x^mg(x^{-1})]=f(x)g(x)=h(x)$,由充要条件可知$h(x)$是自反的.
+\end{document}

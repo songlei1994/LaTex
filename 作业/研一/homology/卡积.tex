@@ -1,0 +1,70 @@
+\documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}}
+\fancyhead[LO]{\usebox{\mygraphic}}
+\fancyhead[RO,RE]{ \zihao{-4}宋雷~1601210073}
+\fancyfoot[c]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,left=0.7cm,right=0.7cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\usepackage{exscale} 
+\usepackage{relsize} 
+\begin{document}
+\pagestyle{plain}
+\noindent
+\zihao{-4}
+1.设$\phi\simeq \phi',C_*\to C'_*$则$\phi\otimes id\simeq \phi'\otimes id,C_*\otimes D_*\to C'_*\otimes D_*$\\
+验证即可,$C_*,C'_*$的边缘算子均记为$\partial_*$\\
+由$\phi\simeq \phi'$知存在$T=\{T_q:C_q\to C'_{q+q}\}$足下式
+\[\partial_{p+1}\circ T_p(c_p)+T_{p-1}\circ \partial_p(c_p)=\phi_p(c_p)-\phi'_p(c_p)\]
+利用$T'_n(c_p\otimes d_q)=(T_pc_p)\otimes d_q$定义$(C_*\otimes D_*)_n\to (C'_*\otimes D_*)_{n+1}$的同态$T'$.那么
+\[\begin{array}{l}
+~~~~\partial^{\otimes}_{n+1}\circ T'_n(c_p\otimes d_q)+T'_{n-1}\circ \partial^{\otimes}_n(c_p\otimes d_q)\\
+=\partial^{\otimes}_{n+1}(T_pc_p\otimes d_q)+T'_{n-1}(\partial_pc_p\otimes d_q+(-1)^p(c_p\otimes \delta d_q))\\
+=(\partial_{p+1}\circ T_p)(c_p)\otimes d_q+(-1)^{p+1}(T_pc_q)\otimes (\delta_qd_q)+(T_{p-1}\circ \partial_p(C_p)\otimes d_q+(-1)^pT_pc_p\otimes \delta d_q\\
+=[\partial_{p+1}\circ T_p(c_p)+T_{p-1}\circ \partial_p(c_p)]\otimes d_q\\
+=[\phi_p(c_p)-\phi'_p(c_p)]\otimes [id(d_q)]\\
+=(\phi\otimes id)_n(c_p\otimes d_q)-(\phi'\otimes id)_n(c_p\otimes d_q)
+\end{array}\]
+这就说明了$\phi\otimes id\simeq \phi'\otimes id$.\\
+2.计算$K\times K$的$H^*,H_*$,其中$K$
+为克莱因瓶\\
+利用$K\"{u}nneth$公式,我们有
+\[\begin{array}{c}
+H_n(K\times K)\cong\bigoplus\limits_{p+q=n}H_p(K)\otimes
+H_q(K)\bigoplus\bigoplus\limits_{p+q=n-1}Tor_1(H_p(K),H_q(K))\\
+H^n(K\times K)\cong\bigoplus\limits_{p+q=n}H^p(K)\otimes
+H^q(K)\bigoplus\bigoplus\limits_{p+q=n+1}Tor_1(H^p(K),H^q(K))\\
+\end{array}\]
+由此可以计算出.\\
+\[H_q(K\times K)\cong\left\lbrace \begin{array}{ll}
+\mathbb{Z} & q=0\\
+\mathbb{Z}\oplus \mathbb{Z}\oplus \mathbb{Z}_2\oplus\mathbb{Z}_2 & q=1\\
+\mathbb{Z}\oplus\mathbb{Z}_2\oplus\mathbb{Z}_2\oplus\mathbb{Z}_2 & q=2\\
+\mathbb{Z}_2 & q=3\\
+0 & else
+\end{array}\right. \]
+\[H^q(K\times K)\cong\left\lbrace \begin{array}{ll}
+\mathbb{Z} & q=0\\
+\mathbb{Z}\oplus\mathbb{Z} & q=1\\
+\mathbb{Z}\oplus\mathbb{Z}_2\oplus\mathbb{Z}_2 & q=2\\
+\mathbb{Z}_2\oplus\mathbb{Z}_2\oplus\mathbb{Z}_2 & q=3\\
+\mathbb{Z}_2& q=4\\
+0 & else
+\end{array}\right. 
+\]
+3.设$f:X\to Y,\xi \in H^q(Y;R),u\in H_{p+q}(X;R)$,证$f_*(f^*\xi\frown u)=\xi\frown f_*u.$\\
+先在链的水平上证明,由同调类的卡积定义可以自然地从链的卡积过渡到同调类的卡积.\\
+$f_{\#}(f_{\#}\xi\frown u)=f^{\#}(\langle f^{\#}\xi,{}_qu\rangle u_p)=f_{\#}(\langle \xi,f_{\#}{}_qu\rangle u_p)=\langle \xi,f_{\#}{}_qu\rangle f_{\#}u_p=\langle \xi,{}_q(f_{\#}u)\rangle (f_{\#}u)_p=\xi\frown f_{\#}u$.\\
+4.$\xi\in H^p(X;R),\eta\in\Huge^q(X;R),u\in H_{p+q}(X;R)$,证明,$\langle \xi\smile \eta,u\rangle=\langle \xi,\eta\frown u\rangle.$\\
+同样先在链的水平上证明,由同调类的卡积上积定义可以自然地从链过渡到同调类
+$\langle \xi\smile \eta,u\rangle=\langle\xi,{}_pu\rangle\langle\eta,u_q\rangle=\langle\xi,\langle \eta,{}_qu\rangle u_p\rangle=\langle\xi,\eta\frown u\rangle$
+\end{document}

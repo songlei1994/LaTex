@@ -1,0 +1,69 @@
+\documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}}
+\fancyhead[LO]{\usebox{\mygraphic}}
+\fancyhead[RO,RE]{ 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,left=0.7cm,right=0.7cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\usepackage{fourier}
+\begin{document}
+\pagestyle{plain}
+\noindent
+\zihao{4}
+10.28\\
+~12.对于$x\in A$考虑多项式$f(t)=\prod_{\sigma\in G}(t-\sigma(x))$,那么$\forall \sigma_0\in G$,有$\sigma_0(f(t))=f(t)$,注意到多项式相等意味着同次系数相等,于是$f(t)$的系数均在$A^G$内,而$f(x)=0$($G$中有恒同自同构)这就说明了$A$在$A^G$上整.然后对于任意的$\sigma\in G$,可以给出在$S^{-1}A$上的作用为$\sigma(a/s)=\sigma(a)/\sigma(s),a\in A,s\in S$,不难验证这个映射与代表元选取无关.而$(S^{G})^{-1}A^{G}\subset (S^{-1}A)^G$是显然的,我们主要证明反包含.假设$\sigma(a)/\sigma(s)=a/s$对任意的$\sigma\in G$都对,那么我们可以找到$t_\sigma\in S$,使得$(\sigma(a)s-\sigma(s)a)t_\sigma=0$.那么我们便有(如果有必要,用$\prod_{\tau\in G}\tau(t_\sigma)$.)
+\[\left( \left( \sum_{\sigma\in G}\sigma(a)\right)s-\left( \sum_{\sigma\in G}\sigma(s)\right)a\right)\prod_{\sigma\in G}t_\sigma=0  \]
+因此$a/s\in (S^G)^{-1}A^G$,同时注意到他们的乘法由$A$诱导得出,所以这是一个同构.\\
+13.利用提示给的思路.设$\mathfrak{p}_1\mathfrak{p}_2\in P,x_1\in\mathfrak{p}_1$,那么$\prod\limits_{\sigma}\sigma(x)\in \mathfrak{p}_1\cap A^G=\mathfrak{p}\subset \mathfrak{p}_2$,因此对某个$\sigma\in G$,$\sigma(x)\in\mathfrak{p}_2$.由此我们得到$\mathfrak{p}_1$包含在$\cup_{\sigma\in G}\sigma(\mathfrak{p}_2)$中,然后运用(1.11)和(5.9)我们便可以推出结论.\\
+14.由于$\sigma$是一个自同构,$\sigma(B)=B$是显然的.由于$B^G\subseteq K$在$A$上整,所以我们有$B^G=A$.\\
+11.4\\
+推论2.$A$为有限生成$k-$代数,且为整环.$\mathfrak{q}\subset\mathfrak{p}$为$A$的素理想,则所有始于$\mathfrak{q}$终于$\mathfrak{p}$的极大长度的素理想链的长度为$\dim A/\mathfrak{q}-\dim A/\mathfrak{p}$.\\
+仿照推论1,的证明,我们任取将始于$\mathfrak{q}$终于$\mathfrak{p}$的素理想长度极大链,记长度为$x$,将它扩充为$A$的长度极大的链,由长度相等,我们有$\dim A_{\mathfrak{q}}+x+\dim A/\mathfrak{p}=\dim A=\dim A_{\mathfrak{q}}+\dim A/\mathfrak{q}$,解得$x=\dim A/\mathfrak{q}-\dim A/\mathfrak{p}$.由于是任取的,所以结论成立.\\
+EX3.~$A$为有限生成$k$-代数,那么下列断言等价:\\
+(1)$\dim A=0$;\\
+(2)$A$为$k$上有限维向量空间.\\
+(3)$A$只有有限个素理想;\\
+(4)$A$只有有限个极大理想;\\
+对$A$使用Noether正规化引理,得到$N=k[y_1,y_2,\cdots,y_d]$,$y_1,y_2,\cdots,y_d$在$k$上代数无关,$A$在$N$上整.\\
+$(1)\Rightarrow (2)$,则$\dim N=\dim A=0.$于是$N=k$,这说明$A$在$k$上整,于是$A$为有限生成$k-$模,记为$k$上有限维向量空间.\\
+$(2)\Rightarrow (3)$由于每个素理想都是向量空间$A$的子空间,所以不难得知它们的个数是有限的.\\
+$(3)\Rightarrow (4)$每个素理想都是极大理想.\\
+$(4)\Rightarrow (1)$由于$A$在$N$上整,那么对于$N$中的极大理想$\mathfrak{m}$,由定理5.10可以找到$A$中素理想使得$\mathfrak{p}\cap A=\mathfrak{m}$,再由系理$5.8$我们知道$\mathfrak{m}$极大等价于$\mathfrak{p}$极大,而$A$中只有有限个极大理想,它们在$N$中的限制构成了$N$的全部极大理想.所以$N$中极大理想个数不超过$A$中极大理想个数.但我们注意到若$d\geq 1$,$\forall a\in k,(x_1-a,x_2-a,\cdots,x_d-a)$均为$N$中极大理想,所以$d=0$,那么$\dim A=\dim N=0$.\\
+11.9\\
+EX1.$A,B$为Noether环,$A\hookrightarrow B$为整性扩张.那么\\
+(1)$\dim A=\dim B$;\\
+(2)对于$B$中任意的素理想$\mathfrak{q}$,有$ht~(\mathfrak{q})\leq ht(\mathfrak{q}\cap A),\dim B/\mathfrak{q}=\dim A/(\mathfrak{q}\cap A)$;\\
+(3)进一步假设$A,B$为整环,$B$在$A$上整,则(2)中第一个式子等号成立.\\
+(1)由于$A$中素理想链可以通过上升定理得到$B$中素理想链,所以$\dim A\leq \dim B$,对于$B$中长度极大的素理想链$\mathfrak{q}_1\subset\cdots \subset\mathfrak{p}_m$,我们可以限制得到$A$中的素理想链$\mathfrak{p}_1\subset\cdots\subset\mathfrak{p}_m$.再由系理5.9我们知道这是一条严格的降链,所以我们有$\dim A\geq\dim B$,从而得证.\\
+(2)对于给定的素理想$\mathfrak{q}$,取$B$中终于$\mathfrak{q}$长度极大的素理想升链$\mathfrak{q}_0\subset \cdots\subset \mathfrak{q}$,我们将之限制在$A$上得到得到$A$中的素理想链$\mathfrak{p}_1\subset\cdots\subset\mathfrak{q}\cap A$.由系理5.9这是一条严格的素理想降链,并且终于$\mathfrak{q}^c=\mathfrak{q}\cap A$,于是我们有$ht(\mathfrak{q})\leq ht(\mathfrak{q}\cap A)$.第二个等式是由于$B/\mathfrak{q}$在$A/(\mathfrak{q}\cap A)$上整,使用第一问的结论,有$\dim B/\mathfrak{q}=\dim A/(\mathfrak{q}\cap A)$.(不等号的产生似乎与固定了链端点有关)\\
+(3)$A$中终于$\mathfrak{p}$的素理想链$\mathfrak{p}_1\subset\cdots\subset\mathfrak{q}\cap A$,都可以使用下降定理得到$B$中的素理想链$\mathfrak{q}_1\subset\cdots\subset\mathfrak{q}$,所以另一半不等号成立.\\
+1.~假设$\mathfrak{q}_i$是一个孤立的准素分支.那么$A_{\mathfrak{p}_i}$是一个$Artin$局部环,因此如果$\mathfrak{m}_i$是它的极大理想,对充分大的$r$有$\mathfrak{m}_i^r=0,$于是对于这些大的$r$有$\mathfrak{q}_i=\mathfrak{p}_i^{(r)}$.\\
+若$\mathfrak{q}_i$为一嵌入准素分解,则$A_{\mathfrak{p}_i}$不是$Artin$环,因此这些幂次$\mathfrak{m}_i^r$都不相同,故$\mathfrak{p}_i^{(r)}$也全不同.因此在一个给定的准素分解中,我们可用由$\mathfrak{p}$准素理想$\mathfrak{p}_i^{(r)},r\geq r_i$所构成的无限集合中的任一元素去替换$\mathfrak{q}_i$,于是存在$(0)$的无限多个极小准素分解,这些分解的差别仅在于$\mathfrak{p}_i$-分支的不同.\\
+3.$(1)\Rightarrow (2)$可以使用8.7将问题转化到$A$为$Artin$局部环的情形.由零点定理,$A$的同余类域是$k$的有限扩张.然后利用$A$作为$A$-模具有有限长度这一事实.\\
+$(2)\Rightarrow (1)$注意到$A$的理想是$k$-向量子空间,因此满足降链条件.\\
+11.11\\
+\textbf{推论}:$I$为$A$中理想,则$A/I$为有限长度$A$-模$\Leftrightarrow$包含$I$的素理想都是极大理想.\\
+EX1.~$(A,\mathfrak{m})$为局部环,$I\subset \mathfrak{m}$为极大理想,则$l(A/I)<\infty \Leftrightarrow \exists n>>0,$有$\mathfrak{m}^n\subseteq I$\\
+$\Rightarrow$记典范同态为$f:A\to A/I$,过渡到商环$(A/I,\mathfrak{m}/I)$.如果商环中除了$\mathfrak{m}/I$还有其他的素理想$\mathfrak{p}$,那么$\mathfrak{p}$在$A$中的原像为包含$I$的素理想,由$l(A/I)<\infty$我们知道任何包含$I$的素理想极大,那么只能为$\mathfrak{m}$.那么$f^{-1}(\mathfrak{p})=m\Rightarrow \mathfrak{p}=f(f^{-1}(\mathfrak{p}))=f(\mathfrak{m})=\mathfrak{m}/I$,这说明$(A/I,\mathfrak{m}/I)$中只有一个素理想,即它为局部$Artin$环,那么$\mathfrak{m}/I$为$A/I$中幂零理想,即存在$n>>0$,使得$(\mathfrak{m}/I)^n=0$,回到$A$就可以得到结论.\\
+$\Leftarrow$任取包含$I$的素理想$\mathfrak{p}$,我们有$\mathfrak{m}^n\subset I\subset \mathfrak{p}$,做求根运算,有$\mathfrak{m}\subset\sqrt{\mathfrak{m}^n}\subset\sqrt{\mathfrak{p}}=\mathfrak{p}$,由于$\mathfrak{m}$极大,故$\mathfrak{p}=\mathfrak{m}$,也就是说$\mathfrak{p}$是极大的.由推论我们有$l(A/I)<\infty$.\\
+EX2~$M$为有限生成$A$-模,那么下列断言等价:\\
+(1)$M$是有限长度的$A$-模;\\
+(2)$Supp(M)\subset Max(A)$;\\
+(3)$A\texttt{\char92}Ann(M)$是有限长度的$A$-模.\\
+其中$Supp(M)=\{\mathfrak{p}\text{为素理想}|\mathfrak{p}\supseteq Ann(M)\},Max(A)=\{A\text{中极大理想}\}$.\\
+对理想$Ann(M)$使用推论我们有$(2)\Leftrightarrow(3)$,下面我们证明$(1)\Rightarrow (3)$和$(3)\Rightarrow (1)$.\\
+$(1)\Rightarrow (3)$,取$M$的一组生成元$x_1,x_2,\cdots,x_n$,构造$A$-模映射$f:A\mapsto M^n,a\mapsto (ax_1,ax_2,\cdots,ax_n)$,那么$\ker f=Ann(M)$,于是$A/Ann(M)=A/\ker(f)$同构于$M^n$的一个子模,而$M^n$是有限长度的,所以$A/Ann(M)$也是有限长度的.\\
+$(3)\Rightarrow (1)$命题6.5:令$A$是Noether(或Artin)环.$M$是有限生成$A$-模,那么$M$是Noether(或Artin)模.而有限长度模为满足$a.c.c$和$d.c.c$条件的模.对$A/Ann(M)$和忠实$A/Ann(M)$-模$M$使用命题,得到$M$为有限长度的$A/Ann(M)$模.注意到$A$和$A/Ann(M)$在$M$上的作用是一致的,通过验证子模的定义可知$M$的$A$子模$M'$同时也是$A/Ann(M)$子模,,反之亦然,那么$a.c.c$和$d.c.c$条件在$A$-模$M$中也满足.推出$M$是有限长度的$A$-模.\\
+EX3.~$(A,\mathfrak{m})$为局部环,$k:=A/\mathfrak{m}$为域,若$x_1,\cdots,x_t\in\mathfrak{m}$是$\mathfrak{m}$的作为$A-$模的一组生成元,则$x_1,\cdots,x_t$在$\mathfrak{m}/\mathfrak{m}^2$中的像是$k$上向量空间$\mathfrak{m}/\mathfrak{m}^2$的一组生成元.\\
+由于$\mathfrak{m}/\mathfrak{m}^2=\{~\overline{\sum_{i=1}^tx_1a_i}~a_i\in A,x_i\in\mathfrak{m}~\}=\{~\sum_{i=1}^{t}\overline{a_i}\cdot\overline{x_i}~\}$,其中等价类是相对$\mathfrak{m}^2$来说的.我们只要说明,$a$在$k$中的等价类$a+\mathfrak{m}$与$a$在$\mathfrak{m}^2$中的等价类$a+\mathfrak{m}^2$作用在$x_i$上是一样的,那么我们就可以将最开始的式子换为$k$系数,也就证明了$\{\overline{x_i}\}$为$k$向量空间$\mathfrak{m}/\mathfrak{m}^2$的一组生成元.由于$(a+\mathfrak{m}^2)(x+\mathfrak{m}^2)=ax+\mathfrak{m}^2$,注意到$x_i\in\mathfrak{m}$所以$(a+\mathfrak{m})(x+\mathfrak{m}^2)=ax+x\mathfrak{m}+\mathfrak{m}^2=ax+\mathfrak{m}^2$,这样就完成了证明.
+\end{document}

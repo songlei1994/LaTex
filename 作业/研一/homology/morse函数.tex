@@ -1,0 +1,302 @@
+\documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\usepackage{exscale} 
+\usepackage{relsize}
+\usepackage{fourier} 
+\usepackage{asymptote}
+\usepackage{wrapfig}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}}
+\fancyhead[LO]{\usebox{\mygraphic}}
+\fancyhead[RO,RE]{ \zihao{4}宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,left=0.7cm,right=0.7cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\noindent
+\zihao{4}
+1.给定映射$r:(x_1,x_2,\cdots,x_n)\rightarrow (-x_1,x_2,\cdots,x_n)$\\
+证明:对于$r_*:H_*(\mathbf{R}^n,\mathbf{R}^n-0)\rightarrow H_*(\mathbf{R}^n,\mathbf{R}^n-0),$有$r=-id$.\\
+由切除定理,我们只需证明对于超方体$D^n$证明成立命题即可.事实上,当$q\neq n,n-1$时,由空间偶同调序列的自然性我们有
+\[
+\begin{array}{ccccccc}
+H_q(S^{n-1})&\xrightarrow{i_*} & H_q(D^n)&\xrightarrow{j_*}& H_q(D^n,S^{n-1})&\xrightarrow{\partial_*}& H_{q-1}(S^{n-1})\\
+r_*\downarrow& & r_*\downarrow& & r_*\downarrow& & r_*\downarrow\\
+H_q(S^{n-1})&\xrightarrow{i_*} & H_q(D^n)&\xrightarrow{j_*}& H_q(D^n,S^{n-1})&\xrightarrow{\partial_*}& H_{q-1}(S^{n-1})
+\end{array}\]
+将具体的值代入有
+\[
+\begin{array}{ccccccc}
+0&\xrightarrow{i_*} & H_q(D^n)&\xrightarrow{j_*}& H_q(D^n,S^{n-1})&\xrightarrow{\partial_*}& 0\\
+r_*\downarrow& & r_*^1\downarrow& & r_*^2\downarrow& & r_*\downarrow\\
+0&\xrightarrow{i_*} & H_q(D^n)&\xrightarrow{j_*}& H_q(D^n,S^{n-1})&\xrightarrow{\partial_*}& 0
+\end{array}\]
+所以$j_*$为同构,那么$r_*^2=r_*^1=-id$.
+当$q=n$时,我们有
+\[
+\begin{array}{ccccccc}
+ H_q(D^n)&\xrightarrow{j_*}& H_q(D^n,S^{n-1})&\xrightarrow{\partial_*}& H_{q-1}(S^{n-1})&\xrightarrow{i_*} &H_{q-1}(D^n)\\
+r_*\downarrow& & r_*\downarrow& & r_*\downarrow& & r_*\downarrow\\
+ H_q(D^n)&\xrightarrow{j_*}& H_q(D^n,S^{n-1})&\xrightarrow{\partial_*}& H_{q-1}(S^{n-1})&\xrightarrow{i_*} &H_{q-1}(D^n)
+\end{array}\]
+同样代入有
+\[\begin{array}{ccccccc}
+ 0&\xrightarrow{j_*}& H_q(D^n,S^{n-1})&\xrightarrow{\partial_*}& H_{q-1}(S^{n-1})&\xrightarrow{i_*} & 0\\
+r_*\downarrow& & r_*\downarrow& & r_*\downarrow& & r_*\downarrow\\
+ 0&\xrightarrow{j_*}& H_q(D^n,S^{n-1})&\xrightarrow{\partial_*}& H_{q-1}(S^{n-1})&\xrightarrow{i_*} & 0
+\end{array}\]
+所以$q=n$时也成立,$q=n-1$时类似.综上可得$r_*=-id$\\
+2.证明$\mathbf{Z}_m\otimes \mathbf{Z}_n\cong  \mathbf{Z}_{(m,n)}$\\
+在正合序列\es{\mathbf{Z}}{m}{\mathbf{Z}}{}{\mathbf{Z}_m}上做运算$-\otimes \mathbf{Z}_n$得到正合序列\es{\mathbf{Z}_n}{m}{\mathbf{Z}_n}{}{\mathbf{Z}_m\otimes \mathbf{Z}_n}.那么$\mathbf{Z}_m\otimes \mathbf{Z}_n\cong coker(\mathbf{Z}_n\xrightarrow{m}\mathbf{Z}_n)\cong \mathbf{Z}_{(m,n)}$.\\
+3.计算闭曲面的$G$系数同调群和上同调群.\\
+对于Mobius带及$nT^2$型闭曲面,由于它们的同调群只有$\mathbb{Z},0$或$\mathbb{Z}$的直和,由万有系数定理的推论(可能在0维要使用简约同调),我们有$H_p(X)\otimes G\cong H_p(X;G),Hom_{\mathbb{Z}}(H_p(X),G)\cong H^p(X;G)$,从而不难给出它们的$G$系数同调群和上同调群为
+\[H_q(nT^2;G)\cong\left\lbrace 
+\begin{array}{ll}
+G & q=0,2,\\
+\bigoplus\limits_{i=1}^{2n}G& q=1\\
+0& q\neq 0,1,2
+\end{array}
+\right. 
+\]
+\[H^q(nT^2;G)\cong\left\lbrace 
+\begin{array}{ll}
+G& q=0,2\\
+\prod_{i=1}^{2n}G& q=1\\
+0& q\neq 0,1,2
+\end{array}\right. 
+\]
+对于$mP^2$型闭曲面,$q\neq 2$时同样使用万有系数定理的推论我们有
+\[H_q(mP^2;G)\cong\left\lbrace 
+\begin{array}{ll}
+G & q=0,\\
+\bigoplus\limits_{i=1}^{m-1}G\oplus(\mathbb{Z}_2\otimes G)& q=1\\
+0& q\neq 0,1,2
+\end{array}
+\right. 
+\]
+\[H^q(mP^2;G)\cong\left\lbrace 
+\begin{array}{ll}
+G& q=0\\
+\prod_{i=1}^{m-1}G\times Hom_{\mathbb{Z}}(\mathbb{Z}_2,G)& q=1\\
+0& q\neq 0,1,2
+\end{array}\right. 
+\]
+由于$q=1$时多出一个挠部分$\mathbb{Z}_2$,我们只能使用万有系数定理来计算$H_2(mP^2;G),H^2(mP^2;G)$.\\
+对于$G$系数同调群,我们有正合列\\
+\ess{H_2(mP^2)\otimes G}{\mu}{H_2(mP^2;G)}{\varphi}{Tor_1(H_1(mP^2);G)}\\
+由$H_2(mP^2)=0$可知,$H_2(mP^2;G)\cong Tor_1(H_2(mP^2);G)=Tor_1(\mathbb{Z}_2,G)$\\
+对于上同调群,我们有正合列\\
+\ess{Ext_1(H_1(mP^2),G)}{}{H_2(mP^2;G)}{\kappa}{Hom_{\mathbb{Z}}(H_2(mP^2),G)}\\
+由$H_2(mP^2)=0$可知${H_2(mP^2;G)}\cong{Ext_1(H_2(mP^2),G)}\cong Ext_1(\mathbb{Z}_2,G)$\\
+4.证明:$Hom_{\mathbb{Z}}(\mathbf{A},\mathbb{Z})\cong \overline{A},Ext_{\mathbb{Z}}^1(\mathbf{A},\mathbb{Z})\cong T(\mathbf{A})$.\\
+对于$\mathbf{A}$我们有分解$\mathbf{A}=T(\mathbf{A})\oplus\overline{\mathbf{A}}$.由定义不难计算$Ext_1(\overline{\mathbf{A}},\mathbb{Z})=0,Hom_{\mathbb{Z}}(T\mathbf{(A)},\mathbb{Z})=0$,那么$Hom_{\mathbb{Z}}(\mathbf{A},\mathbb{Z})\cong Hom_{\mathbb{Z}}(T(\mathbf{A}),\mathbb{Z})\oplus Hom_{\mathbb{Z}}(\overline{\mathbf{A}},\mathbb{Z})\cong \overline{\mathbf{A}}$,\\
+$Ext^1_{\mathbb{Z}}(\mathbf{A},\mathbb{Z})\cong Ext^1_{\mathbb{Z}}(T(\mathbf{A}),\mathbb{Z})\oplus Ext^1_{\mathbb{Z}}(\overline{\mathbf{A}},\mathbb{Z})\cong T(\mathbf{A}).$\\
+1.设$X$为可定向的闭曲面,$Y$为不可定向的闭曲面.$f:X\rightarrow Y$.证明:$f_*=0,H_2(X;\mathbb{Z}_2)\rightarrow H_2(Y;\mathbb{Z}_2)$.\\
+使用万有系数定理的自然性,我们有交换图表.\\
+\[\begin{array}{ccccccc}
+0  \rightarrow & H_2(X)\otimes \mathbb{Z}_2& \xrightarrow{\mu}& H_2(X;\mathbb{Z}_2)& \rightarrow & Tor_1(H_1(X);\mathbb{Z}_2)&\rightarrow ~0\\
+               &\downarrow          &                  &\downarrow f_*&             &\downarrow       \\
+0  \rightarrow & H_2(Y)\otimes \mathbb{Z}_2& \xrightarrow{\mu}& H_2(Y;\mathbb{Z}_2)& \rightarrow & Tor_1(H_1(Y);\mathbb{Z}_2)&\rightarrow ~0\\
+\end{array}
+\]
+利用上次计算的闭曲面$G$系数同调群,我们有$H_2(X;\mathbb{Z}_2)=\mathbb{Z}_2,H_1(X;\mathbb{Z}_2)=0$,\\
+$H_2(Y;\mathbb{Z}_2)\cong
+Tor_1(Y;\mathbb{Z}_2)\cong
+Tor_1(\mathbb{Z}_2,\mathbb{Z}_2)\cong \mathbb{Z}_2\not\cong 0$,接着我们看
+\[\begin{array}{ccc}
+H_2(X;\mathbb{Z}_2)&\xrightarrow{\varphi} & Tor_1(X,\mathbb{Z}_2)\\
+\downarrow~f_*& &\downarrow~f'\\
+H_2(Y;\mathbb{Z}_2)&\xrightarrow{\psi} & Tor_1(Y,\mathbb{Z}_2)\\
+\end{array}
+\]
+注意到$Tor_1(X;\mathbb{Z}_2)=0$,所以$0=f'\varphi=\psi f_*$注意到$\psi$为同构,那么就有$f_*=0$.\\
+2.对于$nT^2$型曲面,有多边形表示可知有$1$个$0$维胞腔$e^0$,$2n$个$1$维胞腔$e^1_i(i=1,2,\cdots,2n)$,$1$个2维胞腔$e^2$.为了计算同调群,我们只需要求出关联系数即可.
+由于$2$维胞腔的边在每个$1$维胞腔上正反各绕一圈,所以对于任意$i$的关联系数$[e^2:e^1_i]$都为零,而易知$[e^1_i:e_0]=0$.那么我们便得到如下的胞腔链复形序列
+\[0\rightarrow \mathbb{Z}\xrightarrow{0} \bigoplus_{2n}\mathbb{Z}\xrightarrow{0}\mathbb{Z}\rightarrow 0\]
+从中我们可以计算得胞腔同调为
+\[H_p^c(nT^2)=\left\lbrace \begin{array}{ll}
+\mathbb{Z} & p=0,2\\
+\bigoplus\limits_{2n}\mathbb{Z} & p=1\\
+0 & p\neq 0,1,2
+\end{array}\right. \]
+由万有系数定理我们知道$C^*(X;\mathbb{Z})\cong Hom(C_*(X);\mathbb{Z})$,注意到$Hom(\mathbb{Z};G)\cong G$,而胞腔链群均是$\mathbb{Z}$的直和形式.我们不难得到胞腔上同调的链复形序列为\\
+\[0\leftarrow \mathbb{Z}\xleftarrow{0} \bigoplus_{2n}\mathbb{Z}\xleftarrow{0}\mathbb{Z}\leftarrow 0\]
+其中生成元为$e_j^i$的对偶基,利用上述链复形序列,我们可以计算出
+\[H^q(nT^2)\cong\left\lbrace 
+\begin{array}{ll}
+\mathbb{Z}& q=0,2\\
+\bigoplus\limits_{2n}\mathbb{Z}& q=1\\
+0& q\neq 0,1,2
+\end{array}\right. 
+\]
+而对于$mT^2(m\geq 2)$型闭曲面,同样是由多边形表示,我们可有如下胞腔剖分,\\只是由于二维胞腔在每个1为胞腔上绕了两圈,
+那么关联系数$[e^2:e_i^1]=2,[e^1_i:e_0]=0$,这样我们就可以确定在胞腔链复形
+\[0\rightarrow \mathbb{Z}\xrightarrow{f} \bigoplus_{m}\mathbb{Z}\xrightarrow{0}\mathbb{Z}\rightarrow 0\]
+中利用同调群的定义,我们可以计算出
+\[H_p^c(mP^2)=\left\lbrace \begin{array}{ll}
+\mathbb{Z} & p=0\\
+\bigoplus\limits_{m-1}\mathbb{Z}\oplus \mathbb{Z}_2 & p=1\\
+0 & p\neq 0,1.
+\end{array}\right. \]
+与$nT^2$型计算类似的,我们不难得到$mP^2$曲面的胞腔上同调群为
+\[H^p_c(mP^2)=\left\lbrace \begin{array}{ll}
+\mathbb{Z} & p=0\\
+\bigoplus\limits_{m-1}\mathbb{Z} & p=1\\
+Ext_1(\mathbb{Z}_2,\mathbb{Z}) & p=2\\
+0 & p\neq 0,1,2
+\end{array}\right.\]\\
+1.构造一个$\mathbb{R}P^n$上有$n+1$个临界点的Morse函数.\\
+我们在$S^n$上定义$f$,使得它在对径点上取值相同,那么$f$可以诱导$\mathbb{R}P^n$上的一个$Morse$函数.为此分奇偶.若为$n$为奇数,令$f(x)=\mathlarger{\int} x_1(x_1^2-1)\prod\limits_{i=2}^{(n-1)/2}(x_1^2-\dfrac{i^2}{n^2})dx_1+\sum\limits_{i=2}^{n-1}x_i^2$,容易验证,临界点为
+$(x_1,x_2,\cdots,x_n)=(0,0,\cdots,0,\pm 1),(\pm\dfrac{i}{n},0,\cdots,0,\pm \sqrt{1-\dfrac{i^2}{n^2}}),(\pm1,0,\cdots,0)$,然后粘合对径点,我们得到$\mathbb{R}P^n$上的函数,有$n+1$个临界点.\\
+对于$n$为偶数时$f(x)=\cos[(2n+2)\pi x_1]+\sum\limits_{i=2}^{n-1}x_i^2$,不难验证此时也有$n+1$个临界点.\\
+2.设$\{X_1,X_2\}$为$MV$耦,$H_*(X_1),H_*(X_2),H_*(X_1\cup) X_2),H_*(X_1\cap X_2)$有限生成,证明:$\chi(X_1\cap X_2)+\chi(X_1\cup X_2)=\chi(X_1)+\chi(X_2)$.\\
+在$MV$序列上计算即可得到结论,在$MV$耦链复形的正合列中
+我们知道$h_{\#}$为单射,$k_{\#}$为满射,再由链映射诱导同调群同态的定义,我们不难知$h_*$为单射,$k_*$为满射.那么对于短正合列
+\[H_{q+1}(X_1\cup X_2)\xrightarrow{\partial_*}H_q(X_1\cap X_2)\xrightarrow{h_*}H_q(X_1)\oplus H_q(X_2)\xrightarrow{k_*}H_{q}(X_1\cup X_2)\xrightarrow{\partial_*}H_{q-1}(X_1\cap X_2)
+\]
+是可以将两端改为$0$的,我们得到
+\[0\rightarrow H_q(X_1\cap X_2)\xrightarrow{h_*}H_q(X_1)\oplus H_q(X_2)\xrightarrow{k_*}H_{q}(X_1\cup X_2)\rightarrow 0
+\]
+每项都是有限生成的.利用第五章定理5.3,有$rank(H_q(X_1\cap X_2))+rank(H_q(X_1\cup X_2))=rank(H_q(X_1)\oplus H_q(X_2))=rank(H_q(X_1))+rank(H_q(X_2))$将此等式代入$Euler$示性数的计算公式就能得到$\chi(X_1\cap X_2)+\chi(X_1\cup X_2)=\chi (X_1)+\chi(X_2).$\\
+3.设$\mathscr{H}$为广义同调论,$f:(S^n,pt)\to (S^n,pt)$为自映射.证明:$\mathscr{H}(f)=\deg f,\mathscr{H}_p(S^n,pt)\to \mathscr{H}_p(S^n,pt)$,其中映射度由奇异同调给出.\\
+如果是同调论,$f_*=\deg f$是很容易证明的,这是由于我们有引理:对于$CW$复形耦,任一同调论有自然同构$\mathscr{H}_p(X,A)\cong H^{sing}_p(X,A;G)$,从而$f$诱导出相同的同调群同态.这样我们就只需对奇异同调进行证明,而我们知道映射度就是用整系数奇异同调定义的,使用万有系数定理我们可以验证对于$G$系数同调也是成立的.而如果是广义同调论,由于没有了维数公理,似乎很难建立与奇异同调的关系,自然也是很难证明$f_*=\deg f$.\\
+1.设$\phi\simeq \phi',C_*\to C'_*$则$\phi\otimes id\simeq \phi'\otimes id,C_*\otimes D_*\to C'_*\otimes D_*$\\
+验证即可,$C_*,C'_*$的边缘算子均记为$\partial_*$\\
+由$\phi\simeq \phi'$知存在$T=\{T_q:C_q\to C'_{q+q}\}$足下式
+\[\partial_{p+1}\circ T_p(c_p)+T_{p-1}\circ \partial_p(c_p)=\phi_p(c_p)-\phi'_p(c_p)\]
+利用$T'_n(c_p\otimes d_q)=(T_pc_p)\otimes d_q$定义$(C_*\otimes D_*)_n\to (C'_*\otimes D_*)_{n+1}$的同态$T'$.那么
+\[\begin{array}{l}
+~~~~\partial^{\otimes}_{n+1}\circ T'_n(c_p\otimes d_q)+T'_{n-1}\circ \partial^{\otimes}_n(c_p\otimes d_q)\\
+=\partial^{\otimes}_{n+1}(T_pc_p\otimes d_q)+T'_{n-1}(\partial_pc_p\otimes d_q+(-1)^p(c_p\otimes \delta d_q))\\
+=(\partial_{p+1}\circ T_p)(c_p)\otimes d_q+(-1)^{p+1}(T_pc_q)\otimes (\delta_qd_q)+(T_{p-1}\circ \partial_p(C_p)\otimes d_q+(-1)^pT_pc_p\otimes \delta d_q\\
+=[\partial_{p+1}\circ T_p(c_p)+T_{p-1}\circ \partial_p(c_p)]\otimes d_q\\
+=[\phi_p(c_p)-\phi'_p(c_p)]\otimes [id(d_q)]\\
+=(\phi\otimes id)_n(c_p\otimes d_q)-(\phi'\otimes id)_n(c_p\otimes d_q)
+\end{array}\]
+这就说明了$\phi\otimes id\simeq \phi'\otimes id$.\\
+2.计算$K\times K$的$H^*,H_*$,其中$K$
+为克莱因瓶\\
+利用$K\"{u}nneth$公式,我们有
+\[\begin{array}{c}
+H_n(K\times K)\cong\bigoplus\limits_{p+q=n}H_p(K)\otimes
+H_q(K)\bigoplus\bigoplus\limits_{p+q=n-1}Tor_1(H_p(K),H_q(K))\\
+H^n(K\times K)\cong\bigoplus\limits_{p+q=n}H^p(K)\otimes
+H^q(K)\bigoplus\bigoplus\limits_{p+q=n+1}Tor_1(H^p(K),H^q(K))\\
+\end{array}\]
+由此可以计算出.\\
+\[H_q(K\times K)\cong\left\lbrace \begin{array}{ll}
+\mathbb{Z} & q=0\\
+\mathbb{Z}\oplus \mathbb{Z}\oplus \mathbb{Z}_2\oplus\mathbb{Z}_2 & q=1\\
+\mathbb{Z}\oplus\mathbb{Z}_2\oplus\mathbb{Z}_2\oplus\mathbb{Z}_2 & q=2\\
+\mathbb{Z}_2 & q=3\\
+0 & else
+\end{array}\right. \]
+\[H^q(K\times K)\cong\left\lbrace \begin{array}{ll}
+\mathbb{Z} & q=0\\
+\mathbb{Z}\oplus\mathbb{Z} & q=1\\
+\mathbb{Z}\oplus\mathbb{Z}_2\oplus\mathbb{Z}_2 & q=2\\
+\mathbb{Z}_2\oplus\mathbb{Z}_2\oplus\mathbb{Z}_2 & q=3\\
+\mathbb{Z}_2& q=4\\
+0 & else
+\end{array}\right. 
+\]
+3.设$f:X\to Y,\xi \in H^q(Y;R),u\in H_{p+q}(X;R)$,证$f_*(f^*\xi\frown u)=\xi\frown f_*u.$\\
+先在链的水平上证明,由同调类的卡积定义可以自然地从链的卡积过渡到同调类的卡积.\\
+$f_{\#}(f_{\#}\xi\frown u)=f^{\#}(\langle f^{\#}\xi,{}_qu\rangle u_p)=f_{\#}(\langle \xi,f_{\#}{}_qu\rangle u_p)=\langle \xi,f_{\#}{}_qu\rangle f_{\#}u_p=\langle \xi,{}_q(f_{\#}u)\rangle (f_{\#}u)_p=\xi\frown f_{\#}u$.\\
+4.$\xi\in H^p(X;R),\eta\in\Huge^q(X;R),u\in H_{p+q}(X;R)$,证明,$\langle \xi\smile \eta,u\rangle=\langle \xi,\eta\frown u\rangle.$\\
+同样先在链的水平上证明,由同调类的卡积上积定义可以自然地从链过渡到同调类
+$\langle \xi\smile \eta,u\rangle=\langle\xi,{}_pu\rangle\langle\eta,u_q\rangle=\langle\xi,\langle \eta,{}_qu\rangle u_p\rangle=\langle\xi,\eta\frown u\rangle$\\
+
+
+1.证明:$f:S^n\to S^n$为偶映射,那么么$\deg f$为偶数.\\
+我们介绍一个引理\\
+\textbf{引理:}设$X$为可剖分空间,$f:S^n\to X$连续,并且满足$f(x)=f(-x),\forall x\in S^n$.那么$f_p(H_p(S^n))\subset 2H_p(X)$.\\
+引理证明:由公理化的同调论我们知道实际上只存在一种同调论.我们利用单纯同调论对上述进行证明,不妨设$S^n=|\sum^n|,|X|=K$可以构造$f$的单纯逼近$\varphi:(\sum^n)^{(r)}\to K$,使得任意的$a\in ((\sum^n)^{(r)})^0,\varphi(a)=\varphi(-a),$则$f_{n}=\varphi_n$.不难验证$\varphi_n(Z_n((\sum^n)^{(r)}))\subset 2Z_n(K)$.\\
+然后利用引理我们可以直接得到$\deg f$为偶数.\\
+2.计算$Klein$瓶的整系数上同调环.
+\begin{wrapfigure}{r}{0pt}
+\begin{asy}
+import math;
+import geometry;
+import graph;
+size(200);
+for(int i=0;i<3;++i)
+{
+draw((i,0)--(i+1,0),MidArrow);
+}
+for(int i=0;i<3;++i)
+{
+draw((i,3)--(i+1,3),MidArrow);
+}
+for(int i=0;i<3;++i)
+{
+draw((i,2)--(i+1,2),MidArrow);
+}
+for(int i=0;i<3;++i)
+{
+draw((i,1)--(i+1,1),MidArrow);
+}
+for(int i=0;i<3;++i)
+{
+draw((0,i+1)--(0,i),MidArrow);
+}
+for(int i=0;i<3;++i)
+{
+draw((1,i+1)--(1,i),MidArrow);
+}
+for(int i=0;i<3;++i)
+{
+draw((3,i)--(3,i+1),MidArrow);
+}
+for(int i=0;i<3;++i)
+{
+draw((2,i)--(2,i+1),MidArrow);
+}
+for(int i=3;i>1;--i)
+{
+draw((i-2,i-1)--(i-1,i),MidArrow);
+}
+for(int i=3;i>0;--i)
+{
+draw((i-1,i-1)--(i,i),MidArrow);
+}
+for(int i=3;i>1;--i)
+{
+draw((i-1,i-2)--(i,i-1),MidArrow);
+}
+draw((0,3)--(1,2),MidArrow);
+draw((3,0)--(2,1),MidArrow);
+label("$a$",(0,0),SW);
+label("$b$",(1,0),S);
+label("$c$",(2,0),S);
+label("$a$",(3,0),S);
+label("$a$",(0,3),SW);
+label("$b$",(1,3),N);
+label("$c$",(2,3),N);
+label("$a$",(3,3),N);
+label("$d$",(0,2),W);
+label("$e$",(0,1),W);
+label("$d$",(3,1),E);
+label("$e$",(3,2),E);
+label("$g$",(1,2),SE);
+label("$h$",(2,2),SE);
+label("$i$",(1,1),NW);
+label("$k$",(2,1),NW);
+\end{asy}
+\end{wrapfigure}
+如图给出了$Klein$瓶的一个单纯剖分.因为二维卡积一维,0维卡积任意维都是平凡的,我们只需计算一维的卡积即可.
+$H_1(K)$的基为$\omega_1=[ab]+[bc]+[ca]$,$z_1=[ad]+[dc]+[ca]$.\\
+而$H_2(K)$中任意一个二维单形在$H_2(K)$中不为0.
+$H^1(K)$的基为$\omega^1=[bc]+[bk]+[ik]+[ih]+[gh]+[gc]+[bc]$.
+在$[gih]$上$\langle\omega^1\smile \omega^1,[gih]\rangle=\langle\omega^1,[gi]\rangle\langle\omega^1,[ih]\rangle=0$,同理我们可以在其他二维单形上计算都为0.
+所以$\omega^1\smile \omega^1=0$,也就是说$Klein$瓶整系数的上同调环完全是平凡的.
+\end{document}

@@ -1,0 +1,56 @@
+\documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}}
+\fancyhead[LO]{\usebox{\mygraphic}}
+\fancyhead[RO,RE]{\zihao{-4} 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,left=1.2cm,right=1.2cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\noindent
+\zihao{-4}
+$A$为$k$代数,$V$为$A$模,那么$End_A(V)\cong k$能否推出$V$为单模.\\
+首先我们知道:$End_A(V)$为$X(A)$在$End_k(V)$中的中心化子.\\
+如果$V$有非平凡子模$W$,则将$W$的一组基扩充为$V$的一组基,$\forall a\in A,X(a)$在这组基下的矩阵表示为
+\[\left( \begin{array}{cc}
+{Y}(a) & {0}\\
+{W}(a) & Z(a)\\
+\end{array}\right) \]  
+去计算与它交换的矩阵,记为
+\[X=\left( \begin{array}{cc}
+X_1 & X_2\\
+X_3 & X_4\\
+\end{array}\right) 
+\]
+我们有
+\[
+\left( \begin{array}{cc}
+Y(a)X_1  & Y(a)X_2\\
+W(a)X_1+Z(a)X_3 & W(a)X_2+Z(a)X_4
+\end{array}\right)=\left( \begin{array}{cc}
+X_1Y(a) & X_2Z(a)\\
+X_3Y(a)+X_4W(a) & X_4Z(a)\\
+\end{array}\right)  \]
+只要一两个$X(a)$复杂一点,就可以推出,$End_A(V)\cong k$.这说明$End_A(V)\cong k$并没有提供太多的信息,我们倾向于认为命题错误.
+同时为了方便考查问题,不妨就将$A$视为矩阵,$A$在$V$上的作用就由$A$左乘$V$的一组基给出,而且不妨设$A$忠实作用到$V$上,这时$A$与$X(A)$是一回事.\\
+利用这些事实我们去构造反例.取$V=\langle \alpha_1,\alpha_2\rangle$,令$A$为
+\[
+M=\left( \begin{array}{cc}
+1 & 0\\
+2 & 2\\
+\end{array}\right) \]
+生成的$M_2(k)$的子代数,下三角矩阵对于加,乘是封闭的,所以$U=\langle\alpha_1\rangle$是$V$的一个非平凡$A$子模.
+$WX_1+ZX_3=X_3Y+X_4W\Rightarrow X_3(Y-Z)=(X_1-X_4)W$,在构造反例时我们特意取了$Y\neq Z$使得$X_2=0$.在给定$X\in End_A(V)$的情况下,$X_1,X_2,X_3,X_4$都是定值,而$W$是取值是无限的,所以$X_3=0,X_1=X_4$,所以$End_A(V)=kI$.这就给出了一个反例.
+\end{document}

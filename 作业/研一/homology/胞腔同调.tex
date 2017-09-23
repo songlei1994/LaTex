@@ -1,0 +1,76 @@
+\documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}}
+\fancyhead[LO]{\usebox{\mygraphic}}
+\fancyhead[RO,RE]{ 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,left=0.7cm,right=0.7cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\noindent
+\zihao{-4}
+1.设$X$为可定向的闭曲面,$Y$为不可定向的闭曲面.$f:X\rightarrow Y$.证明:$f_*=0,H_2(X;\mathbb{Z}_2)\rightarrow H_2(Y;\mathbb{Z}_2)$.\\
+使用万有系数定理的自然性,我们有交换图表.\\
+\[\begin{array}{ccccccc}
+0  \rightarrow & H_2(X)\otimes \mathbb{Z}_2& \xrightarrow{\mu}& H_2(X;\mathbb{Z}_2)& \rightarrow & Tor_1(H_1(X);\mathbb{Z}_2)&\rightarrow ~0\\
+               &\downarrow          &                  &\downarrow f_*&             &\downarrow       \\
+0  \rightarrow & H_2(Y)\otimes \mathbb{Z}_2& \xrightarrow{\mu}& H_2(Y;\mathbb{Z}_2)& \rightarrow & Tor_1(H_1(Y);\mathbb{Z}_2)&\rightarrow ~0\\
+\end{array}
+\]
+利用上次计算的闭曲面$G$系数同调群,我们有$H_2(X;\mathbb{Z}_2)=\mathbb{Z}_2,H_1(X;\mathbb{Z}_2)=0$,\\
+$H_2(Y;\mathbb{Z}_2)\cong
+Tor_1(Y;\mathbb{Z}_2)\cong
+Tor_1(\mathbb{Z}_2,\mathbb{Z}_2)\cong \mathbb{Z}_2\not\cong 0$,接着我们看
+\[\begin{array}{ccc}
+H_2(X;\mathbb{Z}_2)&\xrightarrow{\varphi} & Tor_1(X,\mathbb{Z}_2)\\
+\downarrow~f_*& &\downarrow~f'\\
+H_2(Y;\mathbb{Z}_2)&\xrightarrow{\psi} & Tor_1(Y,\mathbb{Z}_2)\\
+\end{array}
+\]
+注意到$Tor_1(X;\mathbb{Z}_2)=0$,所以$0=f'\varphi=\psi f_*$注意到$\psi$为同构,那么就有$f_*=0$.\\
+2.对于$nT^2$型曲面,有多边形表示可知有$1$个$0$维胞腔$e^0$,$2n$个$1$维胞腔$e^1_i(i=1,2,\cdots,2n)$,$1$个2维胞腔$e^2$.为了计算同调群,我们只需要求出关联系数即可.
+由于$2$维胞腔的边在每个$1$维胞腔上正反各绕一圈,所以对于任意$i$的关联系数$[e^2:e^1_i]$都为零,而易知$[e^1_i:e_0]=0$.那么我们便得到如下的胞腔链复形序列
+\[0\rightarrow \mathbb{Z}\xrightarrow{0} \bigoplus_{2n}\mathbb{Z}\xrightarrow{0}\mathbb{Z}\rightarrow 0\]
+从中我们可以计算得胞腔同调为
+\[H_p^c(nT^2)=\left\lbrace \begin{array}{ll}
+\mathbb{Z} & p=0,2\\
+\bigoplus\limits_{2n}\mathbb{Z} & p=1\\
+0 & p\neq 0,1,2
+\end{array}\right. \]
+由万有系数定理我们知道$C^*(X;\mathbb{Z})\cong Hom(C_*(X);\mathbb{Z})$,注意到$Hom(\mathbb{Z};G)\cong G$,而胞腔链群均是$\mathbb{Z}$的直和形式.我们不难得到胞腔上同调的链复形序列为\\
+\[0\leftarrow \mathbb{Z}\xleftarrow{0} \bigoplus_{2n}\mathbb{Z}\xleftarrow{0}\mathbb{Z}\leftarrow 0\]
+其中生成元为$e_j^i$的对偶基,利用上述链复形序列,我们可以计算出
+\[H^q(nT^2)\cong\left\lbrace 
+\begin{array}{ll}
+\mathbb{Z}& q=0,2\\
+\bigoplus\limits_{2n}\mathbb{Z}& q=1\\
+0& q\neq 0,1,2
+\end{array}\right. 
+\]
+而对于$mT^2(m\geq 2)$型闭曲面,同样是由多边形表示,我们可有如下胞腔剖分,\\只是由于二维胞腔在每个1为胞腔上绕了两圈,
+那么关联系数$[e^2:e_i^1]=2,[e^1_i:e_0]=0$,这样我们就可以确定在胞腔链复形
+\[0\rightarrow \mathbb{Z}\xrightarrow{f} \bigoplus_{m}\mathbb{Z}\xrightarrow{0}\mathbb{Z}\rightarrow 0\]
+中利用同调群的定义,我们可以计算出
+\[H_p^c(mP^2)=\left\lbrace \begin{array}{ll}
+\mathbb{Z} & p=0\\
+\bigoplus\limits_{m-1}\mathbb{Z}\oplus \mathbb{Z}_2 & p=1\\
+0 & p\neq 0,1.
+\end{array}\right. \]
+与$nT^2$型计算类似的,我们不难得到$mP^2$曲面的胞腔上同调群为
+\[H^p_c(mP^2)=\left\lbrace \begin{array}{ll}
+\mathbb{Z} & p=0\\
+\bigoplus\limits_{m-1}\mathbb{Z} & p=1\\
+Ext_1(\mathbb{Z}_2,\mathbb{Z}) & p=2\\
+0 & p\neq 0,1,2
+\end{array}\right.\]
+\end{document}

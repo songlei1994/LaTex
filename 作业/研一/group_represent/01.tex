@@ -1,0 +1,39 @@
+\documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}\zihao{-4}~群表示论~\today}
+\fancyhead[LO]{\usebox{\mygraphic}\zihao{-4}~群表示论~\today}
+\fancyhead[RO,RE]{\zihao{-4} 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,left=0.7cm,right=0.7cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\noindent
+\zihao{4}
+2.由于$a^2=1,\forall a,b\in G,$所以$a^{-1}=a,\forall a\in G$,那么$aba^{-1}b^{-1}=abab=(ab)^2=1,\forall a,b\in G.$即$G'=\{1\},$这就说明$G$为交换群.\\
+3.由$3\not |~|G|$可知,$\forall x\in G-\{1\},x^3\neq 1$,这说明$\ker\varphi=\{1\}$,即$\varphi$为同构.计算$\varphi(y^{-1}xy)=y^{-3}x^3y^3=y^{-1}x^3y\Rightarrow x^3y^2=y^2x^3$,用$y^3$代入$y$,有$y^6x^3=x^3y^6$,即$\varphi(y^2x)=\varphi(xy^2)$,所以$xy^2=y^2x$.那么$y^2\in\mathbb{Z}(G),\forall y\in G$.而$\varphi(xy)=(xy)(xy)(xy)=x^3y^3\Rightarrow yxyx=x^2y^2=y^2x^2\Rightarrow yxyx=yyxx\Rightarrow yx=xy$.\\
+4.$x=gy^{-1},g=yx=ygy^{-1}\Rightarrow gy=yg$,$x^m=y^n=1\Rightarrow g^m=y^m,y^n=1$,由$(m,n)=1$知,存在$u,v\in\mathbb{Z},$使得$um+vn=1$,那么$y^{um+vn}=y^{um},x=g^{1-um}=g^{vn}.$\\
+若有另一组$(u',v')$使得$u'm+v'n=1$,那么$(u-u')m=(v-v')n$,再由$(m,n)=1$可知,$mn|(u-u')m$,则$y^{um}=y^{u'm}$.那么$y$不依赖于裴蜀定理中$(u,v)$的选取,唯一性得证.\\
+6.设$G=\mathbb{Z}_7.X=\{\overline{2}\},Y=\{\overline{3}\},$那么$\langle X\rangle\cap \langle Y\rangle=G\neq\langle X\cap Y\rangle=\{1\}$.\\
+而$X\cup Y\subset \langle X\rangle\cup \langle Y\rangle\Rightarrow \langle X\cup Y\rangle\subset \langle\langle X\rangle\cup \langle Y\rangle\rangle$\\
+$\langle X\rangle \subset \langle X\cup Y\rangle ,\langle Y\rangle\subset \langle X\cup Y\rangle\Rightarrow \langle X\rangle\cup \langle Y\rangle \subset \langle X\cup Y\rangle\Rightarrow \langle\langle X\rangle\cup \langle Y\rangle\rangle \subset \langle X\cup Y\rangle$\\
+所以$\langle\langle X\rangle\cup \langle Y\rangle\rangle= \langle X\cup Y\rangle$\\
+10.\\
+1.设$|G|=n=p_1^{\alpha_1}\cdots p_s^{\alpha_s}$.$G$的一个自同构由$\overline{1}\to \overline{t},(n,t)=1$所刻画.对于$H\leq G$,有$H=\langle \overline{d}\rangle,d=p_1^{\beta_1}\cdots p_s^{\beta_s}$,而$H$的一个自同构为$\overline{d}\to \overline{kd},(k,n/d)=1$.而要想$t$限制在$H$上与$k$的效果一致,我们有$\overline{td}=\overline{kd}\Leftrightarrow  n|d(k-t)$,即$\prod_{i=1}^sp_i^{\alpha_i-\beta_i}|(k-t)$.下面解这个方程.对于$\beta_i <\alpha_i $,
+需要$t\equiv k(\mod{p_i^{\alpha_i-\beta_i}})$;对于$\beta_i=\alpha_i$,我们要求$t\equiv 1(\mod{p_i})$.由中国剩余定理我们得到了一个$t$,且$(t,q_i)=1\Rightarrow (n,t)=1,$并且我们有$n|d(k-t)$.这就得到了题目要求的自同构.\\
+2.首先可知$|Aut(\mathbb{Z}_8)|=\varphi(8)=4$,且不难验证$Aut(\mathbb{Z}_8)$为阿贝尔群.那么就只有$\mathbb{Z}_4,\mathbb{Z}_2\times\mathbb{Z}_2$两种可能,再由于$Aut(\mathbb{Z}_8)$不存在4阶元,故$Aut(\mathbb{Z}_8)\cong \mathbb{Z}_2\times\mathbb{Z}_2$.\\
+4.任取$\varphi\in Inn(G)$,由$\varphi(H)=H$可知$\varphi|_{H}\in Aut(H)$,再由$K~char~H\Rightarrow \varphi|_{H}(K)\subset K,$而$K\subset H$,所以$\varphi(K)\subset K$,即$K \unlhd G.$\\
+10.$N\rtimes (K\cap H)\subset (N\rtimes K)\cap (N\rtimes H)=K\cap G=K.$\\
+任取$k=nh\in K$,由$N\leq K$,$h=n^{-1}(nh)\in K$,从而$K\subset N\rtimes (K\cap H)$.所以$K=N\rtimes (K\cap H)$.
+\end{document}

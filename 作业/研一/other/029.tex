@@ -1,0 +1,32 @@
+\documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}\zihao{-4}~2017北大数分}
+\fancyhead[LO]{\usebox{\mygraphic}\zihao{-4}~2017北大数分}
+\fancyhead[RO,RE]{博士数学论坛}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,left=0.7cm,right=0.7cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\noindent
+1.(10分) 证明:$$\lim_{n \to +\infty }\int_{0}^{\frac{\pi }{2}}\frac{\sin ^nx}{\sqrt{\pi -2x}}dx.$$\\
+2.(10分) 证明:$\sum_{n=1}^{\infty }\frac{1}{1+nx^2}\sin \frac{x}{n^\alpha }$在任何有限区间上一致收敛的充要条件是:$\alpha > \frac{1}{2}$.\\
+3.(10分) 设$\sum_{n=1}^{\infty }a_n$收敛.证明$$\lim_{s\rightarrow 0+}\sum_{n=1}^{\infty }a_nn^{-s}=\sum_{n=1}^{\infty }a_n.$$\\
+4.(10分) 称$\gamma (t)=(x(t),y(t))$,$(t\in $属于某个区间$I)$是$\mathbb{R}^1$上$C^1$向量场$(P(x,y),Q(x,y))$的积分曲线,若${x}'(t)=P(\gamma (t))$,${y}'(t)=Q(\gamma (t)),\forall t\in I$,设$P_x+Q_y$在$\mathbb{R}^1$上处处非零,证明向量场$(P,Q)$的积分曲线不可能封闭(单点情形除外).\\
+5. (20分) 假设$\displaystyle x_0=1,x_n=x_{n-1}+\cos x_{n-1}(n=1,2,\cdots )$,证明:当$x\rightarrow \infty $时, $\displaystyle x_n-\frac{\pi }{2}=o\left(\frac{1}{n^n}\right)$.\\
+6.(20分)假如$\displaystyle f\in C[0,1],\lim_{x\to 0^+}\frac{f(x)-f(0)}x=\alpha<\beta=\lim_{x\to 1^-}\frac{f(x)-f(1)}{x-1}$.证明: $\forall \lambda\in (\alpha,\beta),\exists x_1,x_2\in [0,1]$使得$\displaystyle \lambda=\frac{f(x_2)-f(x_1)}{x_2-x_1}$.\\
+7. (20分)设$f$是$(0,+\infty)$上的凹(或凸)函数且$\displaystyle \lim_{x\to+\infty}xf'(x)=0$ (仅在$f$可导的点考虑极限过程).\\
+8. (20分)设$\phi\in C^3(\mathbb{R}^3)$, $\phi$及其各个偏导数$\partial_i\phi(i=1,2,3)$在点$X_0\in \mathbb{R}^3$处取值都是$0$. $X_0$点的$\delta$邻域记为$U_\delta(\delta>0)$.如果$\left(\partial_{ij}^2\phi(X_0)\right)_{3\times 3}$是严格正定的,则当$\delta$充分小时,证明如下极限存在并求之:
+\[\mathop {\lim }\limits_{t \to + \infty } t^{\frac{3}{2}}\iiint_{{U _\delta }} {{e^{ - t\phi\left( {x_1,x_2,x_3} \right)}}\,dx_1dx_2dx_3} .\]
+9. (30分) 将$(0,\pi)$上常值函数$f(x)=1$进行周期$2\pi$奇延拓并展为正弦级数:\[f(x)\sim \frac4\pi\sum_{n=1}^\infty \frac1{2n-1}\sin (2n-1)x.\]
+该Fourier级数的前$n$项和记为$S_n(x)$,则$\displaystyle \forall x\in (0,\pi),S_n(x)=\frac2\pi\int_0^x\frac{\sin 2nt}{\sin t}dt$,且$\displaystyle \lim_{n\to\infty}S_n(x)=1$.证明$S_n(x)$的最大值点是$\displaystyle \frac\pi{2n}$且$\displaystyle\lim_{n\to\infty}S_n\left(\frac\pi{2n}\right)=\frac 2\pi \int_0^\pi\frac{\sin t}t dt$.
+\end{document}

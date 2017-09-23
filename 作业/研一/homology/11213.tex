@@ -1,0 +1,97 @@
+\documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}}
+\fancyhead[LO]{\usebox{\mygraphic}}
+\fancyhead[RO,RE]{ 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,left=0.7cm,right=0.7cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\noindent
+1.给定映射$r:(x_1,x_2,\cdots,x_n)\rightarrow (-x_1,x_2,\cdots,x_n)$\\
+证明:对于$r_*:H_*(\mathbf{R}^n,\mathbf{R}^n-0)\rightarrow H_*(\mathbf{R}^n,\mathbf{R}^n-0),$有$r=-id$.\\
+由切除定理,我们只需证明对于超方体$D^n$证明成立命题即可.事实上,当$q\neq n,n-1$时,由空间偶同调序列的自然性我们有
+\[
+\begin{array}{ccccccc}
+H_q(S^{n-1})&\xrightarrow{i_*} & H_q(D^n)&\xrightarrow{j_*}& H_q(D^n,S^{n-1})&\xrightarrow{\partial_*}& H_{q-1}(S^{n-1})\\
+r_*\downarrow& & r_*\downarrow& & r_*\downarrow& & r_*\downarrow\\
+H_q(S^{n-1})&\xrightarrow{i_*} & H_q(D^n)&\xrightarrow{j_*}& H_q(D^n,S^{n-1})&\xrightarrow{\partial_*}& H_{q-1}(S^{n-1})
+\end{array}\]
+将具体的值代入有
+\[
+\begin{array}{ccccccc}
+0&\xrightarrow{i_*} & H_q(D^n)&\xrightarrow{j_*}& H_q(D^n,S^{n-1})&\xrightarrow{\partial_*}& 0\\
+r_*\downarrow& & r_*^1\downarrow& & r_*^2\downarrow& & r_*\downarrow\\
+0&\xrightarrow{i_*} & H_q(D^n)&\xrightarrow{j_*}& H_q(D^n,S^{n-1})&\xrightarrow{\partial_*}& 0
+\end{array}\]
+所以$j_*$为同构,那么$r_*^2=r_*^1=-id$.
+当$q=n$时,我们有
+\[
+\begin{array}{ccccccc}
+ H_q(D^n)&\xrightarrow{j_*}& H_q(D^n,S^{n-1})&\xrightarrow{\partial_*}& H_{q-1}(S^{n-1})&\xrightarrow{i_*} &H_{q-1}(D^n)\\
+r_*\downarrow& & r_*\downarrow& & r_*\downarrow& & r_*\downarrow\\
+ H_q(D^n)&\xrightarrow{j_*}& H_q(D^n,S^{n-1})&\xrightarrow{\partial_*}& H_{q-1}(S^{n-1})&\xrightarrow{i_*} &H_{q-1}(D^n)
+\end{array}\]
+同样代入有
+\[\begin{array}{ccccccc}
+ 0&\xrightarrow{j_*}& H_q(D^n,S^{n-1})&\xrightarrow{\partial_*}& H_{q-1}(S^{n-1})&\xrightarrow{i_*} & 0\\
+r_*\downarrow& & r_*\downarrow& & r_*\downarrow& & r_*\downarrow\\
+ 0&\xrightarrow{j_*}& H_q(D^n,S^{n-1})&\xrightarrow{\partial_*}& H_{q-1}(S^{n-1})&\xrightarrow{i_*} & 0
+\end{array}\]
+所以$q=n$时也成立,$q=n-1$时类似.综上可得$r_*=-id$\\
+2.证明$\mathbf{Z}_m\otimes \mathbf{Z}_n\cong  \mathbf{Z}_{(m,n)}$\\
+在正合序列\es{\mathbf{Z}}{m}{\mathbf{Z}}{}{\mathbf{Z}_m}上做运算$-\otimes \mathbf{Z}_n$得到正合序列\es{\mathbf{Z}_n}{m}{\mathbf{Z}_n}{}{\mathbf{Z}_m\otimes \mathbf{Z}_n}.那么$\mathbf{Z}_m\otimes \mathbf{Z}_n\cong coker(\mathbf{Z}_n\xrightarrow{m}\mathbf{Z}_n)\cong \mathbf{Z}_{(m,n)}$.\\
+3.计算闭曲面的$G$系数同调群和上同调群.\\
+对于Mobius带及$nT^2$型闭曲面,由于它们的同调群只有$\mathbb{Z},0$或$\mathbb{Z}$的直和,由万有系数定理的推论(可能在0维要使用简约同调),我们有$H_p(X)\otimes G\cong H_p(X;G),Hom_{\mathbb{Z}}(H_p(X),G)\cong H^p(X;G)$,从而不难给出它们的$G$系数同调群和上同调群为
+\[H_q(nT^2;G)\cong\left\lbrace 
+\begin{array}{ll}
+G & q=0,2,\\
+\bigoplus\limits_{i=1}^{2n}G& q=1\\
+0& q\neq 0,1,2
+\end{array}
+\right. 
+\]
+\[H^q(nT^2;G)\cong\left\lbrace 
+\begin{array}{ll}
+G& q=0,2\\
+\prod_{i=1}^{2n}G& q=1\\
+0& q\neq 0,1,2
+\end{array}\right. 
+\]
+对于$mP^2$型闭曲面,$q\neq 2$时同样使用万有系数定理的推论我们有
+\[H_q(mP^2;G)\cong\left\lbrace 
+\begin{array}{ll}
+G & q=0,\\
+\bigoplus\limits_{i=1}^{m-1}G\oplus(\mathbb{Z}_2\otimes G)& q=1\\
+0& q\neq 0,1,2
+\end{array}
+\right. 
+\]
+\[H^q(mP^2;G)\cong\left\lbrace 
+\begin{array}{ll}
+G& q=0\\
+\prod_{i=1}^{m-1}G\times Hom_{\mathbb{Z}}(\mathbb{Z}_2,G)& q=1\\
+0& q\neq 0,1,2
+\end{array}\right. 
+\]
+由于$q=1$时多出一个挠部分$\mathbb{Z}_2$,我们只能使用万有系数定理来计算$H_2(mP^2;G),H^2(mP^2;G)$.\\
+对于$G$系数同调群,我们有正合列\\
+\ess{H_2(mP^2)\otimes G}{\mu}{H_2(mP^2;G)}{\varphi}{Tor_1(H_1(mP^2);G)}\\
+由$H_2(mP^2)=0$可知,$H_2(mP^2;G)\cong Tor_1(H_2(mP^2);G)=Tor_1(\mathbb{Z}_2,G)$\\
+对于上同调群,我们有正合列\\
+\ess{Ext_1(H_1(mP^2),G)}{}{H_2(mP^2;G)}{\kappa}{Hom_{\mathbb{Z}}(H_2(mP^2),G)}\\
+由$H_2(mP^2)=0$可知${H_2(mP^2;G)}\cong{Ext_1(H_2(mP^2),G)}\cong Ext_1(\mathbb{Z}_2,G)$\\
+4.证明:$Hom_{\mathbb{Z}}(\mathbf{A},\mathbb{Z})\cong \overline{A},Ext_{\mathbb{Z}}^1(\mathbf{A},\mathbb{Z})\cong T(\mathbf{A})$.\\
+对于$\mathbf{A}$我们有分解$\mathbf{A}=T(\mathbf{A})\oplus\overline{\mathbf{A}}$.由定义不难计算$Ext_1(\overline{\mathbf{A}},\mathbb{Z})=0,Hom_{\mathbb{Z}}(T\mathbf{(A)},\mathbb{Z})=0$,那么$Hom_{\mathbb{Z}}(\mathbf{A},\mathbb{Z})\cong Hom_{\mathbb{Z}}(T(\mathbf{A}),\mathbb{Z})\oplus Hom_{\mathbb{Z}}(\overline{\mathbf{A}},\mathbb{Z})\cong \overline{\mathbf{A}}$,\\
+$Ext^1_{\mathbb{Z}}(\mathbf{A},\mathbb{Z})\cong Ext^1_{\mathbb{Z}}(T(\mathbf{A}),\mathbb{Z})\oplus Ext^1_{\mathbb{Z}}(\overline{\mathbf{A}},\mathbb{Z})\cong T(\mathbf{A}).$
+\end{document}

@@ -1,0 +1,42 @@
+documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}}
+\fancyhead[LO]{\usebox{\mygraphic}}
+\fancyhead[RO,RE]{\zihao{-4} 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,left=0.7cm,right=0.7cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\noindent
+\zihao{-4}
+17. 由定理4.13可设$G=\langle a_1\rangle \times \cdots \times\langle a_s\rangle,$其中$o(a_i)=n_i$.那么$|G|=n=\prod\limits_{i=1}^sn_i$.且$G$恰好有$n$个不可约一级特征标
+\[X_{i_1\cdots i_s},i_1=1,\cdots,n_1;\cdots;i_s=1,\cdots,n_s\]
+可由下式确定$X_{i_1\cdots i_s}(a_j)=\zeta_j^{i_j},j=1,\cdots,s$.其中$\zeta_j$是任一$n_j$次本原单位根.则映射$\sigma:a_1\mapsto X_{1n_2\cdots n_s},a_2\mapsto X_{n_11n_3\cdots n_s},\cdots,a_s\mapsto X_{n_1\cdots n_{s-1}1}$是$G$到$G^*$的同构.\\
+(2)$X_1,X_2\in H^d$,有$\forall h\in H,X_1(h)=X_2(h)=1,$那么$X_1X_2(h)=X_1(h)X_2(h)=1$即$H\leq \ker X_1X_2$,那么$H^d$是$G^*$的乘法封闭子集,则$H^d\leq G^*$.有定义不难看出映射$H\to H^d$会将集合包含关系反向,提升到群的高度,自然会将子群关系反向.在有$G^*$中表示的不可约性,可以看出这是一一对应.\\
+18.使用矩阵表示来说明此题.对于$A=(a_{ij})\in GL(n,\mathbb{C
+}),\sigma(A)=(\sigma(a_{ij}))$,对于$X(a)=(a_{ij})_{n\times n}$,定义$X^{\sigma}(a)=\sigma(a_{ij})$,可以验证这也是$F[G]\to GL(n,V)$的一个代数同态,并且$X^{\sigma}$的特征标为$\chi^{\sigma}=tr~X^{\sigma}=\sigma(tr~X)=\sigma(\chi)$.忠实性是由于之前定义的$\sigma(A)$是$GL(n,\mathbb(C))$上的一个代数同构,从而作为代数同态$X$与$X^{\sigma}$有相同的忠实性.$\chi$不可约$\Leftrightarrow \langle \chi ,\chi\rangle=1\Leftrightarrow \langle \sigma(\chi) ,\sigma(\chi)\rangle=1\Leftrightarrow \langle \chi^\sigma ,\chi^\sigma\rangle=1$$\Leftrightarrow\chi^{\sigma}$不可约.\\
+19.对于任意的$a\in G,z\in Z(G)$,有$X(a)X(z)=X(az)=X(za)=X(z)X(a)$,这说明$X(z)\in End_{F[G]}(V)$,而由定理2.3,$End_{F[G]}(V)$全为数乘变换,于是$X(z)$为数乘变换.\\
+设$|G|=g$那么对于$z\in Z(G),X(z)=\lambda id_V$,有$\lambda^g id_V=X(z)^g=X(z^g)=X(1)=id_V$,于是$\lambda^g=1$.注意到$X$是忠实的,于是$Z(G)$在$X$下同构于$\mathbb{C}$的一个循环群的子群,自然也是循环的.\\
+24.$\Leftarrow$由第二正交关系$\sum\limits_{\chi\in Irr(G)}\chi(a^{-1})\overline{\chi(a)}=\sum\limits_{\chi\in Irr(G)}\chi(a)^2>0$,(严格大于号是由于p184中矩阵$M$是满秩的,不可能出现一列全为0)于是$a$与$a^{-1}$共轭.\\
+$\Rightarrow$$\chi$为类函数,那么$\overline{\chi(a)}=\chi(a^{-1})=\chi(a)$,这说明$\chi(a)$为实数.\\
+26.设$X$是对应于$\chi$的矩阵表示.对于任意的$t\in C_G(H)$,有$X(t)X(h)=X(h)X(t),\forall h\in H$.因为$\chi|H$为$H$的不可约特征,由定理2.3可知$X(t)=\lambda id,\lambda\in\mathbb{C}$,所以$X(t)\in Z(X(G))$,由于$X$是$G$的忠实表示,则$X$是一个$G\to X(G)$的代数同构,于是$t\in Z(G)$.\\
+22.设$G$为非交换单群,有2级不可约特征标$\chi$.则因$\chi(1)||G|$可知$|G|$为偶数.于是$|G|$中有二阶元.若$G$只有一个二阶元,则它必属于中心$Z(G)$,与$G$为单群矛盾.故$G$至少有两个二阶元$a,b$.假设$X$为对应于$\chi$的矩阵表示,则由$G$为单群,那么$\ker X={1}$,即$X$是忠实的,那么$X(a)\neq X(b)$.考虑EX10.给出的线性表示$\det X$.由$X$为单群,$\det X=1_{G}$于是$\det X(a=\det X(b)=1.$再由定理5.5(5)可知$X(a),X(b)$必相似于2级对角阵,而且特征值为$\pm 1$,由于$\det X(a)=\det X(b)=1$,以及$X$为忠实表示,那么$X(a),X(b)$相似型是二阶的.那么只可能是
+\[\left( 
+\begin{array}{cc}
+-1 & 0\\
+0 & -1\\
+\end{array}\right)=-I\]
+进而$X(a)=X(b)=-I$,与$a\neq b$矛盾.
+\end{document}

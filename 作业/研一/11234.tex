@@ -1,0 +1,45 @@
+\documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}}
+\fancyhead[LO]{\usebox{\mygraphic}}
+\fancyhead[RO,RE]{ 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,left=0.7cm,right=0.7cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\usepackage{fourier}
+\begin{document}
+\pagestyle{plain}
+\noindent
+\zihao{4}
+9.2~利用分式化与乘积可交换以及Dedekind整环中理想可分解为素理想的乘积,我们可以看出这个等式是一个局部性质.不失一般性我们可以假设$A$是一个离散赋值环,$v$为其离散赋值.由理想的乘积定义显然有$c(fg)\subseteq c(f)c(g)$.假设$A$的极大理想$\mathfrak{m}$由$x$生成,记$f(x)=a_0+a_1x+\cdots+a_nx^n,g(x)=b_0+b_1x+\cdots+b_mx^m,a_i,b_j\in A$.由假设$A$中理想$c(f)=x^sA,c(g)=x^tA$,那么$v(x)=1$,$\min\{v(a_0),v(a_1),\cdots v(a_n)\}=s,\min\{v(b_0),v(b_1),\cdots,v(b_m)\}=t$,则存在$0\leq n_0<n,0\leq m_0<m$使得$v(a_{n_0})=s,v(b_{m_0})=t$,并且$\forall i<n_0,j<m_0,v(a_i)>s,v(b_j)>t$.此时$x^{n_0+m_0}$在多项式$fg$中的系数为
+\[c_{n_0+m_0}=\sum_{i+j=n_0+m_0}a_ob_j\]
+这里我们约定$a_i=b_j=0$如果$i>n$或$j>m$.那么$v(a_{n_0}b_{m_0})=s+t$,并且由$n_0,m_0$的选取可知其他项的值严格大于$s+t$.因此$v(c_{n_0+m_0})=s+t$,这说明$c(fg)\supseteq c_{n+0+m_0}A=x^{s+t}A=c(f)c(g)$.\\
+9.5~利用Chap3.EX13,Chap7EX16,我们有$M$为平坦模$\Leftrightarrow$对于任意素理想$\mathfrak{p}$,$M_{\mathfrak{p}}$自由$\Leftrightarrow$对于任意素理想$\mathfrak{p}$,$M_{\mathfrak{p}}$无扭.\\
+9.6~取$A$的一个素理想$\mathfrak{p}$;那么$M_{\mathfrak{p}}$是主理想整环$A_{\mathfrak{p}}$上的有限生成扭型模.如果$Ann(M)\neq 0$,由于$M$是一个扭子模,那么$Ann(M)=\mathfrak{p}_1^{n_1}\cdots \mathfrak{p}_m^{n_m},n_i>0$,然而$Supp(M)=V(Ann(M))=\{\mathfrak{p}_1\cdots,\mathfrak{p}_m\}$.由主理想整环上的扭模分解给出
+\[M_{\mathfrak{p}}=\bigoplus_{i=1}^tA_{\mathfrak{p}}/(\mathfrak{p}A_{\mathfrak{p}})^{m_i}=\bigoplus_{i=1}^t(A/\mathfrak{p}^{m_i})_{\mathfrak{p}}\]
+记$D$为右边的模,实际上$D_{\mathfrak{p}}=D$.这是由于如果$A$是Dedekind整环,$\mathfrak{p},\mathfrak{q}$为$A$的非零素理想,对于$m>0$有,$(A/\mathfrak{p}^m)_{\mathfrak{p}}\simeq A/\mathfrak{p}^m,(A/\mathfrak{p}^m)_{\mathfrak{q}}=0$.对每个$\mathfrak{p_i}\in Supp(M)$,记$D_i$为相应的给出$M_{\mathfrak{p}}$如上式分解的$D$,那么$(D_i)_{\mathfrak{p}_j}=\delta_{ij}D_i.$令
+\[D=\bigoplus_{i=1}^tD_i\]
+观察合成
+\[M\to \bigoplus_{\mathfrak{p}\neq 0}M_{\mathfrak{p}}\xrightarrow{\simeq}\bigoplus_{i=1}^mD_i\]
+在$A$的任一非零素理想处做局部化时是一个同构.所以原来的映射是同构.\\
+9.7~先假设$\mathfrak{a}=\mathfrak{p}$为一素理想,那么当$n>0$时,$A/\mathfrak{p}^n\simeq (A/\mathfrak{p}^n)_{\mathfrak{p}}=A_{\mathfrak{p}}/\mathfrak{p}^nA_{\mathfrak{p}},$为主理想整环的商环,自然也是主理想环.而对于一般的$\mathfrak{a}$,有分解$\mathfrak{a}=\mathfrak{p}_1^{n_1}\cdots \mathfrak{p}_m^{n_m}$.注意到
+\[A/\mathfrak{a}\simeq\bigoplus_{\mathfrak{p}\neq 0}(A/\mathfrak{a})_{\mathfrak{p}}=\bigoplus_{i=1}^{m}(A/\mathfrak{p}_i^{n_i})\]
+由之前的练习可知$A/\mathfrak{a}$是主理想整环的积,也是主理想整环.\\
+9.9~如果$x\equiv x_i(\mod {\mathfrak{a}_i}),x\equiv x_j(\mod{\mathfrak{a_j}})$,那么$x-x_i\in\mathfrak{a}_i,x-x_j\in\mathfrak{a}_j,$从而$x_i-x_j\in\mathfrak{a}_i+\mathfrak{a}_j$,亦即$x_i\equiv x_j(\mod{\mathfrak{a_i}+\mathfrak{a}_j})$\\
+另一个方向,由提示考虑映射的合成
+\[A\xleftarrow{\phi}\bigoplus_{i=1}^nA/\mathfrak{a}_i\xrightarrow{\psi}\bigoplus_{i<j}A/(\mathfrak{a}_i+\mathfrak{a}_j)\]
+这里$\phi(x)=(x+\mathfrak{a}_1,\cdots,x+\mathfrak{a}_n)$的第$(i,j)$分量等于$x_i-x_j+\mathfrak{a}_i+\mathfrak{a}_j$.那么左边的条件等价于说之前的图表是正合列.注意到这个序列的正合性是个局部性质,通过做关于任一$A$的非零素理想的局部化,我们可以假设$A$是一个离散赋值环.\\
+在这个假设之下,$A$有唯一的极大理想$\mathfrak{m}$,并且$\mathfrak{a}_i$是$\mathfrak{m}$的幂,即$\mathfrak{a}_i=\mathfrak{m}^{m_i}$.我们可以重新排列使得$m_i\leq m_{i+1}$,亦即$\mathfrak{a}_i\supseteq \mathfrak{a}_{i+1}$.设$(x_1+\mathfrak{a}_1,\cdots,x_n+\mathfrak{a}_n)\in\ker \psi;$那么我们可以得到当$i<j$时$x_i\equiv x_j(\mod{\mathfrak{a}_i})$.特别的$x_n\equiv x_1(\mod{\mathfrak{a}_1}),x_n\equiv x_2(\mod{\mathfrak{a}_2}),\cdots x_n\equiv x_{n-1}(\mod{\mathfrak{a}_{n-1}})$,这样$x=x_n$为该方程的一个解.\\
+EX1.$M$为整环$A$的可逆理想,则对任意的素理想$\mathfrak{p}\subset A$,有$(A:M)_{\mathfrak{p}}=(A_{\mathfrak{p}}:M_{\mathfrak{p}})$\\
+将$A,M$视为$A$-模$Q(A)$的子模,由于$M$可逆,所以$M$是有限生成的.由阿蒂亚书上系理3.15即可得出结论.\\
+EX2.EX3暂时没有想法,在下次作业时补上.
+\end{document}

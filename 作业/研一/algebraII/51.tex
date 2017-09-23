@@ -1,0 +1,48 @@
+\documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}}
+\fancyhead[LO]{\usebox{\mygraphic}}
+\fancyhead[RO,RE]{\zihao{-4} 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,left=0.7cm,right=0.7cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\noindent
+\zihao{4}
+29.~注意在$|HK|=\dfrac{|H||K|}{|H\cap K|}$的证明中,我们有$HK$中包含$H$的右陪集个数等于$H\cap K$在$K$中的指数$|K:H\cap K|$,而$HK=G$,故$H\cap K$在$K$中的一组右陪集代表元可作为$H$在$G$中右陪集的一组代表元,不妨记为$T=\{t_1,\cdots,t_n\},n=|K:H\cap K|$,对于任意的$a\in K$.使用诱导特征标的第二个表达式,分别将$T$视为$H$相对于$G$,$H\cap K$相对于$K$的完备右陪集代表元组.
+\[\varphi^G|_K=\varphi^G(a)=\sum_{t\in T}\varphi^0(tat^{-1})=(\varphi|_{H\cap K})^K\]
+等号成立是由于$T\subset K$,于是$\forall a\in K,tat^{-1}\in K\Rightarrow tat^{-1}\in H\Leftrightarrow tat^{-1}\in K.$那么两个$\varphi^0$是相同的.\\
+32.设$\chi(1)=a+b,\chi(t)=a,\forall t\in G/\{1\}$,那么
+\[\chi=a1_G+br_G=a1_G+b\sum\limits_{\varphi\in Irr(G)}\varphi(1)\varphi\]
+由于$\chi$为$G$的特征标,于是$a,b$为整数,且$b\geq 0,a+b\geq 0$.若$b>0$,则
+\[\chi(1)=br_G+a\geq br_G(1)-b=b(|G|-1)\geq |G|-1\]
+37.令$G=\langle a,b|a^7=b^3=1,b^{-1}ab=a^2\rangle.$则$G'=\langle a\rangle,$于是$G$有$|G:G'|=3$个线性特征标.又由于$G$有5个共轭类:$C_1=\{1\},C_2=\{a,a^2,a^4\},C_3=\{a^3,a^5,a^6\},C_4=\{ba^i|1\leq i\leq 7\},C_5=\{b^2a^i|1\leq i\leq 7\}$,于是$G$有5个不可约特征标.则由推论5.11可知$\chi_4(1)=\chi_5(1)=3$.因为$|G|=21$为奇数,$G$中无实元素,$\chi_4$的复共轭亦为不可约特征标,于是有$\chi_5=\overline{\chi_4}$.至此可设$G$的特征标表为
+\begin{center}
+\begin{tabular}{|c|ccccc|}
+\hline
+ & $C_1$ &$C_2$ &$C_3$ &$C_4$ &$C_5$ \\\hline
+ $\chi_1$& 1& 1 & 1 & 1 & 1\\\hline
+ $\chi_2$& 1& 1& 1& $e^{\frac{2\pi i}{3}}$& $e^{\frac{4\pi i}{3}}$\\\hline
+ $\chi_3$& 1& 1& 1& $e^{\frac{4\pi i}{3}}$&$e^{\frac{2\pi i}{3}}$ \\\hline
+ $\chi_4$& 3&$\alpha$ &$\beta$ & $\gamma$&$\delta$ \\\hline
+ $\chi_5$& 3&$\overline{\alpha}$ &$\overline{\beta}$ &$\overline{\gamma}$ &$\overline{\delta}$  \\\hline
+\end{tabular}
+\end{center}
+为定出$\alpha,\beta,\gamma,\delta$,考虑子群$H=G'$的线性特征标$\rho:a\mapsto e^{\frac{2\pi i}{7}}.$由计算得出$\rho^G$在五个共轭类上取值为
+\[\rho^G:3,e^{\frac{2\pi i}{7}}+e^{\frac{4\pi i}{7}}+e^{\frac{8\pi i}{7}},e^{\frac{6\pi i}{7}}+e^{\frac{10\pi i}{7}}+e^{\frac{12\pi i}{7}},0,0\]
+由计算可知$\langle \rho^G,\rho^G\rangle=1$,于是$\rho^G$不可约,可令$\rho^G=\chi_4$.\\
+2.~设$\sigma$为$\mathbb{R}$的自同构.对于任一正实数$\alpha,\sqrt{\alpha}\in\mathbb{R},$于是$\alpha^{\sigma}=((\sqrt{\alpha})^2))^\sigma=((\sqrt{\alpha})^\sigma)^2>0,$于是$\sigma$将正实数映为正实数.如果$\beta>\gamma$,则$\beta-\gamma>0,$所以$(\beta-\gamma)^\sigma>0,$那么$\beta^\sigma-\gamma^\sigma>0.$这就是说$\sigma$保持实数的序.现设$\delta$为任一实数,$S=\{a\in\mathbb{Q}|a<\delta\},S'=\{b\in\mathbb{Q}|b\geq\delta\}$,则$\delta$是满足$a<\delta\leq b,\forall,a\in S,b\in S'$的唯一实数.注意有理数在$\sigma$下保持不动.于是$\delta^\sigma$也满足$a<\delta^\sigma\leq b,\forall,a\in S,b\in S'$,于是$\delta=\delta^\sigma$.\\
+4.记题中映射为$\varphi$.由于域只有两个平凡理想,且$\ker \varphi\neq K$,故$\ker \varphi=0$那么就为$F$-嵌入,那么我们只要证明$\varphi$对于除法良定义即可.设$g(\alpha)=\dfrac{u(\alpha)}{v(\alpha)},u(\alpha),v(\alpha)\in F[\alpha],v(\alpha)\neq 0$只要证明$v(\beta)\neq 0$即可.假若$v(\beta)=0,$设$\beta=\dfrac{s(\alpha)}{t(\alpha)},(s(x),t(x))=1.$代入$v(\beta)=0$,通分化简后有$\dfrac{f(\alpha)}{h(\alpha)}=0,(f(\alpha),h(\alpha)\in F[\alpha]).$于是$f(\alpha)=0$而$f(x)$是系数在$F$中的非零多项式,这与$\alpha$为$F$上超越元矛盾.
+\end{document}

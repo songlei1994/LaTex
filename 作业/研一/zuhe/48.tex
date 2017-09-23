@@ -1,0 +1,43 @@
+% !TeX encoding = UTF-8
+\documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}\zihao{-4}~组合数学~\today}
+\fancyhead[LO]{\usebox{\mygraphic}\zihao{-4}~组合数学~\today}
+\fancyhead[RO,RE]{\zihao{-4} 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,headsep=0.5cm,footskip=1cm,left=1.0cm,right=1.0cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\zihao{-4}
+\noindent
+\\
+EX4.\\
+5.将这$n^2+1$各点按照横坐标从小到大排成一列,然后取其纵坐标构成一个数列$a_1,a_2,\cdots,a_{n^2+1}$,如果不存在长度至少为$n+1$的递增子序列.令$l_i$为$a_i$开始的长递增序列的长度,那么对任意的$1\leq i\leq n+1$,有$1\leq l_i\leq n$,由鸽巢原理,至少有$n+1$个$l_i$取相同的值,不失一般性,记为
+\[l_{i_1}=l_{i_2}=\cdots=l_{i_n}\]
+其中$1\leq i_1<i_2<\cdots <i_n$.若存在$a_{i_j}\leq a_{i_j},i_j<i_k$,则从$a_{i_j}$开始有一个长度为$l_{i_k}+1=l_{i_j}+1$的递增子序列,与假设矛盾.从而$a_{i_1},a_{i_2},\cdots a_{i_n}$构成了长度为$n+1$的递减子序列.则此时$(x_{i_1},y_{i_1})\cdots,(x_{i_n},y_{i_n})$满足题意.\\
+7.构造如下抽屉$\{\{B,\overline{B}\}|B\subseteq [t]\}$,共有$2^{t-1}$个抽屉,若$m\geq 2^{t-1}+1$,那么必有$i,j$,使得$A_i=\overline{A_j}$,此时$A_i\bigcap A_j=\emptyset$,矛盾!从而$m\leq 2^{t-1}$.取集族$\{A\cup \{t\}|A\subseteq [t-1]\}$即可达到等号.\\
+9.$\{a,b\},\{a,c\},\{a,b,c\}$恰有3个$SDR$,为$\{a,c,b\},\{b,a,c\},\{b,c,a\}$.\\
+12.由$M$可逆可知$\det{M}\neq 0$,于是存在$\sigma\in S_n$使得$\prod\limits_{i=1}^na_{i\sigma(i)}\neq 0$,于是$a_{i\sigma{i}}\neq 0,1\leq i\leq n$,显然$a_{i\sigma(i)}$来自不同行,不同列.此时$\{\sigma^{-1}(i)\}$构成了$\{A_i\}$的一组$SDR$.\\
+14.按行和列分别去求矩阵的全体元素之和,不难看出$Q$为方阵.\\
+令$S_i\{j|a_{ij}>0\},i\in [n]$.取$[n]$的任意子集$K=\{i_1,\cdots,i_k\}.$因为$Q$的每行的元素之和为$1$,则在$\{i_1,\cdots,i_k\}$行上的元素和为$kl$,而$Q$的每列元素之和也为$1$,那么在每列上(共有$k$个元素)的和小于$l$,于是非零元素至少分布在$k$列上此即$HC$
+\[|S(K)|=\left| \bigcup_{j=1}^kS_{i_j}\right|\geq k=|K|,\quad \forall K\subset [n]. \]
+所以存在$S_1,\cdots ,S_n$的一个$SDR$ $(j_i|i\in [n])$.由$S_i$的定义可知$a_{ij_i}\geq 0,i\in [n]$且$j_i$互不相同,即$a_{ij_i}$分布在不同列上.\\
+令$Q=Q^{(0)},\lambda_1=\min_{i\in [n]}\{a_{ij_i}\}$,$Q^{(1)}=Q-\lambda_1P_i$,这里$p_{ij}=\delta(j,j_i).$那么$P_i$为置换矩阵,且$Q^{(1)}$为行列和全为$1-\lambda_1$的矩阵,重复上述过程,注意到每次操作会使得至少多出一个$0$出来(将$SDR$中最小的消为了$0$),至多$n^2$步即可得到一个零矩阵,于是
+\[Q=Q^{(0)}=\sum_{i=1}^k\lambda_iP_i\]
+计算矩阵的元素和不难有$n=n\sum_{i=1}^k\lambda_i$,从而$\sum_{i=1}^k\lambda_i=1$\\
+EX4\\
+1.记$x_{1i}$为Catalan括号串中第$i$个左括号出现的位置,$x_{2i}$为第$i$个右括号出现的位置.可以看出这是Catalan括号串与这个数列有一个$1-1$对应,从而有$C_n$个.\\
+3.(a)将这种序列对应到$\mathcal{D}_n$(取对角线下的路径),以$a_i-1$为第$i$次向右所在的高度.\\
+(b)令$b_{i+1}=a_i-i+1,i=2,\cdots,n,b_1=1$,则$b_i$为满足条件$(a)$的数列,\\
+(c)令$b_i=i-a_i$,那么$0\leq a_{i+1}\leq a_i+1\Leftrightarrow b_i\leq i,b_i\leq b_{i+1}$.从而这建立了和$(a)$中数列的一一对应,为$C_n$.\\
+(d)令$b_i=\sum\limits_{k=1}^ia_k$
+\end{document}

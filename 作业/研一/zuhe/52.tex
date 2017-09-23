@@ -1,0 +1,40 @@
+% !TeX encoding = UTF-8
+\documentclass[b5paper]{ctexart}
+\newcommand{\qa}[2]{\left[ \substack{\vspace{1pt}\\#1\vspace{3pt}\\#2\vspace{1pt}}\right]}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}\zihao{-4}~组合数学~\today}
+\fancyhead[LO]{\usebox{\mygraphic}\zihao{-4}~组合数学~\today}
+\fancyhead[RO,RE]{\zihao{-4} 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,headsep=0.5cm,footskip=1cm,left=1.0cm,right=1.0cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\noindent
+\zihao{-4}
+\\
+2.使用数学归纳法.$n=2$时是显然成立.当$n=k$时,利用归纳假设取一条长为$k-1$的路,不妨记为$v_1v_2\cdots v_{k-1}$,如果$v_kv_1\in E(G)$,那么$v_kv_1v_2\cdots v_{k-1}$为长$k$的Hamiltonion路.下设$v_1v_k\in E(G)$,那么再考虑$v_kv_2\in E(G)$,这时$v_1v_kv_2\cdots v_{k-1}$满足条件,所以下设$v_2v_k\in E(G)$,一直讨论下去,最后为$v_{k-1}v_k\in E(G)$,这时$v_1v_2\cdots v_{k-1}v_k$满足条件.\\
+4.给一个统一的证明,令$T\subset V$为从$V$中等概率随机选出的一个$l-$子集.称边$xy\in E$为交叉的,如果有且仅有$x,y$中的一个在$T$中,可知对于固定的$xy$概率为$2\cdot \dfrac{\binom{n-2}{l-1}}{\binom{n}{l}}=\dfrac{l(n-1)}{n(n-1)}$.令$X=X_{T}$为交叉的边数,那么
+\[E(X)=E(\sum_{xy\in E})X_{xy}=\sum_{xy\in E}E(X_{xy})=\dfrac{ml(n-l)}{n(n-1)}\]
+这说明存在$l-$子集的交叉的边数至少为$\dfrac{ml(n-1)}{n(n-1)}$利用这些交叉边数即可的二部子图.而$n=2k,2k+1$,求关于参数$l$的最大值即可得到结论.\\
+5.令$p$为待定参数.以概率$p$独立地随机选取$V$内的每一个顶点,令$X$为随机选取后的顶点集.考虑那些邻居不在$X$的点,记为集合$Z$.这些点可能属于$X$,对于那些属于$X$的点,取一个与之相连的点放入集合$Y$,并从$Y$中删去它以及$X$中对应的点;对于那些原本就不在$X$的点,则任取它的一条边,将这条边的另一个点放入集合$Y$,并将这两个点从$Z$中删去.一直进行下去,我们会发现最后有的点在$Z$中找不到相邻的点,那这些点肯定是被删去了,如果没有放入$Y$,则将$Y$中的最为边代表元的点换一下即可,这样进行下去,我们最后就能得到$X\sqcup Y$为一个全控制集.这说明全控制中元素个数是小于$|X|$与$Z$中点之和的.\\
+那么\[E(X\cup Z)=E(|X|)+E(|Z|)\leq np+n(1-p)^{\delta}\]
+所以一定存在$U$,至多包含$np+np(1-p)^{\delta}$个顶点.\\
+利用$1-p\leq e^{-p}$,我们有
+\[|U|\leq np+ne^{-p\delta}\]
+令上式右端对$p$的导数为0:$n[p-\delta e^{-p\delta}]=0$解得最小值点为
+\[p=\dfrac{\ln\delta}{\delta}\]
+当$\delta\geq 1$时$0<p<1$,故$p$为合理参数,带入上式,得到\\
+\[|U|\leq n\dfrac{1+\ln\delta}{\delta}\]
+考虑那些邻居不在$X$的点,记为集合$Z$,里面的点分为两类,一类为邻居不在$Z$内$Z_1$,而另一类为存在邻居在$Z$内$Z_2$.则$Z_1$内元素的邻居在那些邻居在$X$内的集合里,取一个来控制住$Z_1$,而对于$Z_2$,它的邻居在$Z$内,显然只能在$Z_2$内,把连接边的两点全作为控制点即可,至多$|Z_2|$个点.\\
+7.令$X$表示电梯停留次数的随机变量,则
+\[E(X)=n[1-(1-1/n)^{3n}]\approx (1-e^{-3})n\approx 0.95n\]
+所以预期是合理的.
+\end{document}

@@ -1,0 +1,40 @@
+\documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}}
+\fancyhead[LO]{\usebox{\mygraphic}}
+\fancyhead[RO,RE]{ 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,left=0.7cm,right=0.7cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\noindent
+21.(1)在正合序列\es{\mathbf{Z}}{m}{\mathbf{Z}}{}{\mathbf{Z}_m}上做运算$-\otimes \mathbf{Z}_n$得到正合序列\es{\mathbf{Z}_n}{m}{\mathbf{Z}_n}{}{\mathbf{Z}_m\otimes \mathbf{Z}_n}.那么$\mathbf{Z}_m\otimes \mathbf{Z}_n\cong coker(\mathbf{Z}_n\xrightarrow{m}\mathbf{Z}_n)\cong \mathbf{Z}_{(m,n)}$.\\
+(2)在正合序列\es{n\mathbb{Z}}{id}{\mathbb{Z}}{\varphi}{\mathbb{Z}/n\mathbb{Z}},(其中$\varphi$为典范同态)上做运算$-\otimes \mathbf{A}$得到正合序列\\
+\es{\mathbf{A}\otimes n\mathbb{Z}}{\tilde{id}}{\mathbf{A}}{\tilde{\varphi}}{\mathbf{A}\otimes(\mathbb{Z}/n\mathbb{Z})}.注意到$\mathbf{A}\otimes n\mathbb{Z}\cong n\mathbf{A}\otimes \mathbb{Z}\cong n\mathbf{A}$,我们有$\mathbf{A}\otimes(\mathbb{Z}/n\mathbb{Z})\cong \mathbf{A}/n\mathbf{A}$.\\
+(3)记$A=\mathbb{Z}^n\oplus\left( \bigoplus_{i=1}^t\left( \bigoplus_{j_i=1}^{l_i}(\mathbb{Z}/(p_i^{j_i}))^{n_{ij_i}}\right) \right)$,$B=\mathbb{Z}^m\oplus\left( \bigoplus_{i=1}^t\left( \bigoplus_{j_i=1}^{l_i}(\mathbb{Z}/(p_i^{j_i}))^{m_{ij_i}}\right) \right)$,利用张量积对直和的分配律,(1)(2)我们可以给出答案,这里不详细叙述了.要注意的是$(m,n)=1$时$\mathbb{Z}_m\otimes\mathbb{Z}_n=0$这样我们其实可以去掉展开式中的大多项,以及$\mathbb{Z}\otimes_\mathbb{Z}
+\mathbf{A}\cong \mathbf{A}$.\\
+22.注意到$\overline{1}\otimes\overline{1}$是$\mathbb{Z}_2\otimes\mathbb{Z}_2$的生成元,而$(id\otimes\varphi)(\overline{1}\otimes\overline{1})=\overline{1}\otimes\overline{2}=\overline{1}\otimes2\overline{1}=2\overline{1}\otimes\overline{1}=\overline{2}\otimes\overline{1}=0\otimes\overline{1}=0.$所以原同态是个零同态.\\
+23.我们换个记号用$\alpha_i,\beta_j$表示基.任意的$\alpha\in V_1,\beta\in V_2$,我们有$\alpha=\sum\limits_{i=1}^na_i\alpha_i,\beta=\sum\limits_{j=1}^mb_j\beta_j$,那么$\alpha\otimes\beta=\left( \sum\limits_{i=1}^na_i\alpha_i\right)\otimes \left( \sum\limits_{j=1}^mb_j\beta_j\right)=\sum\limits_{i=1}^n\sum\limits_{j=1}^ma_ib_j(\alpha_i\otimes \beta_j)$,所以$\left\lbrace \alpha_i\otimes\beta_j \right\rbrace$为域上模(即向量空间)的生成元,又$\dim_FV_1\otimes V_2=\dim_FV_1\times \dim_FV_2=mn$所以为一组基.考虑$\mathbf{A}\otimes\mathbf{B}$在基上的作用,我们有$\left( \alpha_i\otimes \beta_j\right)^{\mathbf{A}\otimes\mathbf{B}}=\alpha_i^{\mathbf{A}}\otimes\beta_j^{\mathbf{B}}= \left( \sum\limits_{k=1}^na_{ki}\alpha_i\right)\otimes \left( \sum\limits_{l=1}^mb_{lj}\beta_l\right)=\sum\limits_{k=1}^n\sum\limits_{l=1}^ma_{ki}b_{lj}(\alpha_i\otimes \beta_j)$.不难得出矩阵就是矩阵$Kroneck$积
+\[\left( \begin{array}{llll}
+a_{11}\mathbf{B}& a_{12}\mathbf{B}&\cdots &a_{1n}\mathbf{B}\\
+a_{21}\mathbf{B}& a_{22}\mathbf{B}&\cdots &a_{2n}\mathbf{B}\\
+\vdots &\vdots &&\vdots\\
+a_{n1}\mathbf{B}& a_{n2}\mathbf{B}&\cdots &a_{nn}\mathbf{B}\\
+\end{array}\right) \]
+26.(表述来自课后习题提示)假设存在$x_3\in M_3,$使得$ \varphi_3(x_3)=0,$那么由$0=\beta_3\varphi_3(x_3)=\varphi_4\alpha_3(x_3)$以及$\varphi_4$为单射可知,$\alpha_3(x_3)=0,$那么$x_3\in \ker \alpha_3=Im~\alpha_2$,则存在$x_2\in M_2,$使得$\alpha_2(x_2)=x_3$.然后又$\beta_2\varphi_2(x_2)=\varphi_3\alpha_2(x_2)=\varphi_3(x_3)=0$得到$\varphi_2(x_2)\in\ker \beta_2=Im~\beta_1$所以存在$y_1\in N_1,$使得$\beta_1(y_1)=\varphi_2(x_2),$而$\varphi_1$为满射,那么存在$x_1\in M_1$使得$\varphi_1(x_1)=y_1$,于是$\varphi_2(x_2)=\beta_1(y_1)=\varphi_1\beta_1(x_1).$而$\varphi_2$为单射.于是$x_3=\aleph_2(x_2)=\alpha_2\alpha_1(x_1)=0$,这说明$\varphi_3$为单射.\\
+(2)对于任意的$y_3\in N_3,$记$y_4=\beta_3(y_3)$.由于$\varphi_4$是满射,那么存在$x_4\in M_4,$使得$\varphi_4(x_4)=y_4.$于是$\varphi_5\alpha_4(x_4)=\varphi_4\beta_4(x_4)=\beta_4(y_4)=\beta_4\beta_3(y_3)=0$,再由$\varphi_5$为单射于是$\alpha_4x_4$,那么$x_4\in\ker \alpha_4=im\alpha_3.$则存在$x_3\in M_3,$使得$\alpha_3(x_3)=x_4.$所以$\varphi_3\beta_3(x_3)=\alpha_3\varphi_4=\varphi_4(x_4)=y_4=\beta_3(y_3),$那么$\beta_3(\varphi_3(x_3)-y_3)=0$,于是$\varphi_3(x_3)-y_3\in\ker\beta_3=im~\beta_2$.所以存在$y_2\in N_2,$使得$\varphi_3(x_3)-y_3=\beta_2(y_2).$所以$\varphi_3(x_3)-y_3=\beta_2(y_2)=\beta_2\varphi_2(x_2)=\varphi_3\alpha_2(x_2),$故$y_3=\varphi_3(x_2)-\varphi_3\alpha_2(x_2)=\varphi_3(x_3-\alpha_2x_2)\in im~\varphi_3$,于是$\varphi_3$为满射.\\
+28.(表述来自课后习题提示)$(1)\Rightarrow(2)$,由$P$为投射模可知$Hom(P,\cdot)$为正合函子.从而将正合列\ess{\ker\varphi}{id}{M}{\varphi}{P}变为正合列\ess{Hom(P,\ker\varphi)}{\tilde{id}}{Hpm(P,M)}{\tilde{\varphi}}{Hom(P,P)}.由$\ker\tilde{\varphi}=Im~\tilde{id}\neq\emptyset$于是对于$id_P\in Hom(P,P)$存在$\phi\in Hom(P,M)$使得$\tilde{\varphi}(\phi)=id_p$,即$\phi\varphi=id_P$.\\
+$(2)\Rightarrow(3)$,利用习题11我们知道$P$是某个自由$R$模$M$的同态像,即存在满同态$\varphi:M\rightarrow P.$于是存在模同态$\phi:P\rightarrow M,$使得$\phi\varphi=id_P.$我们证明$M=\ker\varphi\oplus P$.事实上,对于$x\in M$,记$p=\varphi(x)$我们有$\varphi(x-\phi(p))=\varphi(x)-\varphi\phi(p)=p-p=0,$这说明$x-\phi(p)\in\ker \varphi$于是$M=\ker\varphi+\phi(P)$,而当$x\in\ker\varphi\cap\phi(P)$时,有$\varphi(x)=0,$存在$p\in P$使得$\phi(p)=x$,那么$p=\varphi\phi(p)=\varphi(x)=0,x=\phi(p)=0.$于是上述为直和,注意到$\psi\varphi=id_P$,所以$\psi$为单射,那么$P\cong\psi(P)$,所以$M=\ker\varphi\oplus P.$\\
+(3)先证明自由模式投射模,设$F$是自由$R$模,$\varphi:M\rightarrow N\rightarrow 0$是$R$模的正合序列,$\alpha:F\rightarrow N$为模同态.证明存在模同态$\beta$
+设$S$是$F$的一组$R$基.由于$\varphi$为满射,故对任一$s\in S(\alpha(s)\in N)$,存在$x\in M$,使得$\varphi(x)=\alpha(s)$,令$\beta:F\rightarrow M,$满足$\beta(s)=x$.由于$S$的元素是$R$线性无关的,那么$\beta$良定义,显然有$\beta\varphi=\alpha$,所以$F$为投射模.设$P$为自由模$F$的直和因子,$F=P\oplus Q.$令$\pi$为$F$到$P$的投射,$l$为$P$到$F$的典范嵌入.那么$l\pi=id_P.$设$\varphi:M\rightarrow N\rightarrow 0$为$R$模得正合序列,$\gamma:P\rightarrow N$为模同态.则$\pi\gamma$为$F$到$N$的模同态.故存在模同态$\beta:F\rightarrow M,$使得$\beta\varphi=\pi\gamma.$于是$\gamma=(l\pi)\gamma=l(\pi\gamma)=l(\beta\varphi)=(l\beta)\varphi.$证毕.
+\end{document}

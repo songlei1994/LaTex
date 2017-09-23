@@ -1,0 +1,57 @@
+\documentclass[b5paper,twoside]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}\zihao{-4}~群表示论~\today}
+\fancyhead[LO]{\usebox{\mygraphic}\zihao{-4}~群表示论~\today}
+\fancyhead[RO,RE]{\zihao{-4} 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,headsep=0.5cm,footskip=1cm,left=1.0cm,right=1.0cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\zihao{-4}
+\noindent\\
+1.\\
+2.设$|G|=n$.对给定的$p\mid n$,构造$n$维$F_{p}-$向量空间$V=\{\sum_{i=1}^nf_ig_i|f_i\in F_p\}$.加法和数乘用自然的定义.我们给出$G\to GL(V)$的一个映射$\varphi$为
+\[\varphi(g)(\sum_{i=1}^nf_ig_i)=g(\sum_{i=1}^nf_ig_i)=\sum_{i=1}^nf_i(gg_i)\]
+容易验证这是一个单同态.再利用$GL(V)\cong GL(n,p)$,我们可以将$G$嵌入$GL(n,p)$,而$GL(n,p)$有一个Sylow-$p$子群$U$,使用练习1可知$G$存在Sylow-p子群.\\
+3.设$|G|=p^nm,p\nmid m.$将$Q$左乘作用到左陪集$G/P$上.由于每个轨道长都是$|Q|$的因子,由类方程可知,一定存在不动点.即存在左陪集$tP$使得$QtP=tP$,这说明$Q(tPt^{-1})=tPt^{-1}\Rightarrow Q\subset tPt^{-1}$,即$Q$包含在某个$Sylow-p$子群里.\\
+5.由于$N_G(P)\unlhd N_G(N_G(P))=N,$并且$P$也是$N_G(P)$的$Sylow-p$子群,由Frattini论断,我们有$N=N_G(P)\cdot N_N(P)\leq N_G(P)\cdot N_G(P)=N_G(P),$也就是说$N_G(N_G(P))\leq N_G(P),$那么$N_G(N_G(P))= N_G(P).$\\
+1.我们一步一步地去构造这些群,先取$Z(P)$的一个$p$阶元完成$a=1$的情形.设$N_a\unlhd P$,我们证明存在$N_{a+1}\unlhd P,$使得$N_a\leq N_{a+1}$.在商群$P/N_a$中,我们有$Z(P/N_a)$非平凡,取其中的一个$p$阶元$\overline{x}$,于是$\langle x\rangle\cap N_a=1$.令$N_{a+1}=\langle x\rangle N_a$,则$|N_{a+1}|=p\cdot p^a=p^{a+1}$,由对应原理,$\langle x\rangle\unlhd P/N_a \Rightarrow N_{a+1}\unlhd P$.\\
+2.计算$GL(n,p)$以及其子群$U$的阶数可知,$U$为其$Sylow~p$子群.我们使用归纳法证明$Z(U)=X_{1n}(\alpha)$.任取$Z\in Z(U),L\in U$,
+\[\left( \begin{array}{cc}
+1 & \alpha\\
+0 & Z_1\\
+\end{array}\right)\left( \begin{array}{cc}
+1 & \beta\\
+0 & L_1\\
+\end{array}\right)=\left( \begin{array}{cc}
+1 & \beta+\alpha L_1\\
+0 & Z_1L_1\\
+\end{array}\right) \]
+\[\left( \begin{array}{cc}
+1 & \beta\\
+0 & L_1\\
+\end{array}\right)\left( \begin{array}{cc}
+1 & \alpha\\
+0 & Z_1\\
+\end{array}\right)=\left( \begin{array}{cc}
+1 & \alpha +\beta I\\
+0 & L_1Z_1\\
+\end{array}\right) \]
+令$\beta=0$,我们有$\alpha L_1=\alpha$.注意到$L_1\in U_{n-1}$,通过计算可知$\alpha$只有最后一个分量不为零.再令$L_1=I$可知$\beta=\beta Z_1,\forall \beta\in F_p^{n-1}$,利用归纳假设$Z_1=X_{1(n-1)}(\alpha)$,那么$Z_1=I_{n-1}$.从而$Z=X_{1n}(\alpha)$.那么$Z(U)$的大小就为$p$.\\
+注意到$U$关于$X_{1n}(\alpha)$的左陪集具有如下的刻画:$\overline{X}\sim \overline{Y}\Leftrightarrow X\in YX_{1n}(\alpha)\Leftrightarrow X-Y\in E_{1n}(\alpha)$.这是由于右乘$X_{1n}(\alpha)$相当于将第一列的$\alpha$倍加到$n$列上.从而除$(1,n)$外的元素决定了它们的等价类.那么$\overline{X}~\overline{Y}=\overline{Y}~\overline{X}\Leftrightarrow XY-YX\in E_{1n}(\alpha)$.我们猜测$Z(U/Z(U))=\{I+aE_{1(n-1)}+bE_{2n}+cE_{1n}\}/X_{1n}(\alpha)$,大小为$p^2$.下证明之,依然使用数学归纳法去计算$Z_2(U)$.分块方式与之前完全一样,$Z\in Z_2(U),L\in U$.\textbf{注意到矩阵相等是等价类中的相等},利用$ZL-LZ\in E_{1n}(\alpha)$,我们只能得出$Z_1=\{X_{1(n-1)}(\alpha)\}$,同样令$\beta=0$,记$1\times (n-1)$维行向量族$E_{1(n-1)}(\alpha)$为$\overline{0}$.则$\alpha(L_1-I)=\overline{0},\forall L_1\in U_{n-1}$,那么此时$\alpha$的倒数两位都是自由的,其余为0.此为中心的必要条件,带回去验算可知也是充分的.这样我们计算出来$Z_2(U)=I+aE_{1(n-1)}+bE_{2n}+cE_{1n}$.将分块从$1,n-1$调整为$2,n-2$,使用相同的方法我们可以计算出$Z(U/Z_2(U))$阶为$p^3$.(关键在于通过修改矩阵相等的定义将陪集中的乘法拉回到原来的群中,这样就是可以计算的了).事实上,重复这样的步骤,最后我们能得到$Z_{n-1}(U)=U$.\\
+5.设幂零群$G=P_1\times P_2\times \cdots \times P_n$,任意的子群$L\leq G$,有$L=(L\cap P_1)\times (L\cap P_2)\times \cdots\times (L\cap P_n)$.由Sylow定理存在$g_i\in G$,使得$L\cap P_i^{g_i}=L\cap P_i$为$L$的Sylow-p子群,即$L$为其Sylow子群的直积,从而是幂零的.\\
+设$N\unlhd G$,注意到$G/N$中的极大子群均对应$G$中的极大子群,而由$G$中极大子群都是正规的,由对用原理$G/N$中的极大子群亦是正规的.从而$G/N$为幂零群.\\
+幂零群$H,K$是一些$p-$子群的直积,我们将其中$p$值相同的群利用直积的交换性与结合性合在在一起,于是$H\times K$是一些\textbf{极大的}$p$子群的直积(也就是Sylow-p子群),而且$p$值互不相同,即是它自身$Sylow-p$子群的直积.\\
+\end{document}

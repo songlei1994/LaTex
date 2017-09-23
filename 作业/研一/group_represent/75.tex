@@ -1,0 +1,43 @@
+\documentclass[b5paper,twoside]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}\zihao{-4}~群表示论~\today}
+\fancyhead[LO]{\usebox{\mygraphic}\zihao{-4}~群表示论~\today}
+\fancyhead[RO,RE]{\zihao{-4} 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,headsep=0.5cm,footskip=1cm,left=1.0cm,right=1.0cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\zihao{-4}
+\noindent\\
+\textbf{P95}\\
+1.由于$A^n$由$e_i$生成,那么任何从$A^n$出发的$A-$模同态都由$e_i$的像完全决定.$T$与$T(e_i)$相互确定,那么唯一性是可以保证的,至于存在性,只需注意到$A^n$的一组基为$e_i$,也就是说$A^n$中元素表为$e_i$的$A-$线性组合的方式是唯一的,那么利用$e_i$进行$A-$线性扩充自然是良定义的.\\
+2.记$U$的一组基为$e_1,e_2,\cdots e_n$,那么$U=Fe_1+Fe_2+\cdots +Fe_n$,记$Ae_1+Ae_2+\cdots +Ae_n=\tilde{U}$我们只需证明$B=\tilde{U}$即可,如果不是,考虑$U\to A^n$的线性映射$e_i\to x_i$,其中$x_i$为$A^n$的一组基,考虑它的扩充,由1的论证可知进行$A-$线性扩充时只确定了$\tilde{U}$上的取值.事实上$B/\tilde{U}\to A^n$的每一个映射都能给出$T$的一个扩充,那么由唯一性取零同态是唯一的方法,这说明$B/\tilde{U}=0\Rightarrow B=\tilde{U}$.由可扩充性可知$e_i$是$A-$线性无关的,否则存在$\sum_{i=1}^nAe_i=0\Rightarrow \sum_{i=1}^nAx_i=0$,与$x_i$的$A-$线性无关性矛盾.\\
+3.记列向量$V_i(F)$为前$i$个分量不为零,后面全为0的向量构成的集合,容易验证这是$T_n(F)$模,而且$V_n(F)\geq V_{n-1}(F)\geq \cdots \geq V_1(F)\geq 0$为$T_n(F)-$模$V_n(F)$的合成列.这是由于$V_{i}/V_{i-1}=F\overline{e_i}$,若它含有子模,那么子模中存在向量$\overline{\alpha}$第$i$个分量不为零记为$x$,那么$E_{ii}(x^{-1})\overline{\alpha}=\overline{E_{ii}(x^{-1})\alpha}=\overline{e_i}$,从而子模就是$V_i/V_{i-1}$.下证它们互不同构,若有$V_i/V_{i-1}\cong V_j/V_{j-1}$,记同构映射为$\varphi$,那么$\varphi(M\overline{e_i})=M\varphi(\overline{e_j})=M\overline{e_j}$,但是左边为$\varphi(m_{ii}\overline{e_i})=m_{ii}\varphi(\overline{e_i})=m_{ii}\overline{e_j}$,而右边为$m_{jj}$,自然是不相同的,所以,合成因子是互不相同的单$T_n(F)-$模.\\
+对于单模$M$来说$M\cong T_n(F)/Ann(M)$,通过计算,我们得出了$V_i/V_{i-1}$的零化子,它们形如
+\[\left( \begin{array}{cccc}
+a_{11} & a_{12} & a_{13} & a_{1n}\\
+0 & a_{22} & a_{23}& a_{2n}\\
+0 & 0 & 0&  a_{in}\\
+0 & 0 & 0  &　a_{nn}\\
+\end{array}\right) \]
+即由那些$(i,i)$元全为$0$的上三角矩阵组成的集合,共有$n$个.
+而且由单模的定义可知(作为$F-$线性空间,这些集合也是极大的线性子空间),这些零化子都是极大理想.\textbf{我们证明$V_n(F)$的所有极大左理想就是这些零化子.}\\
+设$K$为$V_n(F)$的一个极大左理想,考虑$K$中元素的主对角线的性质,若不存在某个$i$,使得$K$中所有元素的$(i,i)-$元全为零,那么我们证明$K=V_n(F)$,为此只需证明$\{E_{ij}(1),i\leq j\}\subset K$即可,首先$E_{ii}(1)\in K$是由于$E_{ii}(x^{-1})M=E_{ii}(1),x=m_{ii}$,然后由$E_{ij}(1)E_{jj}(1)=E_{ij}(1)$可得结论.那么我们便证明对于$V_n(F)$的极大理想,一定存在某个$i$使得其中元素的$(i,i)$元全为零,而且不能有两个,不然就会包含在上述的零化子之内.于是$V_n(F)$只有$n$个极大理想,从而至多有$n$个互不同构的单模.\\
+4.将$T_n(F)$中的矩阵写为列向量形式,$(\alpha_1,\alpha_2,\cdots,\alpha_n)$,\\
+注意到矩阵的分块乘法$M(\alpha_1,\alpha_2,\cdots,\alpha_n)=(M\alpha_1,M\alpha_2,\cdots,M\alpha_n)$,由此不难看出$T_n(F)\cong V_1(F)\bigoplus V_2(F)\bigoplus \cdots \bigoplus V_n(F)$.\\
+5.对于幂零理想$\mathfrak{I}$,由于存在$m\in \mathbb{N},$使得$\mathfrak{I}^m=0$,那么任取$a\in \mathfrak{I}$,有$tr((E_{ii}a)^m)=tr(E_{ii}^ma^m)=0$,这说明$a_{ii}=0$,也就是说$a$的对角线元素全为零,不难证明对角线元素全为零的矩阵构成的理想是幂零的,记为$J$,自然是最大的.在2中我们已经证明了这就是所有单$T_n(F)$代数的公共零化子.而且$T_n(F)/J$是半单的,如果有理想$K$使得$T_n(F)/K$半单,由于$J$零化所有的单代数,所以$J$零化半单代数,于是$J(T_n(F)/K)=0$,即$JT_n(F)\subset K\Rightarrow J\subset K$,这就说明了$J$是最小的.\\
+9.充分性:任取子模$N$中不为零的元素$x$,有$A=Ax^{-1}x\subset AN=N$,于是$N=A$,从而可除代数是单模.\\
+必要性:由$A$为单模可知$A$没有非零的幂零理想,从而$A$作为代数是有单位元的.同时由$A\cong A/Ann(A)$,从而$Ann(A)=0$.于是存在$x\in A,Ax\neq 0$,那么由单性$Ax=A$,那么存在$x^{-1}x=1$,于是$1\in Ax^{-1}\Rightarrow Ax^{-1}=A$,从而存在$y\in A,$使得$yx^{-1}=1\Rightarrow y=x$.如果存在$t\in A,At=0$,那么$xt=0\Rightarrow x^{-1}xt=0\Rightarrow t=0$,矛盾,这说明所有的非零元都有左逆,利用与$x$相同的方法可证明所有的非零元具有逆.这就说明了$A$为可除代数.
+\end{document}

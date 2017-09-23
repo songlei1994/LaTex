@@ -1,0 +1,41 @@
+\documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}}
+\fancyhead[LO]{\usebox{\mygraphic}}
+\fancyhead[RO,RE]{ \zihao{-4}宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,left=0.7cm,right=0.7cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\usepackage{exscale} 
+\usepackage{relsize}
+\usepackage{fourier} 
+\begin{document}
+\pagestyle{plain}
+\noindent
+\zihao{-4}
+1.构造一个$\mathbb{R}P^n$上有$n+1$个临界点的Morse函数.\\
+我们在$S^n$上定义$f$,使得它在对径点上取值相同,那么$f$可以诱导$\mathbb{R}P^n$上的一个$Morse$函数.为此分奇偶.若为$n$为奇数,令$f(x)=\mathlarger{\int} x_1(x_1^2-1)\prod\limits_{i=2}^{(n-1)/2}(x_1^2-\dfrac{i^2}{n^2})dx_1+\sum\limits_{i=2}^{n-1}x_i^2$,容易验证,临界点为
+$(x_1,x_2,\cdots,x_n)=(0,0,\cdots,0,\pm 1),(\pm\dfrac{i}{n},0,\cdots,0,\pm \sqrt{1-\dfrac{i^2}{n^2}}),(\pm1,0,\cdots,0)$,然后粘合对径点,我们得到$\mathbb{R}P^n$上的函数,有$n+1$个临界点.\\
+对于$n$为偶数时$f(x)=\cos[(2n+2)\pi x_1]+\sum\limits_{i=2}^{n-1}x_i^2$,不难验证此时也有$n+1$个临界点.\\
+2.设$\{X_1,X_2\}$为$MV$耦,$H_*(X_1),H_*(X_2),H_*(X_1\cup) X_2),H_*(X_1\cap X_2)$有限生成,证明:$\chi(X_1\cap X_2)+\chi(X_1\cup X_2)=\chi(X_1)+\chi(X_2)$.\\
+在$MV$序列上计算即可得到结论,在$MV$耦链复形的正合列中
+我们知道$h_{\#}$为单射,$k_{\#}$为满射,再由链映射诱导同调群同态的定义,我们不难知$h_*$为单射,$k_*$为满射.那么对于短正合列
+\[H_{q+1}(X_1\cup X_2)\xrightarrow{\partial_*}H_q(X_1\cap X_2)\xrightarrow{h_*}H_q(X_1)\oplus H_q(X_2)\xrightarrow{k_*}H_{q}(X_1\cup X_2)\xrightarrow{\partial_*}H_{q-1}(X_1\cap X_2)
+\]
+是可以将两端改为$0$的,我们得到
+\[0\rightarrow H_q(X_1\cap X_2)\xrightarrow{h_*}H_q(X_1)\oplus H_q(X_2)\xrightarrow{k_*}H_{q}(X_1\cup X_2)\rightarrow 0
+\]
+每项都是有限生成的.利用第五章定理5.3,有$rank(H_q(X_1\cap X_2))+rank(H_q(X_1\cup X_2))=rank(H_q(X_1)\oplus H_q(X_2))=rank(H_q(X_1))+rank(H_q(X_2))$将此等式代入$Euler$示性数的计算公式就能得到$\chi(X_1\cap X_2)+\chi(X_1\cup X_2)=\chi (X_1)+\chi(X_2).$\\
+3.设$\mathscr{H}$为广义同调论,$f:(S^n,pt)\to (S^n,pt)$为自映射.证明:$\mathscr{H}(f)=\deg f,\mathscr{H}_p(S^n,pt)\to \mathscr{H}_p(S^n,pt)$,其中映射度由奇异同调给出.\\
+如果是同调论,$f_*=\deg f$是很容易证明的,这是由于我们有引理:对于$CW$复形耦,任一同调论有自然同构$\mathscr{H}_p(X,A)\cong H^{sing}_p(X,A;G)$,从而$f$诱导出相同的同调群同态.这样我们就只需对奇异同调进行证明,而我们知道映射度就是用整系数奇异同调定义的,使用万有系数定理我们可以验证对于$G$系数同调也是成立的.而如果是广义同调论,由于没有了维数公理,似乎很难建立与奇异同调的关系,自然也是很难证明$f_*=\deg f$.
+
+\end{document}

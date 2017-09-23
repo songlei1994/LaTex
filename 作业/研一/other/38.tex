@@ -1,0 +1,110 @@
+\documentclass{ctexbook}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs} %为了预览
+\newcommand{\reflem}[1]{引理(\ref{#1})} %带括号的引理 \eref
+\usepackage{nameref}%提供\nameref 
+%更大的数学符号
+\usepackage{exscale}
+\usepackage{relsize}
+%选择用环境
+\usepackage{ifthen}
+\newlength{\la}
+\newlength{\lb}
+\newlength{\lc}
+\newlength{\ld}
+\newlength{\lhalf}
+\newlength{\lquarter}
+\newlength{\lmax}
+\newcommand{\xx}[4]{
+  \settowidth{\la}{A.~#1~~~}
+  \settowidth{\lb}{B.~#2~~~}
+  \settowidth{\lc}{C.~#3~~~}
+  \settowidth{\ld}{D.~#4~~~}
+  \ifthenelse{\lengthtest{\la > \lb}}  {\setlength{\lmax}{\la}}  {\setlength{\lmax}{\lb}}
+  \ifthenelse{\lengthtest{\lmax < \lc}}  {\setlength{\lmax}{\lc}}  {}
+  \ifthenelse{\lengthtest{\lmax < \ld}}  {\setlength{\lmax}{\ld}}  {}
+  \setlength{\lhalf}{0.5\linewidth}
+  \setlength{\lquarter}{0.25\linewidth}
+  \ifthenelse{\lengthtest{\lmax > \lhalf}}  {\noindent{}A.~#1 \\ B.~#2 \\ C.~#3 \\ D.~#4 }  {
+  \ifthenelse{\lengthtest{\lmax > \lquarter}}  {\noindent\makebox[\lhalf][l]{A.~#1~~~}%
+    \makebox[\lhalf][l]{B.~#2~~~}%
+    \makebox[\lhalf][l]{C.~#3~~~}%
+    \makebox[\lhalf][l]{D.~#4~~~}}%
+    {\noindent\makebox[\lquarter][l]{A.~#1~~~}%
+      \makebox[\lquarter][l]{B.~#2~~~}%
+      \makebox[\lquarter][l]{C.~#3~~~}%
+      \makebox[\lquarter][l]{D.~#4~~~}}}}
+\theoremstyle{plain}
+  \newtheorem{algo}{算法~}[chapter]
+  \newtheorem{thm}{定理~}[chapter]
+  \newtheorem{lem}[thm]{引理~}
+  \newtheorem{prop}{性质~}[chapter]
+  \newtheorem{cor}[thm]{推论~}
+  
+\theoremstyle{definition}
+  \newtheorem{defn}{定义~}[chapter]
+  \newtheorem{conj}{猜想~}[chapter]
+  \newtheorem{exmp}{例~}[chapter]
+  \newtheorem{rem}{注~}
+  \newtheorem{case}{情形~}
+ \usepackage[top=3cm,headheight=5mm,headsep=4mm,footskip=8mm,bottom=1.8cm,left=2.7cm,right=2.7cm]{geometry}
+\usepackage{nameref}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs} 
+\usepackage{setspace}
+\begin{document}
+\title{2013年北约自主招生数学试题与答案}
+1.以$\sqrt{2}$和$1-\sqrt[3]{2}$为两根的有理多项式的次数最小是多少?\\
+\xx{2}{3}{5}{6}\\
+解析:显然,多项式$f(x)=(x^2-2)[(1-x)^3-2]$的系数均为有理数,且有两根分别为$\sqrt{2}$和$1-\sqrt[3]{2}$.于是知,以$\sqrt{2}$和$1-\sqrt[3]{2}$为两根的有理多项式的次数最小可能值不大于5.
+若存在一个次数不超过4的有理多项式$g(x)=ax^4+bx^3+cx^2+dx+e$,其两根分别为$\sqrt{2}$和$1-\sqrt[3]{2}$,其中$a,b,c,d,e$不全为0,则:
+\[g(\sqrt{2})=(4a+2c+e)+(2b+d)\sqrt{2}=0 \Rightarrow \left\lbrace  \begin{array}{l}4a+2c+e=0\\2b+d=0\end{array} \right. \]
+\[g(1-\sqrt[3]{2}=-(7a+b-c-d-e)-(2a+3b+2c+d)\sqrt[3]{2}+(6a+3b+c)\sqrt[3]{4}=0\]
+\[\Rightarrow \left\lbrace \begin{array}{l}
+7a+b-c-d-e=0\\
+2a+3b+2c+d=0\\
+6a+3b+c
+\end{array}\right.\]即方程组:
+\[ \left\lbrace \begin{array}{lr}
+4a+2c+e=0&(1)\\
+2b+d=0&(2)\\
+7a+b-c-d-e=0&(3)\\
+2a+3b+2c+d=0&(4)\\
+6a+3b+c&(5)
+\end{array}\right.\]
+有非0的有理数解.
+由$(1)+(3)$得:$11a+b+c-d=0(6)$
+由$(6)+(2)$得:$11a+3b+c=0$
+由$(6)+(4)$得:$13a+4b+3c=0$
+由$(7)-(5)$得:$a=0$,代入$(7),(8)$得$b=c=0$,代入$(1),(2)$知:$d=e=0$.于是知$a=b=c=d=e=0$,与$a,b,c,d,e$不全为0矛盾.所以不存在一个次数不超过4的有理多项式$g(x)$,以$\sqrt{2}$和$1-\sqrt[3]{2}$为两根.
+综上所述,以$\sqrt{2}$和$1-\sqrt[3]{2}$为两根的有理多项式的次数最小为5.
+2.在$6X6$的表中停放3辆完全相同的红色车和3辆完全相同的黑色车,每一行每一列只有一辆车,每一辆车占一格,共有几种停放方法?\\
+\xx{720}{20}{518300}{14400}\\
+解析:先从6行中选取三行停放红色车,有$C^3_6$种选择.最上一行的红色车位置有6种选择;最上面一行的红色车位置选定后,中间一行红色车位置有5种选择;上面两行的红色车位置选定后,最下面一行的红色车位置有4种选择.3两红色车的位置选定后,黑色车的位置有$3!=6$种选择.所以共有$C_6^3\times 6\times 5\times 4 \times 6 =14400$种停放汽车方法.\\
+3.已知$x^2=2y+5,y^2=2x+5$,求$x^3-2x^2y^2+y^3$的值.\\
+\xx{10}{12}{14}{16}\\
+解析:根据条件知\\
+$x^3-2x^2y^2+y^3=x(2y+5)-2(2y+5)(2x+5)+y(2x+5)=15x-15y-4xy-50$,由$x^2=2y+5,y^2=2x+5$,两式相减得$(x-y)(x+y)=2y-2x$,故$y=x$或$x+y=-2$
+\begin{itemize}
+\item[(1)]
+若$x=y$则$x^2=2x+5$,解得$x=y=1+\sqrt{6}$或$x=y=1-\sqrt{6}.$\\
+当$x=y=1+\sqrt{6}$时,
+\[\begin{array}{l}
+x^3-2x^2y^2+y^3=-4xy+15(x+y)-50=-4x^2-30x-50\\
+=-4(x^2-2x-5-38x-70)-38x-70=-38x-70=-108-38\sqrt{6}
+\end{array}\]
+当$x=y=1-\sqrt{6}$时,\\
+\[\begin{array}{l}
+x^3-2x^2y^2+y^3=-4xy+15(x+y)-50=-4x^2-30x-50=-4(x^2-2x-5-38x-70)-38x-70\\
+x^2+y^2=(2y+5)-(2x+5)=2(y-x)\Rightarrow x+y=-2=-38x-70=-108+38\sqrt{6}
+\end{array}\]
+\item[(2)]
+若$x\neq y$,则根据条件知:$x^2+y^2=(2y+5)-(2x+5)=2(y-x)\Rightarrow x+y=-2$,于是$x^2+y^2=(2y+5)-(2x+5)=2(x+y)+10=6$.
+进而知$xy=\frac{(x+y)^2-(x^2+y^2)}{2}=-1$
+\end{itemize}
+于是知:$x^3-2x^2y^2+y^3=4xy-15(x+y)-50=-16$.
+综上所述,$x^3-2x^2y^2+y^3$的值为$-108\pm 38\sqrt{6}$或$-16$\\
+4.数列$\{a_n\}$满足$a_1=1$,前$n$项和为$S_n$,$S_{n+1}=4a_n+2$,求$a_{2013}$.\\
+\xx{$3019 \times 2^{2012}$}{$3019 \times 2^{2013}$}{$3018 \times 2^{2012}$}{无法确定}\\
+解析:根据条件知:$4a_{n+1}+2=S_{n+2}=a_{n+2}+S_{n+1}=a_{n+2}+4a_n+2 \Rightarrow a_{n+2}=4a_{n+1}-3a_n$.又根据条件知:$a_1=1,S_2=a_1+a_2=4a_1+2 \Rightarrow a_2=5$.所以数列$\{a_n\}$:$a_1=1,a_2=5,a_{n+2}=4a_{n+1}-4a_n$.又$a_{n+2}=4a_{n+1}-4a_n \Leftrightarrow a_{n+2}-2a_{n+1}=2(a_{n+1}-2a_n)$.令$b_n=a_{n+1}-2a_n$,则$b_{n+1}=2b_n,b_1=a_2-2a_1=3$,所以$b_n=3\cdot 2^{n-1}$.即$a_{n+1}-2a_n=3 \cdot 2^{n-1}$.对$a_{n+1}-2a_n=3 \cdot 2^{n-1}$,两边同时除以$2^{n+1}$,有$\frac{a_{n+1}}{2^{n+1}}-\frac{a_n}{2^n}=\frac{3}{4}$.令$c_n=\frac{a_n}{2^n}$,则$c_{n+1}=c_n+\frac{3}{4}$,$c_1=\frac{a_1}{2}=\frac{1}{2}$,于是知$c_n=\frac{1}{2}+\frac{3}{4}(n-1)=\frac{3n-1}{4}$.所以$a_n=\frac{3n-1}{4} \cdot 2^n=3n-1\cdot 2^{n-2}$.于是知$a_{2013}=(3 \times 2013-1)\cdot 2^{2011}=3019 \times 2^{2012}$\\
+5.\\
+6.
+\end{document}

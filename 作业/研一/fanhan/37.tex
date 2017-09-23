@@ -1,0 +1,118 @@
+\documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\usepackage{exscale} 
+\usepackage{relsize}
+%\usepackage{fourier} 
+\usepackage{tikz}
+\usepackage{wrapfig}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}}
+\fancyhead[LO]{\usebox{\mygraphic}}
+\fancyhead[RO,RE]{ \zihao{4}宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,left=0.7cm,right=0.7cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\noindent
+\zihao{4}
+6.2.5~记$f(z)=\sum\limits_{n=0}^{\infty}c_nz^n$.那么$(Af)(z)=i\sum\limits_{n=0}^{\infty}(2\sum\limits_{k=0}^{n-1}c_k+c_n)z^n$.直接计算有$(U(A+iI)f)(z)=\left( U\left( \dfrac{2i}{1-z}f(z)\right) \right)=\dfrac{2iz}{1-z}f(z),((A-iI)f)(z)=\dfrac{2iz}{1-z}f(z) $,因此$A-iI=U(A+iI)$,这说明$U=(A-iI)(A+iI)^{-1}$为$A$得Caley变换.而$R(A+iI)$由多项式组成,而$R(A-iI)$由哪些常数项为零的多项式组成.\\
+6.2.0~(1)开集:设$\lambda_0\in\rho(A)$,则
+\[\begin{array}{rl}
+\lambda I-A&=(\lambda-\lambda_0)I+(\lambda_0I-A)\\
+&=(\lambda_0I-A)[I+(\lambda-\lambda_0)(\lambda_0I-A)^{-1}]
+\end{array}\]
+当$|\lambda-\lambda_0|<||(\lambda_0I-A)^{-1}||^{-1}$时,\[B\triangleq [I+(\lambda-\lambda_0)(\lambda_0I-A)^{-1}]^{-1}\in \mathscr{L}(\mathscr{H})\]
+从而
+\[(\lambda I-A)^{-1}=BR_{\lambda_0}(A)\in \mathscr{L}(\mathscr{H})\]
+(2)第一预解公式.直接计算
+\[\begin{array}{rl}
+(\lambda I-A)^{-1} &=(\lambda I-A)^{-1}(\mu I-A)(\mu I-A)^{-1}\\
+& =(\lambda I-A)^{-1}((\mu-\lambda)I+\lambda I-A)(\mu I-A)^{-1}\\
+&　＝(\mu-\lambda)(\lambda I-A)^{-1}(\mu I-A)^{-1}+(\mu I-A)^{-1}
+\end{array}\]
+即$R_{\lambda}(A)-R_{\mu}(A)=(\mu-\lambda)R_{\lambda}(A)R_{\mu}(A).$\\
+(3)算子值解析函数
+(1)先证$R_{\lambda}(A)$连续.设$\lambda_0\in\rho(A)$,我们有
+\[\begin{array}{rl}
+||R_{\lambda}||&\leq ||R_{\lambda_0}(A)||~||(I+(\lambda-\lambda_0)R_{\lambda_0}(A)^{-1}
+)||\\
+&\leq 2||R_{\lambda_0}(A)||\left( \text{只要}|\lambda-\lambda_0|<\dfrac{1}{2||R_{\lambda_0}(A)||}\right). 
+\end{array}\]
+再由第一预解公式,便得
+\[\begin{array}{rl}
+||R_{\lambda}(A)-R_{\lambda_0}(A)||& \leq |\lambda-\lambda_0|~||R_{\lambda}(A)||~||R_{\lambda_)}(A)||\\
+& \leq 2||R_{\lambda_0}(A)||^2|\lambda-\lambda_0|\to 0~(\lambda\to \lambda_0)
+\end{array}\]
+(2)再证可微性.又应用第一预解公式
+\[\lim_{\lambda\to \lambda_0}\dfrac{R_{\lambda}(A)-R_{\lambda_0}(A)}{\lambda-\lambda_0}=-\lim_{\lambda\to\lambda_0}R_{\lambda}(A)R_{\lambda_0}(A)=-R_{\lambda_0}(A)^2.\]
+6.3.7~$\Rightarrow$因为$\lambda_0\in\sigma_p(N),\exists x_0\in \mathscr{H},x_0\neq \theta,$使得$Nx_0=\lambda_0x_0.$令
+\[f_n(z)=\left\lbrace \begin{array}{ll}
+1/(\lambda_0-z), & z\not\in B\left( \lambda_0,\dfrac{1}{n}\right)\\
+0, & z\in B\left( \lambda_0,\dfrac{1}{n}\right)
+\end{array}\right. \]
+其中$B\left(\lambda_0,\dfrac{1}{n} \right) $是圆心在$\lambda_0$,半径为$\dfrac{1}{n}$的圆盘.于是$f_n\in B(\sigma(N)),f_n(N)(\lambda_0 I-N)=E\left( \mathbb{C}/B\left( \lambda_0,\dfrac{1}{n}\right) \right)$,从而$E\left( \mathbb{C}/B\left( \lambda_0,\dfrac{1}{n}\right) \right)x_0=0$,令$n\to \infty,$得到$E(\mathbb{C}/\{\lambda_0\})x_0=0.$但我们有$E(\sigma(N))x_0=E(\mathbb{C})x_0=x_0$,故推得$E(\{\lambda_0\})x_0=x_0$\\
+$\Leftarrow$因为$E(\{\lambda_0\})\neq 0$,可取$x_0\in E(\{\lambda_0\})\mathscr{H},x_0\neq\theta.$则$x_0=E(\{\lambda_0\})x_0,$由谱分解定理和投影算子的代数运算,
+\[\begin{array}{rl}
+Nx_0 & =\mathlarger{\int}_{\sigma(N)}zdE(z)x_0\\
+& =\mathlarger{\int}_{\sigma(N)}zdE(z)E(\{\lambda_0\})x_0\\
+& =\lambda_0E(\{\lambda_0\})x_0\\
+& =\lambda_0x_0,
+\end{array}\]
+即$\lambda_0\in\sigma_p(N).$证毕.\\
+(2)假若不然,设$\lambda_0\in\sigma_r(N),$则$\overline{\lambda_0 I-N}\neq \mathscr{H},$而且$\ker (\lambda_0 I-N)=\{\theta\}.$因此$\ker (\overline{\lambda_0}I-N^*)=Ran (\lambda_0-N)^{\perp},$所以$\overline{\lambda_0}\in\sigma_p(N^*)$.记$E_{N^*}$为与$N^*$相关的谱族,按照定理5.5.19,$E_{N^*}(\{\overline{\lambda_0}\})\neq 0$,然而$E_{N}(\lambda)=E_{N^*}(\{\overline{\lambda_0}\})$,于是由定理5.5.19,$\lambda_0\in\sigma_p(N),$矛盾!故$\sigma_r(N)=\emptyset$\\
+6.3.8~充分性是显然的,因为当$\lambda_0$是有限重次孤立特征值时,$\exists $Borel邻域$U'$,$U'\cap \sigma(N)=\{\lambda_0\}$,$E(U')\mathscr{H}=E(\{\lambda_0\})\mathscr{H}=\ker(\lambda_0 I-N),$所以$\dim E(U')\mathscr{H}<\infty$\\
+下证明必要性.设$\lambda_0\in\sigma_d(N),U$为$\lambda_0$的邻域,使得$\dim E(U)\mathscr{H}<+\infty$.若$\lambda_0$不为孤立点,那么存在$\lambda_n\in\sigma(N),n=1,2,\cdots,\lambda_n\to \lambda,$而且诸$\lambda_n$互不相同.不妨设$\lambda_n\in U$.取$\lambda_n$的开邻域$K_n$,使得诸$K_n$互不相交,而且$K_n\subset U,n=1,2,\cdots.$根据定理5.5.21知$\forall n,E(K_n)\neq 0.$显然当$n\neq m$时,$E(K_n)\mathscr{H}$与$E(K_m)\mathscr{H}$正交,故$\dim E(\bigcup\limits_{i=1}^{\infty})\mathscr{H}=+\infty,$这与所设矛盾.因此$\lambda_0$必为$\sigma(N)$的孤立点,\\
+又由$\dim E(\{\lambda_0\})\mathscr{H}\leq \dim E(U)\mathscr{H}<+\infty,$可知$\lambda_0$是有限重特征值.\\
+6.3.11~证明如定理6.3.3.由于$f_n$是有界的,所以$D_f=D_{f-f_n}$.对于任意的$x\in D_f$,由控制收敛定理,当$n\to \infty$我们有\\
+\[||\Phi(f)x-\Phi(f_n)x||\leq\mathlarger{\int}|f-f_n|^2d||E(z)x||^2\to 0\]
+也就是$\Phi(f)=s-\lim \Phi(f_n)$\\
+6.4.1~(1)不难看出$D$稠于$\mathscr{H}$,并且$A=\sum\limits_{n=1}^{\infty}A_n$是线性的.这里的直和是按外直和来理解的.求和号中$u_n$实际上为$(0,\cdots,u_n,\cdots)$,而$(u_1,u_2,\cdots)$与$(v_1,v_2,\cdots)$的内积为$\sum(u_i,v_i)$.
+\[\begin{array}{rl}
+(Ax,y)&=(\sum A_nx_n,y)=\sum(Ax_n,y_n)=\sum(x_n,Ay_n)\\
+&=(x,\sum A_ny_n)=(x,Ay),\forall x,y\in D
+\end{array}\]
+所以$A$是对称的.\\
+(2)我们先证明$n_+(A)=\sum\limits_{n=1}^\infty n_+(A_n)$,等价于$\ker (A^*-iI)=\bigoplus\limits_{n=1}^\infty\ker(A^*_n-iI)$.而$\ker (A^*-iI)=R(A+iI)^\perp.$任取$v=(v_1,v_2,\cdots)\in R(A+iI),$那么$\sum((A_n+iI)u_n,v_n)=0,\forall (u_1,u_2,\cdots)\in D$,由此$((A_n+iI)u_n,v_n)=0.\forall n,\forall u_n\in D(A_n).$这说明$v_n\in R(A_n+iI)^\perp$.故$\ker (A^*-iI)\subseteq \sum\limits_{i=1}^\infty \ker(A^*_n-iI).$\\
+对于另一半,令$v_n\in\ker(A^*_n-iI)=R(A+iI)^\perp.$那么$((A_n+iI)u_n,v_n)=0,\forall u_n\in D(A_n)$,那么$\sum((A_n+iI)u_n,v_n)=0\forall (u_1,u_2,\cdots)\in D$,这说明$\sum\limits_{i=1}^\infty \ker(A^*_n-iI)\subseteq \ker(A^*-iI)$\\
+如果$(A+iI)(u_1,u_2,\cdots)=0$那么$((A_1+iI)u_1,(A_2+iI)u_2,\cdots)=0$,这说明$\forall n,(A_n+iI)u_n=0$,由于$A_n$是对称的,于是$u_n=0$,所以这是一个直和.\\
+6.4.3~(1)由于积分与数乘以及加法是可交换的,我们证明微分算子$i^n\dfrac{d^n}{dx^n}$是对称的即可,利用分步积分可以证明.\\
+(2)这是由于在没有奇数项时$\overline{Au}=A\overline{u}\forall u\in D(A)$,那么$A$可有自伴扩张,亏指数自然是相同的.\\
+(3)不会.\\
+6.4.9~(1)设在内积$(\cdot,\cdot)_A$诱导的范数下$x_n\to x,y_n\to y$,那么在通常范数下$x_n\to x,y_n\to y,A^*x_n\to Ax,A^*y_n\to A^*y$.在由通常内积的连续性,我们有
+\[\{x_n,y_n\}=(A^*x_n,y_n)-(x_n,A^*y_n)\to (A^*x,y)-(x,A^*y)=\{x,y\}\]
+即$(\cdot,\cdot)_A$是连续的.\\
+(2)注意到$D(A^*)$在图模下是完备的,而$D(A_1)\subset D(A^*)$,所以$D(A_1)$完备$\Leftrightarrow$$D(A_1)$在图模下是闭的.\\
+6.4.11~不妨假设$A$为闭算子,而$A^2$对称是显然的.定义$a(u,v)=(A^2u,v)+(u,v)$,那么$a(u,v)$为定义在$D(A^2)\subseteq D(A)$上的正定共轭二次型.记$D$为$D(A)$在$a(u,v)$导出的范数下的闭包.注意到$a(u,u)=||Au||^2+||u||^2$,而此范数与图模等价,所以$D(A)$是闭的.而$D$为$D(A)$中包含$D(A^2)$的闭子集的交.在图模下也是闭的.我们说明$D=D(Q)$,其中$Q$如性质6.4.21中所定义的.显然$D\subseteq D(Q)$,再由$D(Q)$是闭的且稠于$D(A)$可知$D(Q)\subseteq D$.再由扩张的唯一性,$A^*A$为$A^2$的自伴扩张.\\
+6.4.13~设$A_1$为$A$的自伴扩张,由EX10我们有$D(A_1)=D(A)\oplus S$,这里$S$为有限维线性空间.设$M$为$A$的下界,任取$K<M$.记$E$为自伴算子$A_1$的谱测度,那么$\dim E((-\infty,K])
+\leq\dim K$,如若不然,由EX6.4.4,我们可以找到$x\in D(A)\cap R(E((-\infty,K])$,那么\\
+\[\begin{array}{l}
+(Ax,x)=(A_1x,x)=\mathlarger{\int}_{\mathbb{R}}zd||E(z)x||^2
+=\mathlarger{\int}_{(-\infty,K]}zd||E(z)x||^2\\
+\leq K\mathlarger{\int}_{(-\infty,K]}d||E(z)x||^2=K\mathlarger{\int}_{\mathbb{R}}d||E(z)x||^2=K||x||^2<M(x,x)
+\end{array}\]
+这与$A\geq M$矛盾,于是$\dim E((-\infty,K))<\infty$.这就说明$\sigma(A_1)\cap (-\infty,K]$只有有限个元素$\lambda_1,\cdots,\lambda_n$,都是孤立点,从而全为特征值.记$M'=\min \{\lambda_1,\cdots,\lambda_n,K\}$,那么由
+\[\begin{array}{rl}
+(A_1x,x)&= K\mathlarger{\int}_{\mathbb{R}}zd||E(z)x||^2=K\mathlarger{\int}_{(-\infty,K]}d||E(z)x||^2+K\mathlarger{\int}_{(K,+\infty]}d||E(z)x||^2\\
+&=\sum\limits_{i=1}^n\lambda_i||E(\{\lambda_i\})x||^2+K\mathlarger{\int}_{(K,+\infty)}d||E(z)x||^2\\
+&\geq M'\sum\limits_{i=1}^n||E(\{\lambda_i\})x||^2+M'\mathlarger{\int}_{(K,+\infty)}d||E(z)x||^2\\
+&=M'\mathlarger{\int}_{\mathbb{R}}d||E(z)x||^2=M'(x,x)
+\end{array}\]
+可知$A_1\geq M'$.\\
+6.4.17~对于$\langle f_1,f_2\rangle,\langle g_1,g_2\rangle\in D(A)$,我们有\\
+\[\begin{array}{rl}
+(iA\langle f_1,f_2\rangle,\langle g_1,g_2\rangle) &=(i\langle f_2,\Delta f_1\rangle,\langle g_1,g_2\rangle)\\
+&=i\mathlarger{\int}_{\mathbb{R}^3}(\nabla f_2\cdot \overline{\nabla g_1}+\Delta f_1\cdot\overline{g_2})dx\\
+&=-i\mathlarger{\int}_{\mathbb{R}^3}( f_2\cdot \overline{\Delta g_1}+\nabla f_1\cdot\overline{\nabla g_2})dx\\
+&=(\langle f_1,f_2\rangle,\langle g_2,\Delta g_1\rangle)\\
+&=(\langle f_1,f_2\rangle,iA\langle g_1, g_2\rangle)
+\end{array}\]
+\end{document}

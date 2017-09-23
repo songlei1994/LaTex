@@ -1,0 +1,56 @@
+\documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}}
+\fancyhead[LO]{\usebox{\mygraphic}}
+\fancyhead[RO,RE]{ 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,left=0.7cm,right=0.7cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\noindent
+2.不难看出在集合水平上,若$h\in H$,那么$hH=Hh=H$.如果$HaK\cap HbK\neq\emptyset,$则存在$h_1,h_2\in H,k_1,k_2\in K$使得$h_1ak_1=h_2bk_2$,由此式我们有$HaK=(Hh_1)a(k_1K)=H(h_1ak_1)K=H(h_2bk_2)K=(Hh_2)b(k_2K)=HbK$.\\
+5.首先我们有$(g_1g_2)^{n_1n_2}=g_1^{n_1n_2}g_2^{n_1n_2}=(g_1^{n_1})^{n_2}(g_2^{n_2})^{n_1}=e$;记$o(g_1g_2)=t,$如果$t<n_1n_2$,那么存在$s<t,m\in\mathbb{Z}$使得$n_1n_2=mt+s$,于是$e=(g_1g_2)^{n_1n_2}=(g_1g_2)^{mt+s}=[(g_1g_2)^t]^m(g_1g_2)^s\Rightarrow (g_1g_2)^s=e$,这与$o(g_1g_2)=t$矛盾,于是$n_1n_2=t=o(g_1g_2).$\\
+在$S_3$中取
+\[g_1=\left( \begin{array}{lll}
+1 & 2 & 3\\
+1 & 3 & 2
+\end{array}\right) ,
+g_2=\left( \begin{array}{lll}
+1 & 2 & 3\\
+2 & 3 & 1
+\end{array}\right) .
+\]
+那么
+\[g_1g_2=\left( \begin{array}{lll}
+1 & 2 & 3\\
+2 & 1 & 3
+\end{array}\right) ,
+g_2g_1=\left( \begin{array}{lll}
+1 & 2 & 3\\
+3 & 2 & 1
+\end{array}\right) ,
+\]
+于是$g_1g_2\neq g_2g_2$,并且$o(g_1)=2,o(g_2)=3,o(g_1g_2)=2\neq 6$.\\
+8.若$ab\in AB$并且$ab\in C$,我们由$a\in C
+$得到$b=a^{-1}(ab)\in C$,故$b\in B\cap C$,则$ab\in A(B\cap C)$.
+对$ab\in A(B\cap C)$,由$b\in B\cap C$可知$ab\in AB$并且$ab\in C$,那么$ab\in AB\cap C$,
+综上我们有$AB\cap C=A(B\cap C).$\\
+13.首先我们取自同构为$g:a\rightarrow g^{-1}ag$,由题设可知$g^{-1}ag=a\Rightarrow ga=ag$,由$g,a$的任意性可知$G$为交换群.再取$\alpha:g\rightarrow g^{-1}$,由EX.12可知这是交换群的自同构,那么$g^{-1}=g$
+.利用交换群的结构定理及$g^{-1}=g$,我们可以确定$\mathbb{Z},\mathbb{Z}_{p^m},\mathbb{Z}_{2^n},(p\geq 3,n\geq 2)$不在直和因子内.于是$G=\bigoplus\limits_m \mathbb{Z}_2$,我们先给出$\mathbb{Z}_2\oplus \mathbb{Z}_2$的一个非平凡自同构$\varphi$
+\[
+\begin{array}{ll}
+(0,0)\rightarrow (0,0) \quad ,& (0,1)\rightarrow (1,0)\\
+(1,0)\rightarrow (0,1) \quad ,& (1,1)\rightarrow (1,1)
+\end{array}\]
+若$m\geq 2$,那么$\varphi\oplus id$给出了$G$的一个非平凡自同构,这与题设矛盾.于是$m\leq 1$,从而$G=1,\mathbb{Z}_2.$
+\end{document}

@@ -1,0 +1,157 @@
+\documentclass[a4paper]{ctexart}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage[all]{xy}
+\begin{document}
+
+\title{六月六日讨论班笔记}
+\author{秘志桐}
+\date{\today}
+\maketitle
+\renewcommand{\abstractname}{摘要}
+\renewcommand{\refname}{参考文献}
+
+\newtheorem{definition}{定义}
+\newtheorem{theorem}{定理}
+\newtheorem{lemma}{引理}
+\newtheorem{corollary}{推论}
+\newtheorem{prop}{命题}
+\newtheorem{example}{例}
+\newtheorem{remark}{注}
+\begin{definition}贴$k$维胞腔：设$Y$为一拓扑空间，$e^k=\{x\in R^k: \|x\|<1\}$为$k$维胞腔。
+记$k$维胞腔的边界为$S^{k-1}$,$0$维胞腔边界$S^{-1}$为空集。如果有连续映射$g:S^{k-1} \to Y$。则贴$k$维胞腔得到的贴空间$Y \cup_g e^k$定义如下
+$$
+Y \cup_g e^k=Y\amalg e^k/ \backsim
+$$
+其中，等价关系$\backsim$定义为$x\in S^{k-1} \backsim g(x)\in Y$。
+\end{definition}
+
+\begin{theorem}当$a$经过点$f(p),f(q),f(r),f(s)$时，描述$M^a=\{x \in M : f(x) \leqslant a\}$的同伦型的变化。
+\begin{figure}[H]
+\small
+\centering
+%\includegraphics[width=9cm]{2.jpg}\\
+环面{}
+\label{2}
+\end{figure}
+已经知道按照同胚的角度，我们有如下结果: \\
+(1) $a<f(p)$,$M^a$为空集。\\
+(2) $f(p)<a<f(q)$,$M^a$同胚于$2$维胞腔。\\
+(3) $f(q)<a<f(r)$,$M^a$同胚于圆柱。\\
+(4) $f(r)<a<f(s)$,$M^a$同胚于环面挖掉一个$2$维开胞腔。\\
+(5) $f(s)<a$,$M^a$为环面。\\
+下面从同伦的角度来观察上述变化。\\
+（1）$\to$ (2)相当于向空集上贴一个$0$维胞腔。此时$M^a$为一$0$维胞腔，它同伦等价于$2$维胞腔。（这是因为$2$维胞腔可缩）\\
+（2）$\to$ (3)相当于贴一个$1$维胞腔（下图左边）。此时$M^a$同伦等价于圆柱。
+\begin{figure}[H]
+\small
+\centering
+%\includegraphics[width=9cm]{761.jpg}\\
+{}
+\label{2}
+\end{figure}
+从圆柱到$M^a$的收缩映射由下式给出（示意图如下）：    
+\begin{figure}[H]
+\small
+\centering
+%\includegraphics[width=9cm]{762.jpg}\\
+{}
+\label{2}
+\end{figure}
+收缩映射F定义如下
+\begin{equation}
+F(x,y,t)=
+\begin{cases}
+(tx,y) &\mbox{if $|y|\geqslant \frac{1}{2}$}\\
+(t(x-\sqrt{{(\frac{1}{2}})^2-y^2})+\sqrt{{(\frac{1}{2}})^2-y^2},y) &\mbox{if $|y|\leqslant \frac{1}{2}$ }
+\end{cases}
+\end{equation}
+上式是第一象限中收缩映射的坐标表示，利用对称性，可得到圆柱到$M^a$的收缩映射。\\
+（3）$\to$ (4)相当于再贴一个$1$维胞腔。此时$M^a$同伦等于环面挖掉一个二维开胞腔。（见下图）
+我们将证明上图左右两边都同伦等价于两个$S^1$的一点并。
+对于右边，我们直接给出收缩映射，示意图如下（正方形挖掉一个圆收缩到四条边）。
+收缩映射H定义如下
+\begin{equation}
+H(r,\theta,t)=
+\begin{cases}
+(t(1-rcos\theta)+rcos\theta,t(tan\theta-rsin\theta)+rsin\theta) &\mbox{if $0\leqslant \theta \leqslant \frac{\pi}{4}$}\\
+(t(\frac{1}{tan\theta}-rcos\theta)+rcos\theta,t(1-rsin\theta)+rsin\theta) &\mbox{if $\frac{\pi}{4}\leqslant \theta < \frac{\pi}{2}$ }\\
+(0,t(1-y)+y) &\mbox{if $\theta=\frac{\pi}{2}$}
+\end{cases}
+\end{equation}
+这是第一象限中收缩映射的坐标表示，利用对称性，可得到环面挖掉一个二维开胞腔到两个$S^1$的一点并的收缩映射。\\
+对于$M^a$(圆柱贴上一个$1$维胞腔），我们构造从如下图所示图形到正方形中两条直线$l_1,l_2$的形变收缩。为此，设$l_1$为$x$轴，$l_2$为$y$轴，正方形边长为$2$，两条直线交于原点O。图中红线所示菱形短边长为1，长边长为2，以原点为中心。
+\begin{figure}[H]
+\small
+\centering
+%\includegraphics[width=9cm]{765.jpg}\\
+{}
+\label{2}
+\end{figure}
+我们先将正方形沿横向收缩到菱形以及$l_2$上。收缩映射如下：
+\begin{equation}
+G(x,y,t)=
+\begin{cases}
+(((1-t)x,y) &\mbox{if $y \geqslant \frac{1}{2}$}\\
+((1-t)x+t(1-2y),y) &\mbox{if $0\leqslant y\leqslant \frac{1}{2}$ }
+\end{cases}
+\end{equation}
+这是第一象限中收缩映射的坐标表示，再利用对称性即可。
+再构造收缩映射使得下图沿纵向收缩到$x,y$轴，从而得到两个$S^1$的一点并。
+\begin{figure}[H]
+\small
+\centering
+%\includegraphics[width=9cm]{766.jpg}\\
+{}
+\label{2}
+\end{figure}
+\begin{equation}
+J(x,y,t)=
+\begin{cases}
+(x,(1-t)y) &\mbox{if $y \leqslant \frac{1}{2}$}\\
+(0,(1+t)y-t) &\mbox{if $y\geqslant \frac{1}{2}$ }
+\end{cases}
+\end{equation}
+综上可知，此时$M^a$与两个$S^1$的一点并同伦等价。这就证明了$M^a$与环面挖掉一个二维开胞腔同伦等价。\\
+（4）$\to$ (5)相当于贴一个二维胞腔，此时$M^a$为一个环面\\
+
+\end{theorem}
+
+
+
+\begin{theorem}
+
+点p,q,r,s为映射$f$的临界点，即切映射$df$在该点为零映射。
+\begin{proof}
+我们以p点为例，注意到环面的参数表示$\phi(\theta,\beta)$实际上给出环面在$p$点的局部坐标表示.要证明$df$在p点为零映射，只需证明$f$的局部坐标表示$\widetilde{f}$在p点对应的坐标处所有一阶偏导数均为0.注意到在局部坐标下：
+$$
+\widetilde{f}(\theta,\beta)=3-(2+cos\beta)cos\theta
+$$
+直接计算得
+$$
+\frac{\partial \widetilde{f}}{\partial \theta}=(2+cos\beta)sin\theta
+$$
+$$
+\frac{\partial \widetilde{f}}{\partial \beta}=sin\beta cos\theta
+$$
+代入p点对应的坐标$(0,0)$知有
+$\frac{\partial \widetilde{f}}{\partial \theta}(0,0)=0$与$\frac{\partial \widetilde{f}}{\partial \beta}(0,0)=0$。从而p点为$f$的临界点。
+\end{proof}
+\end{theorem}
+
+\begin{remark}
+事实上，由第二节的Morse Lemma知，在临界点附近，我们可以取适当的局部坐标，使得$f$的局部表示$\widetilde{f}$有形式$\widetilde{f}=\pm x^2+\pm y^2$。正负号的确定实际上与函数$f$在该临界点的“指数”有关。
+\end{remark}
+
+
+\begin{thebibliography}{9}
+\bibitem{}
+  Milnor，
+   \emph{Morse Theory}.
+
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,59 @@
+\documentclass[b5paper,twoside]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}\zihao{-4}~群表示论~\today}
+\fancyhead[LO]{\usebox{\mygraphic}\zihao{-4}~群表示论~\today}
+\fancyhead[RO,RE]{\zihao{-4} 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,headsep=0.5cm,footskip=1cm,left=1.0cm,right=1.0cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\zihao{-4}
+\noindent\\
+\textbf{P84}\\
+1.2.我们给出1,2题的一个统一的证明.对群的阶数$|G|$和completement中素因子的个数$p(G,N)$进行归纳.注意到$p(G,N)=1$恰好是Sylow第三定理,$|G|=1$时也是显然成立的
+注意到$G=N\rtimes H\Rightarrow G/N=NH/N\cong H/N\cap H=H$.这说明所有的complement都是幂零群.那么$H=P_1\times P_2\times \cdots \times P_k$,为其Slyow子群的直积,于是$H$的Sylow子群之间交换.那么$H\subset N_G(P_1)$,对于另一个complement我们利用它与$H$同构可知$H'=P_1^{g_1}\times P_2^{g_2}\times \cdots \times P_k^{g_k}$也为Sylow子群的直积.那么$H'^{g^{-1}}=P_1\times P_2^{g_2g^{-1}}\times \cdots \times P_k^{g_kg^{-1}}$,同样有$H'^{g^{-1}}\subset N_G(P_1)$.这说明completement的共轭性可以放在$N_G(P_1)$中考虑.\\
+接着我们考虑$G$在$Syl_{p_1}(G)$上的共轭作用,由于$\forall g\in G, g=hn,h\in H$,而$H\subset N_G(P_1)$,那么$P_1^{hn}=P_1^n$,这说明$N$在$Syl(p_1)$的作用是传递的,由Frattini论断,有$G=N_G(P_1)N$,那么$N_N(P_1)=N_G(P_1)\cap N\unlhd N_G(P_1)$.
+并且$G/N=N_G(P_1)N/N\cong N_G(P_1)/N_G(P_1)\cap N=N_G(P_1)/N_N(P_1)$,如果$N_G(P_1)<G$,那么由归纳假设$N_G(P_1)$中的complement都共轭.(利用群的阶不难看出$N$的complement可以利用共轭对应到$N_G(P_1)$中)\\
+如果$N_G(P_1)=G$,那么令$N_1=NP_1$,那么$p(G,N_1)=p(G,N)-1$,同样利用归纳假设可知成立.\\
+\textbf{P95}\\
+1.充分性,由于有限abel群是有限$p-$群的直积,我们只需证明$p-$群有合成列即可,利用p80ex2可知有限$p-$群有一个阶数以$p$递增的正规列,自然可以作为$p-$群的合成列.\\
+必要性,由abel群的结构定理,若$G$为无限abel群,那么$\mathbb{Z}\lhd G$,注意到$\mathbb{Z}$是没有合成群列的,故$G$也没有,这说明$G$一定是有限的.\\
+5.当$n\geq 5$时,由于$A_n$为$\Sigma_n$的一个正规单群,故有合成群列$\Sigma_n>A_n>1$.我们说明$A_n$是$\Sigma_n$中唯一一个非平凡正规子群,若不然,设为$N$,由$A_n$的单性可知$A_n\cap N=1$.那么由$N\dot A_n=\Sigma_n$可知$\Sigma_n=N\times A_n$,则$|N|=2$.记$N=\{1,g\}$,由$N$的正规性可知,$\forall y\in \Sigma_n,ygy^{-1}\in N$,从而$ygy^{-1}=g$,那么$g\in Z(\Sigma_n)=1,$但$g\neq 1$,矛盾!\\
+当$n=4$时,我们知道$\Sigma_4$的正规子群只有$1,K_4,A_4$,于是$\Sigma_4$的正规群列为$\sigma_4>A_4>K_4>1$.\\
+当$n=3$时,易知合成群列为$\Sigma_3>A_3>1$.
+当$n=3$时,易知合成群列为$\Sigma_2>A_2>1$.\\
+\textbf{P104}\\
+1.将$G$中所有的正规可解群并起来,记为$H$,我们只需要证明$H$成群即可.为此只需验证元素乘法的封闭性,进一步只需验证两个可解正规子群$L,M$的乘积仍是正规可解子群即可.正规性显然,由$LM/M\cong L/L\cap M$,可知$LM/M$是可解的,而$M$也是可解的,那么$LM$是可解的.\\
+2.设$H_1,H_2$是$N$在$G$中的两个complement.因为$N$可解,故$\exists p,$使得$O_p(G)\neq 1.$令$N_0=Z(O_p(G))$.由于$O_p(G)$为$p-$群,那么$N_0>1$.我们对$|G|$使用数学归纳法.考虑$\overline{G}=G/N_0$,注意到$\overline{H_1}=H_1/N_0,\overline{H_2}=H_2/N_0$是$\overline{N}=N/N_0$在$\overline{G}=G/N_0$中的两个complement,且$|\overline{G}|<|G|$,由归纳法假设可知,$\exists g\in G$,使得$\overline{H_1}=\overline{g}\overline{H_2}\overline{g}^{-1}=\overline{gH_2g^{-1}}$.\\
+令$K=H_1N_0=gH_2g^{-1}N_0$,则$H_1,gH_2g^{-1}$是$N_0$在$K$中的两个complement,且$N_0\leq N$可解.若$K<G$,则由归纳假设$\exists g'\in G$使得$H_1=g'gH_2(g'g)^{-1}$.\\
+若$K=G=H_1\rtimes N=H_1N_0,$由$N_0\leq N$且$H_1\cap N=1$可知$N_0=N$,那么$N_0=Z(O_p(N))=O_p(N)=N\Rightarrow Z(N)=N$,即$N$可交换.\\
+由$G/N=NH_1/N\cong H_1/N\cap H_1=H_1$,可知$H_1\cong G/N\cong H_2$.$\forall h\in G/N$,$\exists t_h\in H_1,t_h^*\in H_2$使得$h=t_hN=t_h^*N$,从而$\exists \alpha(h)\in N$使得$t_h^*=t_h\alpha(h)$\\
+那么$t^*_{h_1h_2}=t_{h_1h_2}\alpha(h_1h_2)=t_{h_1}t_{h_2}\alpha(h_1h_2)=t_{h_1}^*t_{h_2}^*=t_{h_1}\alpha(h_1)t_{h_2}\alpha(h_2)$.那么$\alpha(h_1h_2)=t_{h_1}^{-1}\alpha(h_1)t_{h_2}\alpha(h_2)=^{h_2}\alpha(h_2)\alpha(h_1)$.\\
+由于$N$可交换,故在$N$中将乘法写作加法,则上式变为$\alpha(h_1h_2)=^{h_2}\alpha(h_2)+\alpha(h_1)$.两边对$h_1$求和有
+\[\sum_{h_1\in G/N}\alpha(h_1h_2)=^{h_2}\left(\sum_{h_1\in G/N}\alpha(h_1)\right)+m\alpha(h_2)\]
+其中$m=|G/N|=|H_1|=|H_2|$.令$c=\dfrac{1}{m}\sum_{h_1\in G/N}\alpha(h_1h_2)$,那么$c-^{h}c=\alpha(h)\Rightarrow \alpha(h)=(^hc)c$.从而有$t^*_h=t_h\alpha(h)=t_h(^hc)^{-1}c=t_h(t_hct_h)^{-1}c=t_h(t_h^{-1}c_{-1}t_h)c=c^{-1}t_hc\Rightarrow H_2=c^{-1}H_1c,c\in N$.\\
+3.设$N$是$G$的极小正规子群.由于$G$可解,那么$N$为$G$的一个主因子,则$N$为初等交换$p-$群.那么$p||G|=mn$,而$(m,n)=1$.故$p|m$与$p|n$两者有且只有一种成立.下面对$|G|$使用归纳法\\
+如果$p|m$,由于$|G/N|=\dfrac{m}{|N|}\cdot n,(\dfrac{m}{|N|},n)=1$.利用归纳假设可知$G/N$中有一$m/|N|$阶子群,记为$K/N$,这时$|K|=m,K\leq G$.\\
+如果$p|n$,则$G/N$中有一$m$阶子群,记为$H/N$,则$|H|=m|N|$.下面对$H$进行讨论.\\
+如果$|H|<G$,即$|N|<n$.由归纳假设可知$H$有一$m$阶子群,自然也是$G$的$m$阶子群.\\
+如果$|H|=G$,即$|N|=n=p^\alpha$,那么$N\in Syl_p(G)$,且$N\lhd G$.于是$|Syl_p(G)|=1$\\
+设$M/N$是$G/N$的极小正规子群,那么$M/N$为初等交换$q-$群.自然也是特征单群.取$Q\in Syl_q(M)$,注意到$M\lhd G$,利用Frattini论断,我们有$G=N_G(Q)M$.考虑到$Q,N\leq M$,并且$(|Q|,|N|)=1,|Q||N|=M$,那么$M=QN=NQ$.于是$G=N_G(Q)M=N_G(Q)(QN)=N_G(Q)N\Rightarrow |G/N|=|N_G(Q)|/|N_G(Q)\cap N|$.那么$|N_G(Q)|=mp^{\alpha_1},0\leq \alpha_1\leq \alpha$.若$\alpha_1=0$,那么$|N_G(Q)|=m$为所求.若$0<\alpha_1< \alpha$利用归纳假设即可.若$\alpha_1=\alpha$,那么$Q\lhd G$,则$|Q|=q^{\beta},q|m$,这样我们可以去$G$中的一极小正规$q-$子群$N'$,注意到$q|m$,利用我们一开始使用的方法即可得出结论.\\
+6.由定义可知$G$存在主因子全为素数阶的主群列,而素数阶群必为循环群,从而必要性得证.下证充分性
+设$G$有一正规群列$G=G_0\rhd G_1\cdots \rhd G_r=1$,其中$G_i/G_{i+1}$为循环群,自然也是交换的,利用性质2可知$G$可解.我们将这个正规列加细为主群列,记为$G=G_0\rhd G'_1\rhd G'_2\rhd \cdots\rhd G'_k=1$.由$G$的可解性以及加细的性质可知$G_i'/G_{i+1}'$为循环$p-$群.下证$|G'_i/G'_{i+1}|=p$,若存在$i$使得$|G_i'/G_{i+1}'|$中$p$的指数大于1,记为$G'_i/G_{i+1}=\langle x\rangle,o(x)=p^{\alpha},\alpha\geq 2$.令$\varphi :G'_i\to G'_i/G'_{i+1}$.注意到$\langle x^{p^{\alpha-1}}\rangle$为$\langle x\rangle$的$p-$阶极小正规子群,从而是特征子群.于是$\varphi^{-1}(\langle x^{p^{\alpha-1}}\rangle)$为$G'_i$中包含$G'_{i+1}$的特征子群.那么就为$G$的正规子群.这说明主群列仍可以加细,这与Jordan-H\"{o}lder定理矛盾,故所有的主因子都是$p$-阶群.\\
+7.注意到有限$p$-群可解.而利用超可解的正规列定义不难证明超可解群的直积还是超可解的.而幂零群作为有限$p-$群的直积自然也是超可解的.\\
+8.满足生成关系为$a^n=b^2=c^2=1,(ab)^2=(bc)^2=1$的三元生成群$G_n$均为超可解群,我们取$n=6$.不难看出$G_6$中有非交换子群$\{1,a^2,a^4,c,a^2c,a^4c,b,a^2b,a^4b,bc,a^2bc,$\\
+$a^4bc\}$,故$G_6$非交换,但我们知道阶为偶数的非交换有限群,只有当阶为$2^m$的形式时才是幂零的,但$|G_6|=24$,故$G_6$不是幂零群.\\
+p95的2,6,p104的4题下次补交.\\
+\end{document}

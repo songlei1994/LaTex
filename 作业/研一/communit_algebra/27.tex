@@ -1,0 +1,358 @@
+\documentclass[b5paper,oneside]{ctexbook}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+%\usepackage{fourier}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}}
+\fancyhead[LO]{\usebox{\mygraphic}}
+\fancyhead[RO,RE]{ 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,left=0.7cm,right=0.7cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\theoremstyle{plain}
+  \newtheorem{thm}{定理~}[chapter]
+  \newtheorem{lem}[thm]{引理~}
+  \newtheorem{prop}[thm]{性质~}
+  \newtheorem{cor}[thm]{推论~}
+\theoremstyle{definition}
+  \newtheorem{defn}[thm]{定义~}
+  \newtheorem{exam}{例~}[chapter]
+\begin{document}
+\pagestyle{plain}
+\zihao{4}
+\chapter{Noether环,Hilbert基本定理}
+\begin{defn}称环$A$为Noether环,如果$A$的每个理想都是有限生成的.
+\end{defn}
+\begin{prop} 
+$R$为Noether环 $\Leftrightarrow R$中理想满足升链条件.
+\end{prop} 
+\begin{prop} 
+$f:R\to S$为满同态.若$R$为Noether环,则$S$也是Noether环.
+\end{prop}  
+\begin{thm}[Hilbert 基本定理]
+设$R$为 Noether 环,则$R[x]$也是Noether环.
+\end{thm} 
+\begin{cor}
+$k[x_1,x_2, \cdots, x_n]$中每个理想都是有限生成的.
+\end{cor}
+\begin{cor} 
+若$R$为Noether环.$S$为$f.g.~R$-代数,那么$S$为Noether环.
+\end{cor} 
+\begin{cor} 
+$R$为Noether环,$M$为 $f.g.~R$-模,则$M$为Noether模(子模有限生成).
+\end{cor}
+\chapter{Hilbert零点定理} 
+\begin{defn} 
+$I\subseteq k[x_1,x_2,\cdots,x_n]$为理想,$k$ 为代数闭域.称$V(I):=\{\rho \in \mathbb{A}^n|f(\rho)= 0, \forall f \in I\}$为$I$定义的代数簇.
+\end{defn} 
+\begin{thm} 
+$k$为代数闭域,$I\subseteq k[x_1,x_2,\cdots,x_n]$为任一理想,那么$I(V(I))=\sqrt{I}$.
+\end{thm} 
+弱形式$I\subsetneq k[x_1,x_2,\cdots,x_n]\Rightarrow V(I)\neq \emptyset$
+\begin{thm}[零点定理弱形式的代数表述]设$k$为域,$A$为有限生成$k$-代数,若$A$为域,则$A$在$k$上代数.
+\end{thm}
+\begin{thm}[Hilbert零点定理]
+设$k$为代数封闭域,则:\\
+(1)$R=k[x_1,\cdots,x_n]$的任意极大理想都形如$(x_1-a_1.\cdots,x_n-a_n),a_i\in k$;\\
+(2)$J\subseteq R$为理想.若$J\neq R,$则$V(J)\neq\emptyset$;\\
+(3)$J\subseteq R$为理想,则有$I(V(J))=\sqrt{J}.$
+\end{thm}
+\begin{prop}
+设$A\subseteq B\subseteq C$为环;\\
+(1)若$B$为有限生成$A$-代数,$C$是有限生成$B$-代数,则$C$是有限生成$A$-代数;\\
+(2)若$B$是有限$A$-代数,$x\in B$,则$x$在$A$上整.\\
+(3)若$x\in B$在$A$上整,则$A[x]$是有限$A$-代数.
+\end{prop}
+\chapter{有限生成模,Nakayama引理}
+\begin{exam} 
+环$A$的任意理想$\mathfrak{a}$是一个$A$-模,特别地,$A$本身是一个$A$-模
+\end{exam} 
+对于任意$A$-模,有自然同构$Hom(A,M)\cong M;$\\
+记$Ann(M)=\mathfrak{a}$,则$A$-模$M$可以看作忠实的$A/\mathfrak{a}$-模.
+\begin{prop} 
+$A$-模$M$有限生成$\Leftrightarrow M$同构于$A^n$的一个商模.
+\end{prop}
+\begin{prop} 
+设$M$有限生成的$A$-模,$\mf{a}$为$A$的一个理想,$\varphi$是一个$A-$模自同态,满足$\varphi(M)\subseteq \mf{a}M$.那么$\varphi$满足下面的方程
+\[\varphi^n+a_1\varphi^{n-1}+\cdots+a_n=0\]
+其中所有的$a_i$都属于$\mf{a}$.
+\end{prop}
+\begin{cor}$M$为有限生成$R$-模,$\alpha:M\to M$为满的$R$-模同态,则$\alpha$为同构.
+\end{cor}
+\begin{cor}$M$为有限生成$R$-模,$M\cong R^n$,则$M$中任何一组由$n$个元素组成的$M$的生成元构成$M$的一组自由基.
+\end{cor}
+\begin{cor} 
+设$M$有限生成的$A$-模,$\mf{a}$为$A$的一个理想,$\mf{a}M=M$,那么存在元素$x\equiv 1\mod{\mf{a}}$使得$xM=0$.(或者存在$x\in\mf{a},(1-x)m=0,\forall m\in M$.)
+\end{cor} 
+\begin{lem}[Nakayama引理]
+设$M$有限生成的$A$-模,$\mf{a}$为$A$的一个包含在$A$的大根$\Re$中的理想.如果$\mf{a}M=M$,则$M=0$.
+\end{lem}
+\begin{cor} 
+设$M$有限生成的$A$-模,$N$是$M$的一个子模,$\mf{a}$为$A$的一个包含在$A$的大根$\Re$中的理想,那么
+\[M=\mf{a}M+N\Rightarrow M=N\]
+\end{cor} 
+设$A$为局部环,$\mf{m}$为其极大理想,$k=A/\mf{m}$是它的同余类域,设$M$有限生成的$A$-模.由于$\mf{m}$零化$M/\mf{m}M$,所以$M/\mf{m}M$可以自然的看作$A/\mf{m}$模,即$k$-向量空间.它是有限维的.
+\begin{prop} 
+设$x_i(1\leq i\leq n)$为$M$的一组元素,它们在$M/\mf{m}M$中的象组成这个向量空间的一组基,则$x_i$生成$M$.
+\end{prop}
+\chapter{张量积}
+\begin{defn}设$M,N$为两个$A$-模,那么存在一个$A$-模$T$和一个双线性映射$g:M\times N\to T$所构成的对$(T,g)$满足\\
+对任意的$A$-模$P$和$A$-双线性映射$f:M\times N\to P$,都存在唯一的一个$A$-双线性映射$f":T\to P$使得$f=f'\circ g$(换句话说$M\times N$的任意双线性映射都可以通过$T$分解)
+\end{defn}
+\begin{prop}设$M,N,P$均为$R$-模\\
+(1)$R\otimes_{R}M\cong M;$\\
+(2)$M\otimes_R N\cong N\otimes_R M;$\\
+(3)$(M\otimes_RN)\otimes_RP\cong M\otimes_R(N\otimes_RP);$\\
+(4)$(M\oplus N)\otimes_RP\cong (M\otimes_RP)\oplus(N\otimes_R P).$
+\end{prop}
+\begin{prop}设$A,B$是环,$M$是一个$A$-模,$P$是一个$B$-模,而$N$是一个$(A,B)$-双模(即同时赋予$N$一个$A$-模结构和一个$B$-模结构.而它们在以下意义下是协调的:$a(xb)=(ax)b,\forall a\in A,b,\in B,x\in N$).那么$M\otimes_A N$有自然的$B$模结构,而$N\otimes_B P$有$A$-模结构,并且
+\[(M\otimes_A N)\otimes_B P\cong M\otimes_A(N\otimes_B P)\]
+\end{prop}
+\begin{thm}设$M,N,P$为$R$-模,则有自然的$R-$模同构
+\[\hom_R(M\otimes_RN,P)\cong \hom(M,\hom_R(N,P))\]
+\end{thm}
+张量函子$-\otimes_RM$是共变右正合函子,$\hom_R(M,-)$是共变左正合函子,$\hom_R(-,M)$是反变右正合函子.
+\chapter{分式环与分式模}
+\noindent
+\section{分式化的性质}
+\begin{prop}设$S\subseteq A$为乘法封闭子集,$M$为$A-$模,则有自然的$S^{-1}A$-模同构,$S^{-1}A\otimes_AM\cong  S^{-1}M$.
+\end{prop}
+\begin{cor}
+$S^{-1}A$是平坦的$A-$模
+\end{cor}
+\begin{prop}$S^{-1}$与张量积$\otimes_A$可交换,即
+\[S^{-1}(M\otimes_AN)\cong S^{-1}M\otimes_{S^{-1}A}S^{-1}N\]
+\end{prop}
+\begin{prop}设$\mf{p}$为环$A$的素理想,于是$S:=A/\mf{p}$为乘法封闭自己,设$M$为$A$-模,记$S^{-1}M$为$M_{\mf{p}}$,称为$M$在$\mf{p}$处的局部化,则$(M\otimes_AN)_{\mf{p}}\cong M_{\mf{p}}\otimes_{A_{\mf{p}}}N_{\mf{p}}$.
+\end{prop}
+\section{局部性质}
+\begin{defn}环$A$或$A$-模$M$的一个性质$P$称为局部性质,若$A$(或$M$)具有性质$P\Leftrightarrow \forall$素理想$\mf{p},A_{\mf{p}}$或$M_{\mf{p}}$具有性质$P$.
+\end{defn}
+\begin{prop}设$M$为$A$-模,则下列叙述等价:\\
+(1)$M=0$;\\
+(2)$\forall A$的素理想$\mf{p}$,$M_{\mf{p}}=0$.\\
+(3)$\forall A$的极大理想$\mf{m}$,$M_{\mf{m}}=0$.
+\end{prop}
+\begin{prop}设$\phi:M\to N$为$A$-模同态,则下列叙述等价:\\
+(1)$\phi$为单射;\\
+(2)$\forall A$的素理想$\mf{p}$,$\phi_{\mf{p}}:M_{\mf{p}}\to N_{\mf{p}}$为单射;\\
+(2)$\forall A$的极大理想$\mf{m}$,$\phi_{\mf{m}}:M_{\mf{p}}\to N_{\mf{p}}$为单射;
+\end{prop}
+对于满射也成立.
+\begin{prop}设$M$为$A$-模,则下列叙述等价:\\
+(1)$M$为平坦$A$-模;\\
+(2)$M_{\mf{p}}$为平坦的$A_{\mf{p}}$-模,$\forall A$的素理想$\mf{p}$.\\
+(3)$M_{\mf{m}}$为平坦的$A_{\mf{m}}$-模,$\forall A$的极大理想$\mf{m}$.
+\end{prop}
+设$A$为环,$S$为$A$的乘法封闭子集,有自然的环同态$f:A\to S^{-1}A,a\mapsto \dfrac{a}{1}.$
+\begin{prop}
+(1)$S^{−1}A$中每个理想都是扩理想.\\
+(2)$S^{−1}A$中素理想在对应 $\mathfrak{p}\leftrightarrow  S^{−1}\mathfrak{p}$ 之下与$A$中那些与$S$不交的素理想一一对应.\\
+(3)运算$S^{−1}$与作有限和,积,交以及求根的运算可交换.\\
+(4)设$\mathfrak{a},\mathfrak{b}$为$A$中理想.如果$\mathfrak{b}$有限生成,那么$S^{−1}(\mathfrak{a}:\mathfrak{b})=(S^{−1}\mathfrak{a} :S^{−1}\mathfrak{b}.$
+\end{prop}
+\chapter{理想的准素分解}
+\begin{defn}称理想$\mf{q}\subsetneq A$为准素理想,若$\mf{q}$满足:$\forall x,y\in A,$若$xy\in \mf{q},$则$x\in \mf{q}$或者存在$n\in\mathbb{N},s.t.~y^n\in\mf{p}.$
+\end{defn}
+注:素理想是准素理想;$\mf{q}\subsetneq A$为准素理想$\Leftrightarrow A/\mf{q}$中的零因子都是幂零的.
+\begin{prop}理想$\mf{a}$的根为一切包含$\mf{a}$的素理想的交.
+\end{prop}
+\begin{prop}若$\mf{p}$为$A$中准素理想,则$\sqrt{\mf{p}}$为包含$\mf{p}$的最小素理想.
+\end{prop}
+\begin{prop} 
+$\mf{a}\subsetneq A$为;理想,若$\sqrt{\mf{a}}$为极大理想,则$\mf{a}$为准素理想.
+\end{prop}
+\begin{defn}[不可约理想]称$a \subset A$为不可约的.如果$a=b\cap c$, 其中 $b,c\subset A$为理想,则必有$a=b$或者$a=c$.
+\end{defn}
+\begin{lem}$A$为Noether环,则不可约理想为准素理想.
+\end{lem}
+\begin{thm}Noether环中每个理想都可表示为一些准素理想的交.
+\end{thm}
+\begin{lem}若$\mf{q}_i(i=1,\cdots,n)$为$\mf{p}$-准素理想. 则$\mf{q}_i$也是$\mf{p}$-准素理想.
+\end{lem}
+\begin{lem}设$\mf{q}$为$\mf{p}$-准素理想.$x\in A$则\\
+(1)若$x \in \mf{q}$,则$(\mf{q}:x)=A$\\
+(2)若$x\notin \mf{q}$,则$(\mf{q}:x)$为$\mf{p}$-准素理想.\\
+(3)若$x∈\in \mf{p}$,则$(\mf{q}:x)=\mf{q}.$\\
+其中$(\mf{q}:x)=(\mf{q}:(x)),(a : b)=\{x \in A|xb\subseteq a\}$.
+\end{lem}
+\begin{defn}极小准素分解:$\mf{a}=\bigcap_{i=1}^n \mf{q}_i$,$\mf{q}_i$为准素理想.满足\\
+$(1)\sqrt{\mf{q}_i}(i=1,\cdots,n)$互不相同.\\
+(2)$\mf{a}\subsetneq \bigcap_{j\neq i}\mf{q}_j,i=1,\cdots,n$
+\end{defn}
+\begin{thm}[唯一性]设$\mf{a}=\bigcap_{i=1}^n \mf{q}_i$为极小准素分解.$\mf{p}_i=\sqrt{\mf{q}_i}$.则 $\mf{p}_1,\cdots,\mf{p}_n$与分解无关.
+\end{thm} 
+\begin{lem}(1)若素理想$\mf{p}\supseteq \bigcap_{i=1}^t\mf{a}_i$,则存在$i,s.t.~\mf{p}\supseteq\mf{a}_i$;\\
+(2)若素理想$\mf{p}=\bigcap_{i=1}^t\mf{a}_i,$则存在$i,s,t,~\mf{p}=\mf{a}_i$.
+\end{lem}
+\begin{defn}称$\mf{p}_1,\cdots,\mf{p}_n$为属于$\mf{a}$的素理想,若$\mf{p}_i$是$\{\mf{p}_1,\cdots,\mf{p}_n\}$中的极小元,则称$\mf{p}_i$为属于$\mf{a}$的极小素理想.
+\end{defn}
+\begin{prop}
+$\sum:=\{$素理想$\mf{p}|\mf{p}\supseteq \mf{a}\}$;\\
+$\sum_1:=\{$属于$\mf{a}$的极小素理想$\}$;\\
+$\sum_2:=\{\sum$中的极小元$\}$.\\
+则$\sum_1=\sum_2$.
+\end{prop}
+\chapter{整性扩张}
+\begin{defn} 
+$A \subseteq B$为环. 称 $B$ 在 $A$ 上整,$\forall k \in B$, 存在首项为 1 的多项式$f(x) \in A[x]$ 使得 $f(k)=0$
+\end{defn} 
+\begin{cor}
+$A \subseteq B$为整扩张,
+(1)$\mathfrak{b} $为 $B$ 任一理想.$\mathfrak{a}=\mathfrak{b}^c= \mathfrak{b}\cap A.$ 那么 $A/\mathfrak{a} \hookrightarrow B/b$ 为整扩张.\\
+(2)$S \subseteq A$为乘法封闭子集.则$S^{−1}A \hookrightarrow S^{−1}B$为整扩张.\\
+(3)$A \subseteq B$为环扩张.$C \subseteq B$为 $A$在$B$中的整闭包.$S \subseteq A$为乘法封闭子集.则$S^{−1}A$在$S^{−1}B$中的整闭包为$S^{−1}C$.
+\end{cor}
+\begin{prop}
+$A\subseteq B$ 为整环的整性扩张. 则 $A$为域 $\Leftrightarrow B$ 为整环.$(k\subseteq k[x])$.
+\end{prop} 
+\begin{cor} 
+$ A \subseteq B$为整性扩张.$\mathfrak{q}$为$B$的素理想.$\mathfrak{p}=\mathfrak{q}^c=\mathfrak{q}\cap A$. 则$\mathfrak{q}$极大 $\Leftrightarrow\mathfrak{p}$极大.
+\end{cor}
+\begin{cor}
+$ A \subseteq B$为整性扩张.$\mathfrak{q},\mathfrak{q}′$为$B$的素理想,使得$\mathfrak{q}′\subseteq \mathfrak{q},\mathfrak{q}^c=\mathfrak{q}′^c. $则$\mathfrak{q}=\mathfrak{q}′$.
+\end{cor}
+这说明了$B$中严格的素理想降链限制在$A$上还是严格的素理想降链.
+\begin{thm}
+$A \subseteq B$为整性扩张.$\mathfrak{p}$为$A$ 的素理想,则存在$B$的素理想$\mathfrak{q}$,使得$ \mathfrak{q}\cap A=\mathfrak{p}$
+\end{thm}
+亦即$A$中素理想可以提升为$B$中素理想, 唯一性没有说明.
+\begin{cor}[上升定理]
+ $A\subseteq B$为整性扩张.$p_1 \subset \cdots \subset p_n$为$A$中素理想升链.$\mf{q}_1\subseteq \cdots \subseteq \mf{q}_m(m<n)$为$B$中素理想升链,满足$\mf{q}_i\cap A=\mf{p}_i,\forall i=1,\cdots,m$,则$\mf{q}_1\subseteq\cdots\subseteq \mf{q}_m$可以扩充为素理想的升链$\mf{q}_1\subseteq\cdots\subseteq \mf{q}_n$,满足$\mf{q}_i\cap A=\mf{p}_i,\forall i=1,\cdots,n$
+\end{cor} 
+\begin{defn}[整闭整环]称整环$A$为整闭的,如果$A$在$A$的分式域中的整闭包为$A$.
+\end{defn}
+整闭是局部性质
+\begin{prop}令$A$是一个整环,那么下列断言是等价的:\\
+(1)$A$是整闭的;\\
+(2)对每个素理想$\mf{p}$,$A_{\mf{p}}$是整闭的;\\
+(3)对每个极大理想$\mf{m}$,$A_{\mf{m}}$是整闭的.
+\end{prop} 
+\begin{lem} 
+设$A\subseteq B$为环扩张,$\mf{a}\subseteq A$为理想,$C$为$A$在$B$中的整闭包.记$\mf{a}^e$为$\mf{a}$在$C$中的扩理想,则$\mf{a}$在$B$中的整闭包为$\sqrt{\mf{a}^e}=\{b\in B|\exists f(t)=t^n+a_1t^{n-1}+\cdots+a_n,a_1,\cdots,a_n\in\mf{a},s.t.~f(b)=0\}$.
+\end{lem}
+\begin{prop}$A\subseteq B$为整环,$A$是整闭的,$\mf{a}\subseteq A$为理想,$\mf{b}\subseteq B$在$\mf{a}$上整,$K$为$A$的分式域,则$\mf{b}$在$K$上整,设$\mf{b}$在$K$上的极小多项式为$Irr(b,K)=x^n+a_1x^{n-1}+\cdots+a_n(a_1,\cdots,a_n\in K)$,则$a_1,\cdots,a_n\in\sqrt{\mf{a}}$.
+\end{prop}
+\begin{thm}[下降定理]设$A\subseteq B$为整环,$A$整闭,$B$在$A$上整,$\mf{p}_1\supseteq \cdots\supseteq \mf{p}_n$为$A$中素理想,$\mf{q}_1\supseteq \cdots\supseteq \mf{q}_m$为$B$中素理想,且$\mf{q}_i\cap A=\mf{p}_i,i=1,\cdots,m$,则$\mf{q}_1\supseteq \cdots\supseteq \mf{q}_m$可扩充为素理想降链$\mf{q}_1\supseteq \cdots\supseteq \mf{q}_n$,使得$\mf{q}_1\supseteq \cdots\supseteq \mf{q}_n$
+\end{thm}
+\chapter{维数理论}
+\begin{defn}[Krull维数]设$A$为Noether环,定义其(Krull)维数为:\\
+$\dim A=\max\{A\text{素理想升链}\mf{p}_0\subseteq \mf{p}_1\subset \cdots\subseteq \mf{p}_n\text{的长度}\}$
+\end{defn}
+\begin{thm}$k$为域,$k[x_1,\cdots,x_n]$为$n$个变量的多项式环.$\dim k[x_1,\cdots,x_n]=n$
+\end{thm}
+\begin{thm}[Noether正规化引理]$k$为无限域,$A$为有限生成的$k$-代数,$I\subseteq A$为理想,则存在自然数$\delta$和$d,(\delta\leq d)$,以及$y_1,\cdots,y_d\in A$,满足:\\
+(1)$y_1,\cdots,y_d$在$A$上代数无关;\\
+(2)$A$是有限$k[y_1,\cdots,y_d]$-代数;\\
+(3)$I\cap k[y_1,\cdots,y_n]=(y_{\delta+1},\cdots,y_n)$;\\
+(4)设$A=k[x_1,\cdots,x_n]$(即由$x_1,\cdots,x_n$生成的$k$-代数).则$y_1,\cdots,y_n$可选为$x_1,\cdots,x_n$的$k$-线性组合.
+\end{thm}
+\begin{cor}设$A$为有限生成$k$-代数.$k[y_1,\cdots,y_d]\subseteq A$为$A$的Noether正规化,则$\dim A=d$.
+\end{cor}
+\begin{prop}设$A$为有限生成$k$-代数,且$A$为整环,则$A$中任一长度极大的素理想链的长度都为$\dim A$.
+\end{prop}
+\begin{cor}设$A$为有限生成$k$-代数,且$A$为整环,$\mf{p}$为$A$中素理想,则$\dim A=\dim A_{\mf{p}}+\dim A/\mf{p}$.
+\end{cor}
+\begin{cor}设$A$为有限生成$k$-代数,且$A$为整环,$\mf{q}\subseteq \mf{p}$为$A$中素理想.则所有始于$\mf{q}$终于$\mf{p}$的长度极大的素理想链的长度相等,都等于$\dim A/\mf{q}-\dim A/\mf{p}$.
+\end{cor}
+\begin{prop}设$A$为有限生成$k$-代数,则下列叙述等价;\\
+(1)$\dim A=0$\\
+(2)$A$为$k$上的有限维向量空间;\\
+(3)$A$只有有限个素理想.\\
+(4)$A$中只有有限个极大理想.
+\end{prop}
+\begin{defn}素理想$\mf{p}\subseteq A$的高度:$ht(\mf{p}):=\dim A_{\mf{p}}$ $=\max\{\text{素理想链}\mf{p}_0 \subset \cdots \mf{p}_n=\mf{p}\text{的长度}\}$
+\end{defn}
+\begin{prop}设$A,B$为$Noether$环,$A\hookrightarrow B$为整性扩张,则\\
+(1)$\dim A=\dim B$;\\
+(2)对$B$中任意素理想$\mf{p}$.有$ht(\mf{p})\leq ht(\mf{p}\cap A),\dim B/\mf{p}=\dim A/\mf{p}\cap A$.\\
+(3)若$A,B$为整环,$A$整闭,那么(2)中不等式的等号成立.
+\end{prop}
+\begin{cor}设$A$为有限生成$k$-代数,$A$为整环,$Q(A)$为$A$的分式域,则$\dim A=tr~\deg(Q(A)/k),tr~\deg$表示超越次数.
+\end{cor}
+\begin{cor} 
+设$A$为有限生成$k$-代数,则$\dim A=A$中在$k$上代数无关的元素个数的极大值.
+\end{cor}
+\begin{cor} 
+设$A,A'$为有限生成$k$-代数,则$\dim A\otimes_{k}A'=\dim A+\dim A'.$
+\end{cor}
+\chapter{Artin环}
+\begin{defn}设$A$为环,$M$为$A$模,$M=M_0\supset M_1\supset \cdots M_l$为$M$中子模降链.称其为$M$的一个正规列,称$l$为其长度.若进一步有$M_i/M_{i-1}$全为单模,则称其为$M$的一个合成列.
+\end{defn}
+\begin{lem}$M \neq 0$为单模$\Leftrightarrow M\cong A/\mf{m}$($\mf{m}$为$A$的极大理想).
+\end{lem}
+\begin{defn}$A$为环,$M$为$A$模,称$M$为$Artin$模,如果$M$的子模满足降链条件,即对$M$的任意子模降链$M=M_0\supseteq M_1\supseteq \cdots\supseteq M_n\supseteq \cdots$存在$n$,使得$M_{n+1}=M_{n+2}=\cdots$,环$A$称为Artin环,如果$A$作为$A$-模是$Artin$模.
+\end{defn}
+\begin{defn}称$A$-模为有限长度的模,如果$M$所有正规列的长度有一个有限的上界.
+\end{defn}
+\begin{thm}[Jordan-H\"{o}lder]设$M$为$A$-模,若$M$有一个合成列,则$M$是有限长度的模.而且$M$的任意的两个合成列的长度都相等,记为$l(M)$.
+\end{thm}
+
+\begin{cor}[长度的可加性]设$M=M_0\supset M_1\supset \cdots M_l=0$为$M$的一个正规列,$M$为有限长度$\Leftrightarrow M_i/M_{i-1}$都是有限长度的模,并且此时有$l(M)=\sum\limits_{i=0}^{l-1}l(M_i/M_{i+1})$
+\end{cor}
+\noindent
+注:(1)有限长度的模的子模必是有限长度的;\\
+(2)有限长度模的同态像是有限长度的;\\
+(3)有限个长度模的直和是有限长度的.
+\begin{prop}设$A$为Noether环,则下列断言等价\\
+(1)$A$是有限长度的;\\
+(2)$A$是Artin环;\\
+(3)$\dim A=0.$
+\end{prop}
+\begin{cor}设$I$为$A$的理想,则$A/I$为有限长度$\Leftrightarrow$包含$I$的素理想都是极大理想.
+\end{cor}
+
+\begin{prop}$(A,\mf{m})$为局部环,$I\subset \mf{m}$为理想,则$l(A/I)<\infty \Leftrightarrow$存在$n$使得$\mf{m}^n\subseteq I.$
+\end{prop}
+\begin{prop}$M$为有限生成的$A$-模,则下列断言等价\\
+(1)$M$是有限长度的模;\\
+(2)$Supp(M)\subseteq Max(A)$,其中支撑集$Supp(M)\triangleq \{\mf{p}\text{为}A\text{的素理想}|M_{\mf{p}}\neq 0\}$,当$M$为有限生成模时,$Supp(M)=\{\mf{p}\text{为素}|\mf{p}\supseteq Ann(M)\}$\\
+(3)$A/Ann(M)$为有限长度的$A$-模.
+\end{prop}
+\chapter{维数为1的环}
+\begin{thm}设$A$为整环,$\dim A=1,$则下列命题等价:\\
+(1)$A$是整闭的.\\
+(2)$A$的每个准素理想都是素理想的方幂;\\
+(3)$\forall A$的素理想$\mf{p},A_{\mf{p}}$都是离散赋值环.
+\end{thm}
+\begin{defn}
+设$A$为整环,$Q(A)$为$A$的分式域,若存在映射$\upsilon :Q(A)/\{0\}\to \mathbb{Z},$满足:\\
+(1)$\upsilon$是群的同态($\upsilon(1)=0,\upsilon(xy)=\upsilon(x)+\upsilon(y)$);\\
+(2)$\upsilon(x+y)\geq \max\{\upsilon(x),\upsilon(y)\};$\\
+(3)$\{x\in Q(A)|\upsilon(x)\geq 0\}\cup
+\{0\}=A$\\
+则称$\upsilon$为$Q(A)$的一个离散赋值,$A$为相应于$\upsilon$的离散赋值环.
+\end{defn}
+注:离散赋值环是局部环,$\mf{m}:=\{x\in Q(A)|\upsilon(x)>0\}$为$A$中唯一的极大理想.
+\begin{prop}$(A,\mf{m})$为局部环,$k:=A/\mf{m}$,若$x_1,\cdots,x_t\in \mf{m}$是$\mf{m}$作为$A$-模的一组生成元,则$x_1,\cdots,x_t$在$A/\mf{m}^2$中的像是$k$上线性空间$\mf{m}/\mf{m}^2$的一组生成元.
+\end{prop}
+\begin{prop}设$A$为整局部环,$\dim A=1$,$\mf{m}$为$A$的极大理想,域$k=A/\mf{m}$,则下列叙述等价:\\
+(1)$A$为离散赋值环;\\
+(2)$A$是整闭的;\\
+(3)$\mf{m}$为主理想;\\
+(4)$\dim_k \mf{m}/\mf{m}^2=1;$\\
+(5)$A$的每个非零理想都形如$(x^n)$.
+\end{prop}
+\begin{lem}设$A$为整局部环,$\dim A=1$,$\mf{m}$为$A$的极大理想.若$\mf{a}\neq 0$为$A$的理想,则$\mf{a}$是$\mf{m}$-准素的,
+\end{lem}
+\begin{lem}Noether环$A$中,任一理想$I$包含$\sqrt{I}$的某个方幂.
+\end{lem}
+\begin{lem}设$A$为整局部环,$\dim A=1$,$\mf{m}$为$A$的极大理想,则$\mf{m}^n\neq \mf{m}^{n+1},\forall n\in \mathbb{N}^*$
+\end{lem}
+\begin{thm}$A$为整环,$\dim A=1$,则下列断言等价:\\
+(1)$A$整闭;\\
+(2)$A$的每个准素理想都是素理想的方幂;\\
+(3)$\forall A$的素理想$\mf{p},A_{\mf{p}}$为离散赋值环.
+\end{thm}
+\begin{cor}$A$为Dedekind整环,则$A$中任一非零理想都可唯一分解为一些素理想的乘积
+\end{cor}
+
+\end{document}

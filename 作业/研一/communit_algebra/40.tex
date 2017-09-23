@@ -1,0 +1,42 @@
+\documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}}
+\fancyhead[LO]{\usebox{\mygraphic}}
+\fancyhead[RO,RE]{ 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,left=0.7cm,right=0.7cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\zihao{4}
+\noindent
+1.由$(m,n)=1$可知$\exists s,t\in \mathbb{Z}$使得$ms+nt=1$.由于$\mathbb{Z}_m\otimes \mathbb{Z}_n$由$1\otimes 1$生成,我们只用证明$1\otimes 1=0$即可.事实上,$(ms)(1\otimes 1)=(ms)\otimes 1=0\otimes 1=0,(nt)(1\otimes 1)=1\otimes (nt)=1\otimes 0=0$但是$(ms+nt)(1\otimes 1)=1\otimes 1=0$,故$\mathbb{Z}_m\otimes \mathbb{Z}_n=0$\\
+2.取$f=id_a,g$为典范同态,那么\es{a}{f}{A}{g}{A/a}是正合的.与$M$做张量积得到正合列\es{\ts{a}{M}}{\tilde{f}}{\ts{A}{M}}{\tilde{g}}{\ts{(A/a)}{M}}.定义同态$h:\ts{a}{M}\rightarrow a(\ts{A}{M})$为$h(\ts{a}{m})=a(\ts{e}{m})=\ts{a}{m}$,显然为单射,再由$a(\ts{A}{M})=\left\{\sum\limits_{i=1}^{n}a_i(\ts{A_i}{m_i})\right\}=\left\{\sum\limits_{i=1}^{n}\ts{a'_i}{m_i}\right\}$,故$h$又为满射,从而是一个同构.故有$\ts{a}{M}\cong a(\ts{A}{M})\cong aM$.再由$ker\tilde{g}=Im\tilde{f}=\ts{a}{M}\cong aM,\ts{A}{M}\cong M$,得到$\ts{(A/a)}{M}\cong (\ts{A}{M})/(\ts {a}{M})\cong \ts{M}{aM}$.\\
+3.设$m$为$A$的极大理想,则$k=A/m$为域,设$M_k=\tss{k}{A}{M}\cong M/mM,N_k=\tss{k}{A}{N}\cong N/mN$.由$\tss{M}{A}{N}=0\Rightarrow$$\tss{\tss{M}{A}{N}}{A}{k}=\tss{M}{A}{(\tss{N}{A}{k})}=\tss{M}{A}{N_k}=0$.利用习题$2.15$我们有$\tss{M_k}{k}{N_k}=\tss{(\tss{M}{A}{k})}{k}{N_k}\cong \tss{M}{A}{(\tss{k}{k}{N_k})}\cong \tss{M}{A}{N_k}=0$,注意到$M_k,N_k$为域上向量空间.故我们有$M_k=0,$或$N_k=0$.当$M_k=0$时由$Nakayama$引理导出的命题2.8,取$0\in M$,它在$M_k$中的像为$0$且生成$M_k$,故0生成M,则$M=0$.证毕.\\
+4.我们先证明:对于任意的$A$模$N$有$A$模同构
+\[\varphi_N:\left( \bigoplus_{i\in I}M_i\right) \otimes_AN\rightarrow \sum_{i\in I}(M_i\otimes_A N)\]
+\[(x_i)\otimes y\rightarrow (x_i\otimes y)\]
+其中$x_i\in M_i,(x_i)\in \bigoplus_{i\in I}M_i,y\in N$.事实上,$(x_i)\times y\rightarrow (x_i\times y)$定义了$\bigoplus_{i\in I}M_i\times N$到$\oplus_{i
+\in I}(M_i\otimes_AN)$的一个双线性映射.由张量积定义可知$\varphi_N$是一个良定义的$A$模同态,反之令$l_i$为$M_i$到$\bigoplus_{i\in I}M_i$的典范嵌入,则$l_i\otimes id_N$给出由$M_i\otimes_AN$到$\left( \oplus_{i\in I}M_i\right) \otimes_AN$的模同态.故存在模同态
+\[\psi_N: \bigoplus_{i\in I}(M_i\otimes_AN)\rightarrow \left( \bigoplus_{i\in I}M_i\right) \otimes_AN\]
+\[(x_i\otimes y)\rightarrow (x_i)\otimes y\]
+易见$\varphi_N$与$\psi_N$互逆,故$\varphi$是模同构.其次容易验证上述同构$\varphi_N$是自然的.对于任意的$A$模的单同态$\alpha:N\rightarrow T,$显然$id_{M_i}\otimes \alpha:M_i\otimes_{A}N\rightarrow M_i\otimes_A T$都是单射$(\forall i\in I)$当且仅当
+\[\alpha^*:\bigoplus_{i\in I}(M_i\otimes_A N)\rightarrow \bigoplus_{i\in I}(M_i\otimes_AT)\]是单射.由同构$\varphi$的自然性$\alpha^*$是单射当且仅当
+\[id\otimes\alpha:\left( \bigoplus_{i\in I}M_i\right) \otimes_A N\rightarrow\left(  \bigoplus_{i\in I}M_i\right) \otimes_AT\]
+是单射,故$\bigoplus_{i\in I}M_i$是平坦的$A$模当且仅当所有的$M_i(i\in I)$是平坦的$A$模.\\
+7.将正合列\ess{p}{f}{A}{g}{A/a}与$A[x]$做张量积,由习题5知$A[x]$是平坦的,故得到正合列\ess{\ts{p}{A[x]}}{\ts{f}{1}}{\ts{A}{A[x]}}{\ts{g}{1}}{\ts{(A/p)}{A[x]}},利用习题6,有$\ts{p}{A[x]}\cong p[x],\ts{(A/p)}{A[x]}\cong (A/p)[x]$.则上述正合列可以写成\ess{p[x]}{\tilde{f}}{A[x]}{\tilde{g}}{(A/p)[x]}.注意到$(A/p)[x]$为整环上的多项式环亦为整环,故$A[x])/p[x]\cong (A/p)[x]$也为整环,那么$p[x]$为素理想.\\
+8.$u$诱导的同态$M/aM  \rightarrow N/aN$为$m+aM\rightarrow u(m)+aN
+$.由于这是一个满同态,故$N/aN$每个陪集至少有一个代表元素包含在$Im~u$中.所以$Im~u+aN=N$注意到$Im~u$为有限生成模$N$的一个子模,$a$为包含在大根中的极大理想,利用系理2.7得到$N=Im~u$,故$u$为满同态.\\
+11.必要性:设$m$为$A$中的一个极大理想并设$\varphi:A^m \rightarrow A^n$是一个同构.那么$1\otimes \varphi :(A/m)\otimes A^m\rightarrow (A/m)\otimes A^n$利用习题2,得到$(A/m)^m\rightarrow (A/m)^n$上的一个同构,注意到这是域上向量空间的同构,故$m=n$.充分性显然.\\
+若$m<n$取$A^m\xrightarrow{\varphi}A^n\xrightarrow{\psi}A^m$,其中$\psi$为投影,则$\psi$为满射,那么$\psi \circ \varphi$也是满射,则$\psi \circ \varphi$为单射,则为同构,但$\psi$显然不可逆,故矛盾,所以$m\geq n$.\\
+12.设$e_1,\cdots ,e_n$为$A^n$的一组基.由于$M/ker~\varphi \cong A^m$,取$e_i$的一组原像$\overline{u}_i(1\leq i\leq n)$,再从陪集中任取一个代表元还记为$u_i$.记$\{u_1,\cdots u_n\}$生成的模为$N$.我们证明$M=N\oplus ker ~\varphi$即可得到原命题.首先由$N$的构造方法可知$N\cap ker\varphi$,且任一$m\in M$都有$\overline{m}=m+\ker\varphi=u_{i(m)}+\ker\varphi$故$M=N+\ker~\varphi$
+\end{document}

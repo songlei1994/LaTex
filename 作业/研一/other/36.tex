@@ -1,0 +1,122 @@
+\documentclass{ctexbook}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs} %为了预览
+\newcommand{\reflem}[1]{引理(\ref{#1})} %带括号的引理 \eref
+\usepackage{nameref}%提供\nameref 
+
+\newcommand{\refeq}[1]{式(\ref{#1})}
+\theoremstyle{plain}
+  \newtheorem{algo}{算法~}[chapter]
+  \newtheorem{thm}{定理~}[chapter]
+  \newtheorem{lem}[thm]{引理~}
+  \newtheorem{prop}{性质~}[chapter]
+  \newtheorem{cor}[thm]{推论~}
+  
+\theoremstyle{definition}
+  \newtheorem{defn}{定义~}[chapter]
+  \newtheorem{conj}{猜想~}[chapter]
+  \newtheorem{exmp}{例~}[chapter]
+  \newtheorem{rem}{注~}
+  \newtheorem{case}{情形~}
+  % %
+  \def\intab_a#1{\int_a^b{#1}dx}
+  \def\inttpi_a#1{\int_{-\pi}^{\pi}{#1}dx}
+  \def\intpi_a#1{\int_{0}^{2\pi}{#1}dx}
+  \def\inttt_a#1{\int_{-T}^T{#1}dx}
+\usepackage[top=3cm,headheight=5mm,headsep=4mm,footskip=8mm,bottom=1.8cm,left=2.7cm,right=2.7cm]{geometry}
+\begin{document}
+\chapter{附录}
+这章主要介绍7个收敛性的定义,
+\section{收敛性}
+\subsection{定义}
+\noindent
+连续函数空间$C[0,1]$,$f,f_n\in C[0,1],n=1,2,\cdots$.
+
+\begin{defn}[逐点收敛]\label{pointcon}
+如果:
+\[\lim_{n \to \infty}f_n(x)=f(x) \quad \forall x \in [0,1],\]
+那么称$f_n(x)$逐点收敛到$f(x)$,记为$f_n(x)\rightarrow f(x)$.\footnote{对于实变函数来说,经常用几乎处处来代替任意}
+\end{defn}
+
+\begin{defn}[一致收敛]\label{uniformcon}
+$\forall \varepsilon >0,\exists N\in \mathbb{N},使得\forall n>N,\forall x\in[0,1]$均有
+\[|f_n(x)-f(x)|<\varepsilon\]
+这时称函数列$f_n(x)$一致收敛到$f(x)$,记为$f_n(x)\Rightarrow f(x)$
+\end{defn}
+
+\begin{defn}[按最大模收敛]\label{maxcon}
+如果:
+\[\lim_{n \to \infty}\max_{x \in [0,1]}|f_n(x)-f(x)|=0\]
+则这时函数列称$f_n(x)$按最大模收敛到$f(x)$.
+\end{defn}
+
+\begin{defn}[$L^2$收敛]如果:\label{ltwo}
+\[\lim_{n \to \infty}\left(\int_{[0,1]} |f_n(x)-f(x)|^2dx\right) ^\frac{1}{2}=0\]
+则称函数列$f_n(x)$$L^2$收敛到$f(x)$,记为$f_n(x)\xrightarrow{L^2}f(x)$
+\end{defn}
+
+\begin{defn}[$L^1$收敛]\label{lone}
+\[\lim_{n \to \infty}\int_{[0,1]} |f_n(x)-f(x)|dx =0\]
+则称函数列$f_n(x)$$L^1$收敛到$f(x)$,记为$f_n(x)\xrightarrow{L^1}f(x)$
+\end{defn}
+
+\begin{defn}[弱收敛]\label{wcon}
+若对于任意的$g \in C[0,1]$,
+\[\lim_{n \to \infty}\int_{[0,1]}f_m(x)g(x)dx=\int_{[0,1]}f(x)g(x)dx\]
+就称函数列$f_n(x)$$L^1$收敛到函数$f(x)$;记作$\omega-\lim \limits_{n\to \infty}f_m=f$,$f_m\rightharpoonup f$,$f_n \xrightarrow{\omega}f$
+\end{defn}
+
+\subsection{关系}
+下面我们介绍这几种收敛性在不加其他任何条件时的关系.
+先是古典数分的结论.
+\begin{prop}
+{\songti\nameref{maxcon}等价于\nameref{uniformcon}}.
+%证明分为两部分:
+%必要性:由一致收敛的定义$\forall \varepsilon >0,\exists N\in \mathbb{N},$使得$\forall n>N,\forall x\in[0,1]$均有
+%\[|f_n(x)-f(x)|<\frac{1}{2}\varepsilon(*)\]
+%固定$n$,对$(*)$取上确界,注意此时绝对值内是连续函数,故可将$sup$修改为$max$,
+%即\[\max_{x \in [0,1]}|f_n(x)-f(x)|\leq \frac{1}{2}\varepsilon< \varepsilon \quad \forall n>N\]
+%再由极限定义易得充分性.
+%充分性:由极限的定义$\forall \varepsilon >0,\exists N\in \mathbb{N},$使得$\forall n>N$均有
+%\[|f_n(x)-f(x)|\leq \max_{x\in [0,1]}|f_n(x)-f(x)|<\varepsilon \forall x \in [0,1]\]由定义\ref{uniformcon}得证.
+\end{prop}
+
+\begin{prop}
+{\songti\nameref{uniformcon}蕴含\nameref{ltwo},\nameref{pointcon}}.\\
+只证$L^1$的情形,$L^2$类似.
+两部分:
+必要性:由定义\ref{uniformcon}$\forall \varepsilon >0,\exists N\in \mathbb{N},$使得$\forall n>N,\forall x\in[0,1]$均有
+\[|f_n(x)-f(x)|<\frac{1}{2}\varepsilon\]
+那么
+\[\int_{[0,1]}|f_n(x)-f(x)|dx<\varepsilon \cdot 1=\varepsilon \quad \forall n>N\]
+由定义\ref{lone}易证.
+至于\nameref{pointcon}是显然的.
+\end{prop}
+
+\begin{prop}
+{\songti\nameref{ltwo}蕴含\nameref{lone}}.\\
+由$Cauchy-Schwarz$不等式
+\[\int_{[0,1]}|f_n(x)-f(x)|dx \leq \left( \int_{[0,1]}|f_n(x)-f(x)|^2dx\right)^\frac{1}{2}\left( \int_{[0,1]}1^2dx\right)^\frac{1}{2}  \]
+再由夹逼定理可知性质成立.
+\end{prop}
+然后是实变函数与泛函分析的结论.这时我们要引入新的概念:"几乎处处"成立的命题(简记为$a.e.$)
+以及
+\begin{defn}[依测度收敛]\label{mcon}
+\end{defn}
+先证明当空间$E=[0,1]$时,\nameref{lone}与\nameref{mcon}等价.
+\begin{thm}[叶戈罗夫定理]
+\end{thm}
+\begin{thm}[Riesz定理]
+\end{thm}
+
+\section{基本三角函数系}
+\noindent
+形如$\frac{a_0}{2}+\sum_{n=1}^{\infty}(a_ncos\,nx+b_nsin\,nx)$的函数项级数称为\textbf{傅立叶级数},其中$a_0,a_n$,$b_n$($n=1,2\cdots$)为常数.
+我们将傅立叶级数视为函数系
+\begin{equation}\label{sanjiaohs}
+1,cos\, x,sin\, x,cos\, 2x,sin\, 2x ,\cdots ,cos\, nx,sin\, nx,\cdots
+\end{equation}
+的一个线性组合,这个函数系我们之后称为\textbf{基本三角函数系}.我们称基本三角函数系中有限个元素的线性组合为一个三角多项式.特别的,\\
+$\frac{a_0}{2}+\sum_{k=1}^{n}(a_kcos\,kx+b_ksin\,kx)=T_n(x)$为一个$n$阶三角多项式.
+基本三角函数系\refeq{sanjiaohs}的一个性质使它的周期性,显然他们的线性组合也至少有$2\pi$作为周期.
+
+\end{document}

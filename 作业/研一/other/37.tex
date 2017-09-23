@@ -1,0 +1,61 @@
+\documentclass{ctexbook}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs} %为了预览
+\newcommand{\reflem}[1]{引理(\ref{#1})} %带括号的引理 \eref
+\usepackage{nameref}%提供\nameref 
+%更大的数学符号
+\usepackage{exscale}
+\usepackage{relsize}
+
+\usepackage{fancyhdr}
+%选择用环境
+\usepackage{ifthen}
+\newlength{\la}
+\newlength{\lb}
+\newlength{\lc}
+\newlength{\ld}
+\newlength{\lhalf}
+\newlength{\lquarter}
+\newlength{\lmax}
+\newcommand{\xx}[4]{
+  \settowidth{\la}{A.~#1~~~}
+  \settowidth{\lb}{B.~#2~~~}
+  \settowidth{\lc}{C.~#3~~~}
+  \settowidth{\ld}{D.~#4~~~}
+  \ifthenelse{\lengthtest{\la > \lb}}  {\setlength{\lmax}{\la}}  {\setlength{\lmax}{\lb}}
+  \ifthenelse{\lengthtest{\lmax < \lc}}  {\setlength{\lmax}{\lc}}  {}
+  \ifthenelse{\lengthtest{\lmax < \ld}}  {\setlength{\lmax}{\ld}}  {}
+  \setlength{\lhalf}{0.5\linewidth}
+  \setlength{\lquarter}{0.25\linewidth}
+  \ifthenelse{\lengthtest{\lmax > \lhalf}}  {\noindent{}A.~#1 \\ B.~#2 \\ C.~#3 \\ D.~#4 }  {
+  \ifthenelse{\lengthtest{\lmax > \lquarter}}  {\noindent\makebox[\lhalf][l]{A.~#1~~~}%
+    \makebox[\lhalf][l]{B.~#2~~~}%
+    \makebox[\lhalf][l]{C.~#3~~~}%
+    \makebox[\lhalf][l]{D.~#4~~~}}%
+    {\noindent\makebox[\lquarter][l]{A.~#1~~~}%
+      \makebox[\lquarter][l]{B.~#2~~~}%
+      \makebox[\lquarter][l]{C.~#3~~~}%
+      \makebox[\lquarter][l]{D.~#4~~~}}}}
+\theoremstyle{plain}
+  \newtheorem{algo}{算法~}[chapter]
+  \newtheorem{thm}{定理~}[chapter]
+  \newtheorem{lem}[thm]{引理~}
+  \newtheorem{prop}{性质~}[chapter]
+  \newtheorem{cor}[thm]{推论~}
+  
+\theoremstyle{definition}
+  \newtheorem{defn}{定义~}[chapter]
+  \newtheorem{conj}{猜想~}[chapter]
+  \newtheorem{exmp}{例~}[chapter]
+  \newtheorem{rem}{注~}
+  \newtheorem{case}{情形~}
+ \usepackage[top=3cm,headheight=5mm,headsep=4mm,footskip=8mm,bottom=1.8cm,left=2.7cm,right=2.7cm]{geometry}
+\usepackage{nameref}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs} 
+\usepackage{setspace}
+\begin{document}
+\pagestyle{fancy}
+\fancyhead{} % clear all fields
+\fancyhead[RO,LE]{ \includegraphics{oak.eps}}
+\fancyhead[LO,RE]{不清楚该写什么}
+编译过了吗
+\end{document}

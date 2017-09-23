@@ -1,0 +1,34 @@
+% !TeX encoding = UTF-8
+\documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}\zihao{-4}~组合数学~\today}
+\fancyhead[LO]{\usebox{\mygraphic}\zihao{-4}~组合数学~\today}
+\fancyhead[RO,RE]{\zihao{-4} 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,headsep=0.5cm,footskip=1cm,left=1.0cm,right=1.0cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\zihao{-4}
+\noindent
+\\
+\begin{center}
+{\zihao{4}补第二次作业}
+\end{center}
+10.不难看出对任意固定的正整数$i$,将$[n]$划分为$i$个$i$非空子区间时,所对应的方法数数列$\{a_n^i\}$的普通生成函数为$f^i(x)$.而$b_n=\sum\limits_{i=0}^\infty a_n^i$,所以$g(x)=\sum\limits_{i=0}^\infty f^i(x)=\dfrac{1}{1-f(x)}$\\
+12.直接写出生成函数为$\underbrace{(x^h+x^{h+1}+\cdots)\cdots (x^h+x^{h+1}\cdots)}_k=\left( \dfrac{x^h}{1-x}\right) ^k$,利用二项式展开不难计算出$f(n,k,h)$的系数为$\dbinom{n-(h-1)k-1}{n-hk}$\\
+13.利用性质2.3.29,令$a_n=n$便得到生成函数为$(\sum\limits_{i=1}^\infty ix^i)^k=\dfrac{x^k}{(1-x)^{2k}}$.不难看出$g(n,k)=\dbinom{n+k-1}{n-k}.$\\
+15.设$n$元错位排列数为$d_n$,则$D_k(n)=\dbinom{n}{k}d_{n-k}$.应用例2.3.44可知$\{d_n\}_{n=0}^\infty$的指数型生成函数为$\dfrac{e^{-x}}{1-x}$,计算$\{y^n\}_{n=0}^\infty$的指数型生成函数为$e^{xy}$.注意到$\dfrac{e^{-x(1-y)}}{1-x}$为$\{d_n\}$和$\{y^n\}$的指数型生成函数相乘,由性质2.3.40,为$\sum\limits_{k=0}^n\dbinom{n}{k}d_{n-k}y^k$的生成函数.即
+\[\sum_{n=0}^\infty\sum\limits_{k=0}^n\dbinom{n}{k}d_{n-k}\dfrac{y^kx^n}{n!}=\sum_{n=0}^\infty\sum\limits_{k=0}^nD_k(n)\dfrac{y^kx^n}{n!}=\sum_{n,k=0}^\infty D_k(n)\dfrac{y^kx^n}{n!}=\dfrac{e^{-x(1-y)}}{1-x}\]
+16.利用定理2.3.57,可知$\{\lambda(n)\}_n^\infty$的Dirichlet生成函数为
+\[\varLambda(s)=\prod_p\left( \sum\limits_{i=0}^\infty(-1)^kp^{-ks}\right) =\prod_p\left( \sum\limits_{i=0}^\infty(-p)^{-ks}\right)=\prod_p\dfrac{1}{1+p^{-s}}=\prod_p\dfrac{1-p^{-s}}{1+p^{-2s}}=\dfrac{\zeta(2s)}{\zeta(s)}\]
+那么$\zeta(2s)=\varLambda(s)\zeta(s)$,由于$\zeta(2s)$对应数列为$b_n$,从生成函数来看当且仅当$n$为完全平方数,其他时候为零.同时$b_n=\sum\limits_{d|n}\lambda(d)$,所以结论成立.
+\end{document}

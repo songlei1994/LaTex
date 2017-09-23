@@ -1,0 +1,59 @@
+\documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}}
+\fancyhead[LO]{\usebox{\mygraphic}}
+\fancyhead[RO,RE]{ \zihao{-4}宋雷~1601210073}
+\fancyfoot[c]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,left=0.7cm,right=0.7cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\usepackage{exscale} 
+\usepackage{relsize} 
+\begin{document}
+\pagestyle{plain}
+\noindent
+\zihao{4}
+12.2\\
+EX(1)注意到对于任意的$f\neq 0$,$k[x]$在$k[f]$上整,于是$k[x]$在$A$上整,所以$A$为有限生成$k$-代数,对$A$使用Noether正规化引理可知$\dim A\geq 1$,否则$A$在$k$上整,这是不可能的.而由于$k[x]$在$A$上整显然有$\dim A\leq 1$\\
+EX(2)~1),取$(x+ty),t\in k$,按素理想的定义可以验证为素理想.而$ht~(x+ty)=\dim k[x,y]-\dim k[x,y]/(x+ty)=1$\\
+2)对$(A,\mathfrak{p})$使用$Noether$正规化引理,可以得到$N=k[y_1,\cdots,y_n]$.而$\mathfrak{p}\cap k[y_1,\cdots,y_n]=(y_{\delta+1},\cdots,y_n)$,由于$ht~\mathfrak{p}\geq 2$,取$\mathfrak{p_2}\subset \mathfrak{p_1}\subset \mathfrak{p}$,则它们在$N$中的限制为长度为2的包含在$(y_{\delta+1},\cdots,y_n)$中的素理想链,这说明$n-\delta\geq 2$,使用第一问的结论可以在$N$中找到无限个包含在$(y_{\delta+1},\cdots,y_n)$高度为1的素理想,它们自然也是包含在$\mathfrak{p}$中高度为1的素理想.\\
+1.由$A$和$B$的定义我们有$A=\bigoplus\limits_{n\geq 0}\mathbb{Z}/p\mathbb{Z},B=\bigoplus\limits_{n\geq 0}\mathbb{Z}/p^n\mathbb{Z}$.这说明$pA=0$,由此$\hat{A}=\varprojlim\limits_{k\geq 0}A/p^kA=\varprojlim\limits_{k\geq 0}A/(0)=A;$这说明$A$的完备化$\hat{A}$就是$A$.\\
+对于第二个假设.考虑$B$在$p-adic$拓扑下的邻域基;它们正是$p^kB,k\geq 0$,$B$的拓扑在$A$上诱导出的拓扑.而邻域基为$A_k=\alpha^{-1}(p^kB)$,明确地被
+\[A_k=\alpha^{-1}(0\oplus1\cdots\oplus 0\bigoplus_{n>k}\mathbb{Z}/p^n\mathbb{Z})=\bigoplus_{n>k}\mathbb{Z}/p\mathbb{Z}\]
+因此,$A$在限制拓扑下的完备化为
+\[\hat{A}=\varprojlim_{k\geq 0}(A/A_k)=\varprojlim_{k\geq 0}(\mathbb{Z}/p\mathbb{Z})^k=\prod_{n\geq 0}\mathbb{Z}/p\mathbb{Z}\]
+考虑下面的序列
+\[0\to A\xrightarrow{\alpha}B\xrightarrow{p\cdot}B\to 0\]
+是正合的.而完备化不是.\\
+2.所给的正合列实际上如下
+\[0\to \bigoplus_{k>n}\mathbb{Z}/p\mathbb{Z}\to \bigoplus_{k\geq 0}\mathbb{Z}/p\mathbb{Z}\to \bigoplus_{n\geq k\geq 0}\mathbb{Z}/\mathbb{Z}\to 0\]
+由之前的练习,我们有
+\[\varprojlim_{k\geq 0}A/A_n=\prod_{n\geq 0}\mathbb{Z}/p\mathbb{Z},\varprojlim_{n\geq 0}A_n=0\]
+因此,完备化序列不可能是满的.\\
+而$\varprojlim^1A=0$,并且有下列长正合列
+\[0\to \bigoplus_{n\geq 0}\mathbb{Z}/p\mathbb{Z}\to\prod_{n\geq 0}\mathbb{Z}/p\mathbb{Z}\to\varprojlim^1A_n\to 0\]
+于是$\varprojlim^1A_n=(\prod\mathbb{Z}/p\mathbb{Z})/(\oplus\mathbb{Z}/p\mathbb{Z})$.\\
+3.由$Krull$定理,我们知道子模$E=\bigcap\limits_{n=1}^{\infty}\mathfrak{a}^nM$被$1+\mathfrak{a}$中某些元素$1+a$零化.对于任意包含$\mathfrak{a}$的极大理想当$1+a$为$A_{\mathfrak{m}}$中单位元,所以此时$A_{\mathfrak{m}}=0$.因此
+\[\bigcap_{i=1}^{\infty}\mathfrak{a}^nM=E\subseteq \bigcap_{\mathfrak{m}\supseteq \mathfrak{a}}\ker(M\to M_{\mathfrak{m}})\]
+另一方面,记
+\[K=\bigcap_{\mathfrak{m}\supseteq \mathfrak{a}}\ker(M\to M_{\mathfrak{m}})\]
+那么.对于那些$\mathfrak{a}\subseteq\mathfrak{a}$有$K_{\mathfrak{m}}=0$.这说明$K=\mathfrak{a}K$.因此
+\[K=\mathfrak{a}K=\mathfrak{a}^2K=\cdots=\mathfrak{a}^nK=\cdots=\bigcap_{n=1}^\infty \mathfrak{a}^nM\]\\
+对于第二个问题,注意到$\hat{M}=0\Leftrightarrow \hat{M}=\mathfrak{a}\hat{M}\Leftrightarrow M=\mathfrak{a}M$也等价于
+\[M=\bigcap_{n=1}^\infty\mathfrak{a}^nM=\bigcap_{n=1}^\infty \ker(M\to M_{\mathfrak{m}})\]
+而显然当$\mathfrak{a}\subseteq \mathfrak{m}$时$M_{\mathfrak{m}}=0$.这等价于$Supp(M)\cap V(\mathfrak{a})$不包含任何极大理想.因此$Supp(M)\cap V(\mathfrak{a})=\emptyset.$\\
+4.由于$x$不为$A$中零因子,那么序列
+\[0\to A\xrightarrow{x\cdot}A\to A/xA\to 0\]
+是正合的.而完备化是一个正合函子,上述序列的完备化
+\[0\to \hat{A}\xrightarrow{\hat{x}\cdot}\hat{A}\to \hat{A}/\hat{x}\hat{A}\to 0\]
+也是正合的,这说明$\hat{x}$不为零因子.\\
+1.使用11.18我们知道$\dim A_{\mathfrak{m}}=n-1$,而$\mathfrak{m}/\mathfrak{m}^2\cong (x_1,x_2,\cdots,x_n)/(x_1,x_2,\cdots,x_n)^2+(f)$.而它的维数为$n-1$当且仅当$f\not\in(x_1,x_2,\cdots,x_n)^2$,这等价于代数簇$f(x)=0$非奇异.因此$P$非奇异,等价于$A_{\mathfrak{m}}$为正则局部环.
+\end{document}

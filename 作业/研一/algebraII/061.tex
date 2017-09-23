@@ -1,0 +1,60 @@
+\documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}}
+\fancyhead[LO]{\usebox{\mygraphic}}
+\fancyhead[RO,RE]{\zihao{-4} 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,left=0.7cm,right=0.7cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\noindent
+\zihao{-4}
+\textbf{20}.我们令$S=a,T=a^{-1}b$,设$n=o(a^{-1}b)$,不难验证$\langle S,T\rangle$生成$D_n$,再定义映射$\varphi$使得$\varphi(a)=S,\varphi(b)=ST$,不难验证这是一个同构,所以由$\langle a,b\rangle$生成的群为二面体群$D_n$\\
+必要性:记$a=S,b=ST$,利用二面体群的定义$S^2=I,ST=T^{-1}S$,我们有$b^2=(ST)(ST)=STT^{-1}S=I$,而$b\neq I$,所以$o(b)=2$,而由于$S,T$亦可由$a,b$表出,那么$D_n=\langle S,T\rangle=\langle a,b\rangle,$即$D_n$由两个二阶元素生成.\\
+23.首先我们知道域的乘法群是交换群,那么就可以使用有限$Abel$群的分解定理.若它不是循环群,注意到此时分解式是内直积,那么必含有$p^s$阶交换$p$群($s\geq 2$),$s=2$时我们得到两个$p$阶元,但我们知道,在域中$x^p=1$至多有$p$个解,但由两个$p$阶元我们有$p+1$个解$\{a,a^2,\cdots,a^{p-1},1,b\}$,矛盾!$s\geq2$类似可证.于是原乘法群是循环群.\\
+24.令$D_8=\langle a,b\rangle,a^4=b^2=1,b^{-1}ab=a^{-1}$,若$\alpha\in Aut(D_8),$那么$\alpha(a),\alpha(b)$也是$D_8$的生成元且满足同样的关系式,那么$o(\alpha(a))=4,o(\alpha(b))=2,\alpha(b)^{-1}\alpha(a)\alpha(b)=\alpha(a)^{-1}$,由于$D_8=\{a\}+\{a\}b$的陪集$\{a\}b$中每个元素的阶都为2;$\{a\}$中4阶元为$a^{\lambda}$,但$(\lambda,2)=1$,于是共有$\varphi(4)=2$个;故$\alpha(a)$的选法有2种,而$\alpha(a)$选定后,$\alpha(b)$的选法有4种,这说明$|Aut(D_8)|=8$,而$Inn(D_8)\cong D_8\texttt{\char92}Z(D_8)=D_8\texttt{\char92}\{a^2\}$说明$Inn(D_8)$4阶非循环,那么$Inn(D_8)$为克莱因四元群,这说明$Aut(D_8)$不是四元数群,于是必是二面体群$D_8$.\\
+27.由于$N\unlhd G$,则$\forall g\in G,g^{-1}Ng=N,$那么$g^{-1}Pg\subset g^{-1}Ng=N$,也就是说$N$的西罗$p$子群在$G$的共轭作用下还是$N$的西罗$p$
+子群.由此我们可以定义$G$在$Syl_p(N)$上的共轭作用,且$G_{P}=N_{G}(P)$,而$N$作用在$Syl_p(N)$上显然是传递的,由Frattini论断,我们有$G=N_{G}(P)N$.\\
+28.我们对$H,N_G(H)$,验证EX27的条件,由于$H\unlhd N_G(H)$,并且由西罗$p$子群的极大性我们知道$P$也是$H$的西罗$p$子群,即$P\in Syl_p(H)$,那么由EX27,我们有$N_G(H)=HN_N(P)\leq HN_G(P)\leq H,$显然有$H\leq N_G(H)$,所以$H=N_G(H)$.\\
+35.设$N\unlhd G,N\cong A_5,G/N\cong A_5.$那么$G/C_G(N)\lesssim Aut(N)\cong S_5.$于是$C_G(N)\cong A_5$,注意到$C_G(N)\cap N=1$,我们有$G\cong A_5\times A_5$.\\
+41.设$p>q$为素数,若$q|p-1$,则由例7.2可知$pq$阶非交换群如下定义:$r\not\equiv 1(\mod p),r^q\equiv 1(\mod p)$,则$G$有定义关系
+\[G=\langle a,b|a^p=b^q=1,b^{-1}ab=a^r\rangle\]
+由此我们可以确定$10,14$阶群.而$q\not|p-1$时,有命题2.9知必为循环群.于是$15$阶群可以确定.
+难点在于$12,18,20$阶群.12阶群书上已给出答案,现摘抄如下:
+12阶群:交换群$(1)G\cong\mathbb{Z}_3\oplus\mathbb{Z}_4$,$(1)G\cong\mathbb{Z}_2\oplus\mathbb{Z}_6$.非交换群$(3)G\cong\mathbf{A}_4$,$(4)G=\langle u,v\rangle,u^6=1,v^2=1,v^{-1}uv=u^{-1}$;$(4)G=\langle u,v\rangle,u^6=1,v^2=u^3,v^{-1}uv=u^{-1};$\\
+18阶群,交换群$(1)G\cong\mathbb{Z}_3\oplus\mathbb{Z}_6$,$(1)G\cong\mathbb{Z}_2\oplus\mathbb{Z}_9$\\
+若非交换,由$Sylow$定理可知,$Sylow~$3子群$S$是正规的.我们分如下两种情况讨论
+(1)$S=\langle a\rangle,a^9=1$.取$G$中2阶元$b$,则有$G=\langle a,b\rangle.$现设$bab^{-1}=a^d$,由于$G$为非$Abel$群,所以$d\neq 1.$
+而$a^{d^2}=(a^d)^d=(bab^{-1})^d=ba^db^{-1}=b(bab^-1)b=b^2ab^{-2}=a,$所以$d^2\neq 1(\mod 9)$,于是$d=8$,而$a^8=a^{-1},$故$G=\langle a,b|a^9=1,ba=a^{-1}b\rangle=D_9.$\\
+若$S\neq \langle a\rangle,$则由于$p^2$阶群都是交换群,于是$S=\langle a\rangle\times \langle b\rangle,a^3=b^3=1$,这时再取2阶元$c\in G$,那么$G=\langle a,b,c\rangle.$
+设$c^{-1}ac^{-1}=a^{\alpha_1}b^{\beta_1},c^{-1}bc^{-1}=a^{\alpha_2}b^{\beta_2}$,其中$0\leq \alpha_1,\alpha_2,\beta_1,\beta_2<3$.\\
+$a=c^2ac^{-2}=c(cac^{-1})c^{-1}=ca^{\alpha_1}b^{\beta_1}c^{-1}=(ca^{\alpha_1}c^{-1})(cb^{\beta_1}c^{-1})=(cac^{-1})^{\alpha_1}(cbc^{-1})^{\beta_1}=(a^{\alpha_1\beta_1})^{\alpha_1}(a^{\alpha_2}b^{\beta_2})^{\beta_1}=a^{\alpha_1^2+\alpha_2\beta_1}b^{\alpha_1\beta_1+\beta_1\beta_2}$\\
+$b=c^2bc^{-2}=c(cbc^{-1})c^{-1}=ca^{\alpha_2}b^{\beta_2}c^{-1}=(ca^{\alpha_2}c^{-1})(cb^{\beta_2}c^{-1})=(cac^{-1})^{\alpha_2}(cbc^{-1})^{\beta_2}=(a^{\alpha_1\beta_1})^{\alpha_2}(a^{\alpha_2}b^{\beta_2})^{\beta_2}=a^{\alpha_1\alpha_2+\alpha_2\beta_2}b^{\alpha_2\beta_1+\beta_2^2}$\\
+于是
+\[\left\lbrace \begin{array}{rr}
+\alpha_1^2+\alpha_2\beta_1\equiv1(\mod 3) &\alpha_1\beta_1+\beta_1\beta_2\equiv 0(\mod 3)\\
+\alpha_1\alpha_2+\alpha_2\beta_2\equiv1(\mod 3)&\alpha_2\beta_1+\beta_2^2\equiv0(\mod 3)
+\end{array}\right. \]
+解出方程分析结果,得到\\
+$(1)G=\langle a,b|a^3=b^3=c^2=1,ab=ba,ca=ac,cb=b^2c\rangle,(2)G=\langle a,b|a^3=b^3=c^2=1,ab=ba,ca=a^2c,cb=b^2c\rangle$\\
+利用40题我们给出20阶群的结构.\\
+交换群$(1)G\cong\mathbb{Z}_4\oplus\mathbb{Z}_5$,$(2)G\cong\mathbb{Z}_2\oplus\mathbb{Z}_{10}$\\
+非交换群\\
+$(3)G=\langle a,b|a^{10}=b^2=1,b^{-1}ab=a^{-1}\rangle$;\\
+$(4)G=\langle a,b|a^{10}=1,b^2=a^5,b^{-1}ab=a^{-1}\rangle,$;$\\
+(5)G=\langle a,b,a^5=b^4=1,,b^{-1}ab=a^{\alpha}\rangle\alpha^2\equiv -1(\mod 5)$.\\
+43.因$G$的$Sylow$3子群不正规,那么$n_3(G)\equiv 1(\mod 3),n_3(G)|24$可知$n_3(G)=4.$设$N$为$G$的一个$Sylow$3子群的正规化子,那么由轨道公式$|N|=6$.考虑$G$在$N$的陪集上的置换表示$\varphi$.则像集合$\varphi(G)$是$S_4$的传递子群,于是$|\varphi(G)|=4,8,12,24$.若$|\varphi(G)|=12,$则$N$的核$K$是$G$的6或3阶正规子群.这推出$G$的$Sylow$3子群正规,矛盾!若$|\varphi(G)|=12$则$N$的核$K$是$G$的2阶正规子群,矛盾!于是$|\varphi(G)|=24,G\cong S_4.$\\
+45.设$Q_8=\langle a,b|a^4=1,b^2=a^2,b^{-1}ab=a^{-1}\rangle.$容易看出,$Q_8$的任一自同构都把$a,b$变为$\{a,a^{-1},b,b^{-1},ab,(ab)^{-1}\}$中两个不互逆的有序元素.共有24种选择,反之任意这种选择都唯一地确定了一个自同构.于是$|Aut(Q_8)|=24$,考虑如下的自同构
+\[\alpha:a\mapsto b\mapsto ab;\beta: a\mapsto a^{-1}b,b\mapsto b.\]
+它们满足关系:$\alpha^3=\beta^4=(\alpha\beta)^2=1$.故由上题,$Aut(Q_8)$的子群$H=\langle a,b\rangle$是$S_4$的商群.因为$H$中有3,4阶元.故$12||H|$,于是$H$只能是$A_4$或$S_4$,但$A_4$中无4阶元,于是$H=Aut(Q_8)\cong S_4.$
+\end{document}

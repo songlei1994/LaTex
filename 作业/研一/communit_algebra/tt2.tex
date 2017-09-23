@@ -1,0 +1,47 @@
+\documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}}
+\fancyhead[LO]{\usebox{\mygraphic}}
+\fancyhead[RO,RE]{ 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,left=0.7cm,right=0.7cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\usepackage{fourier}
+\begin{document}
+\pagestyle{plain}
+\noindent
+\zihao{4}
+1.(1)$\mathfrak{a}^e=S^{-1}\mathfrak{a}$\\
+$y\in \mathfrak{a}^e$$\Leftrightarrow y=\sum (a^i/1)(A_i/s_i)$.将和式通一下分我们有:$y\in\mathfrak{a}^e \Leftrightarrow y=a/s\Leftrightarrow y\in S^{-1}\mathfrak{a}$.\\
+(2)命题3.11(2):$\mathfrak{a}^{ec}=\bigcup\limits_{s\in S}(\mathfrak{a}:s)$\\
+$x\in \mathfrak{a}^{ec}=(S^{-1}\mathfrak{a})^c\Leftrightarrow x/1=a/s$对某个$a\in\mathfrak{a},s\in S\Leftrightarrow$$(xs-a)t=0$对某个$t\in s\Leftrightarrow $$xst\in\mathfrak{a}\Leftrightarrow x\in\bigcup\limits_{s\in S}(\mathfrak{a}:s).$\\
+10.(1)当$a\in A-\mathfrak{p}$时,$\dfrac{a}{1}\cdot\dfrac{1}{a}=\dfrac{1}{1}$,即$\dfrac{a}{1}$为$A_{\mathfrak{p}}$中的可逆元,自然不为零.那么$\complement_A\mathfrak{p}\subset \complement_A S_{\mathfrak{p}}(0)$,由德摩根反演律,$S_{\mathfrak{p}}(0)\subset \mathfrak{p}$.(证明需要我们调整了(2)(3)问的顺序)\\
+(3)$\dfrac{0}{1}$是分式化中的零元,这是由于$\dfrac{a}{s}+\dfrac{0}{1}=0,\dfrac{a}{s}\dfrac{0}{1}=\dfrac{0}{1}$可以保证$\dfrac{0}{1}$为零元,任取$p\in S_{\mathfrak{p}}(0)$,则存在$s\in A-\mathfrak{p}$$\subset A-\mathfrak{p}'$,使得$sp=0$注意到$A-\mathfrak{p}\subset A-\mathfrak{p}'$,此式说明$\dfrac{p}{1}$亦为$A_{\mathfrak{p}'}$中的零元,于是$S_{\mathfrak{p}}(0)\subset S_{\mathfrak{p}'}(0)$.\\
+(2)充分性:如果存在元素$a\in \mathfrak{p}-r(S_{\mathfrak{p}}(0))$,那么集合$\{sa^n:s\in S_{\mathfrak{p}}\}$是乘法封闭的.因此$\mathfrak{p}$包含另一个素理想,这与极小性矛盾.\\
+必要性:由(3)我们知道对任意的素理想$\mathfrak{q}\subset \mathfrak{p}$,有$S_{\mathfrak{p}}(0)\subset S_{\mathfrak{q}}\subset \mathfrak{q}$.那么$r(S_{\mathfrak{p}}(0))\subset r(\mathfrak{q})=\mathfrak{q}$,如果$r(S_{\mathfrak{p}}(0))=\mathfrak{p}$,那么$\mathfrak{p}\subset\mathfrak{q}$,则$\mathfrak{p}$为极小理想.\\
+(4)假设存在非零元$a\in\bigcap\limits_{\mathfrak{p}\in D(A)}S_{\mathfrak{p}}(0)$.那么就有一个素理想$\mathfrak{q}\in D(A)$,它是包含$(0:a)$的素理想集合中的极小元.因此$a\in S_{\mathfrak{q}}(0)$,那么存在$s\in A-\mathfrak{q}$使得$as=0$,所以$s\in (0:a)\subset \mathfrak{q}$,矛盾!\\
+11.(1)系理3.13:在局部环$A_{\mathfrak{p}}$中的素理想与$A$中包含在$\mathfrak{p}$的素理想一一对应.但$\mathfrak{p}$极小,所以$S^{-1}_{\mathfrak{p}}{\mathfrak{p}}$为$A_{\mathfrak{p}}$唯一的素理想,而$A_{\mathfrak{p}}$有唯一一个极大理想$\mathfrak{m}$,故$S^{-1}_{\mathfrak{p}}{\mathfrak{p}}$为$A_{\mathfrak{p}}$中的极大理想.再由习题10(2)我们得到$r(S_{\mathfrak{p}}(0))=\mathfrak{p}$.由分式化与求根运算可交换,在$A_{\mathfrak{p}}$中$r(0)=r(S^{-1}_{\mathfrak{p}}S_{\mathfrak{p}}(0))=S^{-1}_{\mathfrak{p}}r(S_{\mathfrak{p}}(0))=S^{-1}_{\mathfrak{p}}\mathfrak{p}$.使用命题4.2,零理想为$A_{\mathfrak{p}}$中$S^{-1}_{\mathfrak{p}}\mathfrak{p}-$准素理想,自然是最小的.再由命题4.8(2),我们不难得出$S_{\mathfrak{p}}(0)$为最小的$\mathfrak{p}-$准素理想.\\
+(2)假设$a\notin \mathfrak{N}$.由小根的定义存在极小素理想$\mathfrak{p}$使得$a\notin\mathfrak{p}$,,那么利用EX10(1)的$S_{\mathfrak{p}}(0)\subset\mathfrak{p}$可知$a\notin S_\mathfrak{p}(0)$,故$a\in \mathfrak{a}.$所以$\mathfrak{a}\subset \mathfrak{N}$.\\
+(3)如果零理想不可分解.使用习题9,$D(A)$为与零相关联的素理想集合,记$E$为$D(A)$中极小素理想的集合.那么$E$自然也是$A$中极小素理想的集合,那么$\mathfrak{a}=\bigcap\limits_{\mathfrak{p}\in E}S_{\mathfrak{p}}(0).$假设$\mathfrak{a}=0$,由(1)(2)可知对每个$\mathfrak{p}\in E$,$S_{\mathfrak{p}}(0)$都是$\mathfrak{p}-$准素理想.所以我们必定有$E=D(A),$所以零的每个素理想都是孤立的.由EX10(4)我们不难得出充分性.\\
+14.假设$\mathfrak{p}=(\mathfrak{a}:x)$为极大元但不为为素理想.这说明存在$a,b\notin \mathfrak{p}$(亦即$ax,bx\notin \mathfrak{a}$)使得$abx\in \mathfrak{a}$.我们取$p'=(\mathfrak{a}:ax)$,由于$p\in\mathfrak{p}\Rightarrow axp=a(px)\in A\mathfrak{a}=\mathfrak{a}\Rightarrow p\subset\mathfrak{p}'$,加之$b\notin \mathfrak{p},b\in\mathfrak{p}'$故$\mathfrak{p}\subsetneq \mathfrak{p}'$,这与极大性矛盾,所以$\mathfrak{p}$一定为素理想.此时自然有$\mathfrak{p}=r(\mathfrak{p})=r((\mathfrak{a}:x))$,此式说明$\mathfrak{p}$是属于$\mathfrak{a}$的素理想.\\
+1.$f^*(V(a))=f^{-1}(V(a))=f^{-1}\{\mathfrak{p}|a\subset
+\mathfrak{p}\subset B ,\mathfrak{p}\text{为素理想}\}=\{f^{-1}(\mathfrak{p})|\mathfrak{p}\subset B\text{为素理想},f^{-1}(a)\subset\mathfrak{p}\}$\\
+$\subset V(f^{-1}(a)\bigcup \ker~f)$.我们注意到$\dfrac{A\texttt{\char92}\ker~f}{\mathfrak{p}\texttt{\char92}\ker~f}\cong A\texttt{\char92}\mathfrak{p}$,所以$A$中包含$\ker~f$的素理想与$A\texttt{\char92}\ker~f$中的素理想有一个一一对应.再由$A\texttt{\char92}\ker~f\cong f(A)$,那么$A$任意中包含$\ker~f\bigcup f^{-1}(a)$的素理想,可以通过映射$f$对应到$f(A)$中包含$a$的素理想,那么由$B$在$f(A)$上整,使用定理5.9,我们可以知道$f(A)$中包含$a$的素理想$\mathfrak{p},$都可以找到$B$中包含$a$的素理想$\mathfrak{q}$,使得$\mathfrak{q}\cap f(A)=\mathfrak{p}$,这样我们便证明了反包含也是成立的,那么$f^*(V(a))=V(f^{-1}(a)\bigcup \ker~f)$这就说明了$f^*$将闭集映为闭集.\\
+4.(例子来自提示)考虑$B=k[x]$中的子环$A=k[x^2-1]$,这里$k$为特征0域.令$\mathfrak{n}=(x-1)$,由于$x+1\notin (x-1)=\mathfrak{n}$,但$(x-1)\bigcap k[x^2-1]=(x^2-1)=\mathfrak{m}$,所以$A_{\mathfrak{m}}=k[x^2-1],$显然元素$1/(x+1)$不为$k[x^2-1]$上的整元.\\
+8.(1)取一个包含$B$的域,使得$f,g$在其中的分解为线性因子,设$f=\prod(x-\xi_i),g=\prod(x-\eta_j),$那么每个$\xi_i,\eta_j$都是$fg$的根,因此在$C$上整.由韦达定理,$f,g$的系数可由$\xi_i,\eta_j$多项式表出,由系理5.3我们得到$f,g\in C[x].$\\
+(2)先构造一个环$B_1$,使得$f(x)=x^n+b_nx^{n-1}+\cdots b_1$在$B_1$上能分解出一个线性因子.取环$B_1=B[r]/(f(r))$,$r$为不定元.显然$B$能作为一个子环嵌入$B_1$,并且$f(\overline{r})=0,$这里$\overline{r}$是$r$在$B_1$中的像.对$f(x)$做关于$(x-\overline{r})$的带余除法我们得到多项式$h(x)=x^{n-1}+e_{n-1}x^{n-2}+\cdots+e_1,e_i\in B_1$,使得$f(x)=(x-\overline{r})h(x)+r',r'\in B_1$,将$\overline{r}$代入我们得到$r'=0$,故$f(x)=(x-\overline{r})h(x),h(x)\in B_1$.重复这个过程,我们可以找到一个需要的环$B^*$,使得$f,g$可以在$B^*$中完全分解为线性因子的积,这时我们就可以使用结论(1)了.\\
+9.(表述来自提示)如果$f\in B[x]$在$A[x]$上整,那么
+$f^m+g_1f^{m-1}+\cdots+g_m=0\quad (g_i\in A[x])$\\
+设$r$是大于$m$和$g_1,\cdots,g_m$的次数的一个整数,令$f_1=f-x^r.$那么
+$(f_1+x^r)^m+g_1(f_1+x^r)^{m-1}+\cdots+g_m=0$\\
+或者说$f_1^m+h_1f^{m-1}_1+\cdots+h_m=0$,其中$h_m=(x^r)^m+g_1(x^r)^{m-1}+\cdots+g_m\in A[x]$.在将EX8的结论引应用到多项式$-f_1$与$f_1^{m-1}+h_1f_1^{m-2}+\cdots+h_{m-1}$上,我们便能得到结论.
+\end{document}

@@ -1,0 +1,123 @@
+% !TeX encoding = UTF-8
+\documentclass[b5paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\usepackage{breqn}
+\newcommand{\floor}[1]{\left\lfloor #1\right\rfloor}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.ps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}\zihao{-4}~组合数学~\today}
+\fancyhead[LO]{\usebox{\mygraphic}\zihao{-4}~组合数学~\today}
+\fancyhead[RO,RE]{\zihao{-4} 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,headsep=0.5cm,footskip=1cm,left=1.0cm,right=1.0cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\pagestyle{plain}
+\zihao{-4}
+\noindent
+\\
+1.(a)元素个数为$|A_1\cup A_2\cdots\cup A_n|$.\\
+(b)这就是$e_r$,为$\sum\limits_{t=r}^n\sum\limits_{i_1<\cdots<i_r}(-1)^{t-r}\dbinom{t}{r}|A_{i_1}\cap\cdots\cap A_{i_r}|.$\\
+2.我们构造两个集合$P={x_1,\cdots,x_m},Q={y_1,\cdots,y_n}$.用两种方法去计算从$P$集合中取出$k$个元素的方法.一种是$\dbinom{m}{k}$.而另一种,我们记$A_i$为从$P,Q$中选取$k$个元素,其中含$x_i$的方法数.那么于书上的定义相同,这时我们要求的为$e_0=\sum\limits_{i=0}^m\dbinom{i}{0}(-1)^ig_i$,而$g_r=\dbinom{n}{i}\dbinom{m+n-i}{k-i}$.\\
+3.计算$x^i$的系数,右边为\[\sum\limits_{k=i}^n\dbinom{n}{k}\dbinom{2n-k}{n}\dbinom{k}{i}(-1)^{k-i}=\sum\limits\dbinom{n}{i}\dbinom{n-k}{k-i}\dbinom{2n-k}{n-k}(-1)^{k-i}\]
+那么只需要证明$\dbinom{n}{i}=\dbinom{n}{n-i}=\sum\limits_{k=i}^n\dbinom{n-i}{k-i}\dbinom{2n-k}{n-k}(-1)^{k-i}$即可.而事实上在第二题中,$m$用$n$,$k$用$n-i$,$n$用$n-i$替换,我们有
+\[\sum_{t=0}^{n-i}\binom{n-i}{t}\binom{2n-i-t}{n-i-t}=\binom{n}{n-i}\]
+再将求和指标平移,就完成了证明.这说明2,3可用一样的组合模型进行计算.\\
+4.记$A_i$为$1000$以内被$i$整除的数.那么要计算的为1000-$|A_2\cup A_3\cup A_5\cup A_6\cup A_7\cup A_8\cup A_9\cup A_{10}|$.
+注意到$A_2\cup A_3\cup A_5\cup A_6\cup A_7\cup A_8\cup A_9\cup A_10=(A_2\cup A_4\cup A_6\cup A_8\cup A_{10})\cup (A_3\cup A_9)\cup A_5\cup A_7$,故只需计算$|A_2\cup A_3\cup A_5\cup A_7|$即可.由容斥原理有
+\[\begin{array}{l}
+\floor{\dfrac{1000}{2}}+\floor{\dfrac{1000}{3}}+\floor{\dfrac{1000}{5}}+\floor{\dfrac{1000}{7}}-\floor{\dfrac{1000}{2\times 3}}-\floor{\dfrac{1000}{2\times 5}}\vspace{5pt}\\-\floor{\dfrac{1000}{2\times 7}}
+-\floor{\dfrac{1000}{3\times 5}}-\floor{\dfrac{1000}{3 \times 7}}-\floor{\dfrac{1000}{5\times 7}}+\floor{\dfrac{1000}{2\times 3\times 5}}\vspace{5pt}\\+\floor{\dfrac{1000}{2\times 5\times 7}}+\floor{\dfrac{1000}{2\times 3\times 7}}
++\floor{\dfrac{1000}{3\times 5\times 7}}-\floor{\dfrac{1000}{2\times 3\times 5\times 7}}
+\\=
+(500+333+200+142)-(166+100+71+66+47+28)+(33+14+23+9)-4\\
+=
+1175-478+79-4=772
+\end{array}\]
+故由$1000=772=228$为原题答案.
+\\
+\\
+\\
+5.在$n$固定的情况下,充分性和必要性是等价的.
+\[
+\left( \begin{array}{c}
+b_0\\
+b_1\\
+\vdots\\
+b_n
+\end{array}\right)=\left( \begin{array}{cccc}
+\left[ \begin{array}{c}
+0\\
+0
+\end{array}\right]_q & 0 & \cdots & 0\\ 
+\left[ \begin{array}{c}
+1\\
+0
+\end{array}\right]_q &\left[ \begin{array}{c}
+1\\
+1
+\end{array}\right]_q &\cdots & 0\\
+\vdots &\vdots &\vdots &\vdots \\
+\left[ \begin{array}{c}
+n\\
+0
+\end{array}\right]_q&\left[ \begin{array}{c}
+n\\
+1
+\end{array}\right]_q&\vdots &\left[ \begin{array}{c}
+n\\
+n
+\end{array}\right]_q
+\end{array}\right) 
+\left( \begin{array}{c}
+a_0\\
+a_1\\
+\vdots\\
+a_n
+\end{array}\right) \]
+\\
+记这个表达式为$a=Ab$,记想证明的那个矩阵为$B$.因为数列${a_n},{b_n}$是任意的,充要性实质上是说$A=B^{-1}$,由矩阵乘法可知,只需证明必要性即可.我们通过将$b_n$表达式带入$a_n$来证明.通过化简我们需要证明
+\[\sum_{k=i}^n(-1)^{n-k}q^{\binom{n-k}{2}}\left[ \begin{array}{c}
+n\\
+k
+\end{array}\right]_q\left[ \begin{array}{c}
+k\\
+i
+\end{array}\right]_q=0,\quad \forall~ 0\leq i<n.\]
+利用\[\left[ \begin{array}{c}
+n\\
+k
+\end{array}\right]_q\left[ \begin{array}{c}
+k\\
+i
+\end{array}\right]_q=\left[ \begin{array}{c}
+n\\
+i
+\end{array}\right]_q\left[ \begin{array}{c}
+n-i\\
+k-i
+\end{array}\right]_q\]
+化简,我们需要证明
+\[\sum_{k=0}^n(-1)^kq^{\binom{k}{2}}\left[ \begin{array}{c}
+n\\
+k
+\end{array}\right]_q=0,\forall n\]
+这需要数学归纳法,但我没证出来...\\
+6.将$a_n(x)$的表达式带入有
+\[\begin{array}{rl}
+b_n(x)& =\sum\limits_{d|n}\mu\left( \dfrac{n}{d}\right)\sum\limits_{t|d}b_{\frac{d}{t}}(x^{\frac{nt}{d}})\vspace{3pt}\\
+&=\sum\limits_{d|n}\mu\left( \dfrac{n}{d}\right)\sum\limits_{t|d}b_{t}(x^{\frac{n}{t}})\vspace{3pt}\\
+&=\sum\limits_{t|d|n}\mu\left( \dfrac{n}{d}\right) b_t(x^{\frac{n}{t}})\end{array}\]
+\\
+我们只需计算$b_t(x)$的系数$\sum\limits_{t|d|n}\mu\left( \dfrac{n}{d}\right) $即可.事实上对于$n=p_1^{\alpha_1}\cdots p_r^{\aleph_r},t=p_1^{\beta_1}\cdots p_r^{\beta_r}$.则只有当$d$对应的幂指数为$\alpha_i,\alpha_i-1$时$\mu(\dfrac{n}{d})$才不为零.那么$d$的选择就由幂指数完全确定了.不难看出最后和式值为$\sum\limits_{i=0}\dbinom{r}{i}(-1)^i=0$,其中$r$为$\alpha_i\neq \beta_i$的个数.而$t=n$时不难看出就是1.从而右边也为$b_n(x)$.\\
+1.将这100个数分为$\{1\},\{4,100\},\{52\}$这18组,由鸽巢原理,取出19个数时,有两个数来自于同一组.则和为104.\\
+3.假设结论不成立,去计算$N=\sum_{i=1}^{100}|A_i|$.一方面由$|A_i|$的基数可知,$N>100\times \dfrac{2|S|}{3}$.另一方面,每个$x$至多出现66此那么,$N\leq 66|S|$,这是矛盾的.所以存在$x$至少在67个$A_i$中出现.\\
+4.(1)构造集合$\{1,2\},\{3,4\},\cdots,\{2n-1,2n\}$.则每一组内两个数互素,由鸽巢原理,取出大于$n$个数时,必有两个数属于同一组,从而互素.\\
+(2)方法同,将$2n$个数分为$n$组:$\{x|x=2^i(2k-1),i\in\mathbb{N},x\leq 2n\},k=1,\cdots,n$.那么选取多于$n$个不同数,一定会有两个数来自同一组,由构造知小数会整除大数.
+\end{document}
