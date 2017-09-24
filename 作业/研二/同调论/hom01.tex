@@ -1,0 +1,33 @@
+\documentclass[a4paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.eps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}\zihao{-4}~同调论~\today}
+\fancyhead[LO]{\usebox{\mygraphic}\zihao{-4}~同调论~\today}
+\fancyhead[RO,RE]{\zihao{-4} 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,left=0.7cm,right=0.7cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\usepackage{exscale}
+\usepackage{tikz} 
+\usepackage{relsize}
+%\usepackage{fourier} 
+\begin{document}
+\pagestyle{plain}
+\noindent
+\zihao{-4}
+1.\\
+2.\\
+3.任取$f\in \hom_{\mathbb{Z}}(\mathbb{Z}_p,\mathbb{Z})$,记$f(\overline{1})=a\in \mathbb{Z}$,那么$0=f(\overline{p})=pf(\overline{1})=pa$,由于$p\neq 0$,所以$a=0$,故$f\equiv 0$.\\
+4.\\
+5.令$\varphi$为为$\prod\limits_{n=1}^\infty \mathbf{Q}\times\prod\limits_{m=1}^\infty \mathbf{Q}$到$\prod\limits_{n=1}^\infty \mathbf{Q}$的映射,作用为$a_i\times b_j\mapsto a_i^tb_j$,这是一个双线性映射,从而诱导出$\sum\limits_{i=1}^s\ts{a_i}{b_i}\mapsto \sum\limits_{i=1}^sa_i^tb_i$,我们注意到$\ts{e_n}{e_m}$为$\prod\limits_{n=1}^\infty \mathbf{Q}\bigotimes_{\mathbf{Q}}\prod\limits_{m=1}^\infty \mathbf{Q}$的一组基.那么$\sum\limits_{i=1}^s\ts{a_i}{b_i}=\sum\limits_{n=1}^\infty\sum\limits_{n=1}^\infty q_{nm}\ts{e_n}{e_m}$从而
+$\ker\tilde{\varphi}=0$,并且为满射.这说明是同构
+
+\end{document}
