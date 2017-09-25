@@ -1,0 +1,55 @@
+\documentclass[a4paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.eps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}\zihao{-4}~同调论~\today}
+\fancyhead[LO]{\usebox{\mygraphic}\zihao{-4}~同调论~\today}
+\fancyhead[RO,RE]{\zihao{-4} 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,left=1cm,right=1cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\usepackage{extarrows}
+\usepackage{exscale}
+\usepackage{tikz} 
+\usepackage{relsize}
+%\usepackage{fourier} 
+\begin{document}
+\pagestyle{plain}
+\noindent
+\zihao{4}
+\\
+1.一个流形上的所有联络的集合是一个凸集,即如果$D^1,\cdots ,D^k$节食联络,又若$f_1,\cdots ,f_k$是$C^\infty$函数,具有性质
+\[\sum_{i=1}^kf_k=1,\]
+那么$\sum\limits_{i=1}^kf_k\mathrm{D}^k$也是一个联络.\\
+首先联络之间的加法,以及与函数的乘法使用常用的方法定义.验证$C1-C3$即可.\\
+C1:
+\begin{align*}
+\left( \sum_{i=1}^kf_k\mathrm{D}^k\right) _{fV+gW}X 
+&:=\sum\limits_{i=1}^kf_k\mathrm{D}^k _{fV+gW}X\\
+&\overset{C1}{=}\sum\limits_{i=1}^kf_k\left(f\mathrm{D}^k _{V}X+g\mathrm{D}^k _{W}X \right)\\
+& =\sum_{i=1}^kf_kf\mathrm{D}^k _{V}X+\sum_{i=1}^kf_kg\mathrm{D}^k _{W}X\\
+&=f\left( \sum_{i=1}^kf_k\mathrm{D}^k _{V}X\right) +g\left( \sum_{i=1}^kf_k\mathrm{D}^k _{W}X\right) \\
+&:=f\left(  \sum_{i=1}^k\mathrm{D}_V^k\right)X + g\left( \sum_{i=1}^k\mathrm{D}_W^k\right)X
+\end{align*}
+C2:
+\begin{align*}
+\left( \sum_{i=1}^kf_k\mathrm{D}^k\right)_V(fX)&:= \sum_{i=1}^kf_k\mathrm{D}^k_V(fX)\\
+&\overset{C2}{=}\sum_{i=1}^kf_k\left( \mathrm{D}^k_Vf\right)+\sum_{i=1}^kf_kf \mathrm{D}_V^kX\\
+&=\sum_{i=1}^kf_k\left(Vf\right)X+\sum_{i=1}^kff_k \mathrm{D}_V^kX\\
+&=\left( \left( \sum_{i=1}^kf_k\mathrm{D}^k\right)_Vf\right)X+f \left( \sum_{i=1}^kf_k\mathrm{D}^k\right)_VX 
+\end{align*}
+C3:
+\begin{align*}
+\left( \sum_{i=1}^kf_k\mathrm{D}^k\right) _V(X+Y)&:=\sum_{i=1}^kf_k\mathrm{D}^k_V(X+Y)\\
+&\overset{C3}{=}\sum_{i=1}^kf_k\mathrm{D}^k_VX+\sum_{i=1}^kf_k\mathrm{D}^k_VY\\
+&=\left( \sum_{i=1}^kf_k\mathrm{D}^k\right) _VX+\left( \sum_{i=1}^kf_k\mathrm{D}^k\right) _VY
+\end{align*}
+注意到$C2$中的$\mathrm{D}_Vf$按$Vf$理解,与联络无关.那么若$\sum_{i=1}^kf_k\not\equiv 1$,这时$(Vf)$部分是不相等,也就是说C2是不成立的,所以$2\mathrm{D}$不是联络.
+\end{document}
