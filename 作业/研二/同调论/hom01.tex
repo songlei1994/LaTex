@@ -1,8 +1,8 @@
 \documentclass[a4paper]{ctexart}
 \newcommand{\ts}[2]{#1\otimes #2} 
 \newcommand{\tss}[3]{#1\otimes_{#2} #3} 
-\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
-\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\newcommand{\es}[5]{#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0} 
+\newcommand{\ess}[5]{0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0}
 \RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
 \RequirePackage{fancyhdr}
 \newsavebox{\mygraphic}
@@ -13,7 +13,7 @@
 \fancyhead[LO]{\usebox{\mygraphic}\zihao{-4}~同调论~\today}
 \fancyhead[RO,RE]{\zihao{-4} 宋雷~1601210073}
 \fancyfoot[C]{\small -~\thepage~-}}
-\RequirePackage[top=2cm,bottom=2cm,left=0.7cm,right=0.7cm]{geometry}
+\RequirePackage[top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
 \renewcommand{\baselinestretch}{1.5}
 \usepackage{exscale}
 \usepackage{tikz} 
@@ -22,12 +22,29 @@
 \begin{document}
 \pagestyle{plain}
 \noindent
-\zihao{-4}
-1.\\
-2.\\
-3.任取$f\in \hom_{\mathbb{Z}}(\mathbb{Z}_p,\mathbb{Z})$,记$f(\overline{1})=a\in \mathbb{Z}$,那么$0=f(\overline{p})=pf(\overline{1})=pa$,由于$p\neq 0$,所以$a=0$,故$f\equiv 0$.\\
-4.\\
-5.令$\varphi$为为$\prod\limits_{n=1}^\infty \mathbf{Q}\times\prod\limits_{m=1}^\infty \mathbf{Q}$到$\prod\limits_{n=1}^\infty \mathbf{Q}$的映射,作用为$a_i\times b_j\mapsto a_i^tb_j$,这是一个双线性映射,从而诱导出$\sum\limits_{i=1}^s\ts{a_i}{b_i}\mapsto \sum\limits_{i=1}^sa_i^tb_i$,我们注意到$\ts{e_n}{e_m}$为$\prod\limits_{n=1}^\infty \mathbf{Q}\bigotimes_{\mathbf{Q}}\prod\limits_{m=1}^\infty \mathbf{Q}$的一组基.那么$\sum\limits_{i=1}^s\ts{a_i}{b_i}=\sum\limits_{n=1}^\infty\sum\limits_{n=1}^\infty q_{nm}\ts{e_n}{e_m}$从而
-$\ker\tilde{\varphi}=0$,并且为满射.这说明是同构
+\zihao{4}
+\\
+1.设存在$P,Q$使得$P:f\simeq g:C\to D,Q:g\simeq h :C\to D$.下面我们验证等价关系的三条性质.\\
+自反性:取同态$T=0$即可;\\
+对称性:取同态$T=-P$即可得到$T:g\simeq f:C\to D$;\\
+传递性:取同态$T=P+Q$即可证明$T:f\simeq h:C\to D$.\\
+2.我们先证$g\circ f\simeq g\circ f':C\to E$.\\
+先利用$f\simeq f':C\to D$可知$\partial \circ T+T\circ\partial=f'-f$,等式与$g$作复合,注意到$g$为链映射,有$\partial \circ (g\circ T)+(g\circ T)\circ\partial=g\circ f'-g\circ f$,这就说明了$g\circ T:g\circ f'\simeq g\circ f:C\to E$,那么$g\circ f\simeq g\circ f'\simeq g'\circ f':C\to E.$\\
+3.自反性取$f=id$即可,而定义本身就是对称的,故只需验证传递性.\\
+设$f:C\to D,g: D\to C$使得$C\simeq D$.$h:D\to E,k:E\to D$使得$D\simeq E$.那么由映射同伦的性质可知$hf:C\to E,gk:E\to C$,满足$(gk)(hf)\simeq g(kh)f\simeq gf\simeq id:C\to C,(hf)(gk)\simeq id:E\to E$,这就说明了链同伦具有传递性.\\
+4.在正合序列
+\[\es{R}{a}{R}{}{Ra}\]
+上作运算$-\otimes Rb$,得到正合序列
+\[\es{Rb}{a}{Rb}{}{Ra\otimes Rb}\]
+由张量函子的正合性,我们有$Ra\otimes Rb\cong coker(Ra\xrightarrow{a}Rb)=\cong R_{(a,b)}$\\
+5.任取$f\in \hom_{\mathbb{Z}}(\mathbb{Z}_p,\mathbb{Z})$,记$f(\overline{1})=a\in \mathbb{Z}$,那么$0=f(\overline{p})=pf(\overline{1})=pa$,由于$p\neq 0$,所以$a=0$,故$f\equiv 0$.\\
+6.作为$\mathbb{Z}$模,那么$1\otimes 2\to 1$给出了$\mathbb{Z}_2\otimes \mathbb{Z}$与$\mathbb{Z}$作为$\mathbb{Z}$模时生成元之间的关系,由此不难定义$\mathbb{Z}$模同构.\\
+但把$2\mathbb{Z}$视为$\mathbb{Z}$的子模时,我们在$\mathbb{Z}$模正合列
+\[\es{2\mathbb{Z}}{j}{\mathbb{Z}}{\pi}{\mathbb{Z}_2}\]
+上利用$-\otimes \mathbb{Z}_2$函子作用,得到正合列
+\[\es{2\mathbb{Z}\otimes \mathbb{Z}_2}{j\otimes id}{\mathbb{Z}\otimes\mathbb{Z}_2}{\pi\otimes id}{\mathbb{Z}_2\otimes \mathbb{Z}_2}\]
+利用正合性$im~j\otimes id=\ker \pi\otimes id=0$\\
+7.令$\varphi$为为$\prod\limits_{n=1}^\infty \mathbf{Q}\times\prod\limits_{m=1}^\infty \mathbf{Q}$到$\prod\limits_{n,m=1}^\infty \mathbf{Q}$的映射,作用为$a_i\times b_j\mapsto a_i^tb_j$,这是一个双线性映射,从而诱导出$\prod\limits_{n=1}^\infty \mathbf{Q}\bigotimes\prod\limits_{m=1}^\infty \mathbf{Q}$到$\prod\limits_{n,m=1}^\infty \mathbf{Q}$的映射$\tilde{\varphi}:\sum\limits_{i=1}^s\ts{a_i}{b_i}\mapsto \sum\limits_{i=1}^sa_i^tb_i$,我们注意到$\ts{e_n}{e_m}$为$\prod\limits_{n=1}^\infty \mathbf{Q}\bigotimes_{\mathbf{Q}}\prod\limits_{m=1}^\infty \mathbf{Q}$的一组基.那么$\sum\limits_{i=1}^s\ts{a_i}{b_i}=\sum\limits_{n=1}^\infty\sum\limits_{n=1}^\infty q_{nm}\ts{e_n}{e_m}$.由此不难看出
+$\ker\tilde{\varphi}=0$,并且为满射,并说明是同构.(事实上给出了无穷向量笛卡尔积与无穷矩阵之间的一个双射).
 
 \end{document}
