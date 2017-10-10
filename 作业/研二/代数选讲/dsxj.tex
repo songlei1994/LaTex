@@ -1,0 +1,77 @@
+\documentclass[a4paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{$#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$} 
+\newcommand{\ess}[5]{$0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0$}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.eps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}\zihao{-4}~同调论~\today}
+\fancyhead[LO]{\usebox{\mygraphic}\zihao{-4}~同调论~\today}
+\fancyhead[RO,RE]{\zihao{-4} 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\usepackage[top=2cm,bottom=2cm,left=1cm,right=1cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\usepackage{extarrows}
+\usepackage{exscale}
+\usepackage{tikz} 
+\usepackage{relsize}
+%\usepackage{fourier} 
+\theoremstyle{plain}
+  \newtheorem{obs}{观察~}[section]
+  \newtheorem{thm}{定理~}[section]
+  \newtheorem{lem}[thm]{引理~}
+  \newtheorem{prop}[thm]{命题~}
+  \newtheorem{cor}[thm]{推论~}
+\theoremstyle{definition}
+  \newtheorem{defn}{定义~}[section]
+  \newtheorem{conj}{猜想~}[section]
+  \newtheorem{exmp}{例~}[section]
+  \newtheorem{rem}{注~}
+  \newtheorem{case}{情形~}
+\renewcommand{\proofname}{\bf 证明}
+\usepackage{enumerate}
+\begin{document}
+\pagestyle{plain}
+\noindent
+\zihao{4}
+\section{9月19日}
+\begin{thm}[Wilt Fomula]
+给定有限群$G$,对于$x,y,z\in G$,有
+\[[x,y^{-1},z]^y[y,z^{-1},x]^z[z,x^{-1},y]^x=1\]
+\end{thm}
+\begin{prop}
+$A,B\leq G$
+\begin{enumerate}[(1)]
+\item $[A,B]=[B,A]$
+\item $[A,B]\unlhd \langle A,B\rangle$
+\item $\forall \alpha \in Aut(G),\alpha([A,B])=[\alpha(A),\alpha(B)]$.
+$[A^\alpha,B^\alpha]=[A,B]^\alpha.$
+\item $[A,B]\leq A\Leftrightarrow B\leq N_G(A)$.
+\item $A,B\unlhd G\Rightarrow [A,B]\unlhd G,[A,B]\leq A\cap B$
+\end{enumerate}
+\end{prop}
+\begin{proof}
+(4) $[a,b]\in A \Leftrightarrow a^{-1}b^{-1}ab\in A \Leftrightarrow b^{-a}ab\in A \Leftrightarrow b\in N_G(A)$\\
+(6) $N\unlhd G,\overline{G}=G/N,[\overline{A},\overline{B}]=\overline{[A,B]}(aNbN=abN)$
+\end{proof}
+\begin{thm}[Hall's three-subgroup lemma]
+有限群$G$,$N\unlhd G,A,B,C \leq G$,$[B,C,A]\leq N,[C,A,B]\leq N\Rightarrow [A,B,C]\leq N$
+\end{thm}
+\begin{rem}
+这个定理在幂零群中很重要.是说其中两个成立,那么第三个也成立.
+\end{rem}
+\begin{prop}
+\begin{enumerate}[(1)]
+\item $[G_i,G]=G_{i+1}$
+\item $[G_i,G_j]\leq G_{i+j}$($G_i=\langle [x_1,\cdots,x_n]|x_i\in G\rangle$)
+\end{enumerate}
+\end{prop}
+\begin{proof}
+待编辑
+\end{proof}
+
+\end{document}

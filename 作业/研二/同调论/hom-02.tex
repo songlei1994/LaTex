@@ -1,0 +1,70 @@
+\documentclass[a4paper]{ctexart}
+\newcommand{\ts}[2]{#1\otimes #2} 
+\newcommand{\tss}[3]{#1\otimes_{#2} #3} 
+\newcommand{\es}[5]{#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0} 
+\newcommand{\ess}[5]{0\xrightarrow{}#1\xrightarrow{#2}#3\xrightarrow{#4}#5\xrightarrow{}0}
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs,wasysym}
+\RequirePackage{fancyhdr}
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[totalheight=1cm]{1.eps}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyhead[LE]{\usebox{\mygraphic}\zihao{-4}~同调论~\today}
+\fancyhead[LO]{\usebox{\mygraphic}\zihao{-4}~同调论~\today}
+\fancyhead[RO,RE]{\zihao{-4} 宋雷~1601210073}
+\fancyfoot[C]{\small -~\thepage~-}}
+\RequirePackage[top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\usepackage{exscale}
+\usepackage{tikz} 
+\usepackage{relsize}
+%\usepackage{fourier} 
+\begin{document}
+\pagestyle{plain}
+\noindent
+\zihao{4}
+\\
+3.2 我们有$(ab)(e_0)=a\neq -b=-(ba)(e_0)$,所以$(ab),-(ba)$不是相同的奇异单形.去计算边界可知$\partial(ab+ba)=0$,于是它是闭链.构造二维奇异单形$\sigma=(cab)+(cba)$,计算可知$\partial\sigma=ab+ba$,即$ab+ba
+\in B_1(X)$,自然是零调的.\\
+3.3 对正合列
+\[\ess{\ker \epsilon}{\partial}{S_0(X)}{\epsilon}{\mathbb{Z}}\]
+上商掉$Im~\partial$得到正合列
+\[\ess{\ker \epsilon /Im~\partial}{~\partial}{S_0(X)/Im~\partial}{\epsilon}{\mathbb{Z}}\]
+从而可以计算出$H_0(X)=\tilde{H}_0\oplus \mathbf{Z}$.而其余维数由于简约与奇异在链水平是相同的,同调计算出来自然是相同的.\\
+3.5 由同调群的同伦不变性,只需要计算$\tilde{H}_0(pt)$即可,利用简约同调与奇异同调的关系即可得到$\tilde{H_*}(X)=0$.\\
+3.6 先给出连续函数$f:(0,\dfrac{2}{\pi}+5]\times 0\to X$\\
+\[f(t,0)=\left\lbrace  \begin{array}{ll}
+(t,\sin\dfrac{1}{t}) & 0<t\leq \dfrac{1}{\pi}\vspace{4pt}\\
+(\dfrac{1}{\pi},-t+\dfrac{1}{\pi}) & \dfrac{1}{\pi}<t\leq \dfrac{1}{\pi}+2\vspace{4pt}\\
+(-t+2,-2) & \dfrac{1}{\pi}+2<t\leq \dfrac{2}{\pi}+2\vspace{4pt}\\
+(0,t-\dfrac{2}{\pi}-4) & \dfrac{2}{\pi}+2<t\leq \dfrac{2}{\pi}+5 \\
+\end{array}\right. \]
+这显然是个有连续逆的连续函数,从而$(0,\dfrac{2}{\pi}+5]\times 0$与$X$同胚,由同调的同胚不变性我们只需计算$(0,\dfrac{2}{\pi}+5\times 0$的同调即可.而这是个凸集,自然是可缩的,从而同调群与$H_*(pt)$同构.为
+\[H_q(X)=\left\lbrace \begin{array}{ll}
+\mathbb{Z}. & q=0\\
+0, & q\neq 0
+\end{array}\right. \]
+五.当值域为空时,函数是不存在的.所以对于空集$\emptyset$,链群$S_*(\emptyset)=\langle \emptyset \rangle=\{0\}$,为平凡群,在这个基础上我们再去计算(-1)维同调群.\\
+那么对于链复形
+\[\ess{S_1(X)}{\partial_1}{S_0(X)}{\epsilon}{R}\]
+自然是$R$.\\
+对于链复形
+\[\es{S_1(X)}{\partial_1}{S_0(X)}{\epsilon}{\ker \epsilon}\]
+自然是${0}$,我也不知道应该使用哪种.\\
+六.任取$f\in \hom_{\mathbb{Z}}(\mathbb{Z}),z\in \hom_{\mathbb{Z}}(S_0(X),G)$,$\delta f(z)=f(\partial z)$
+在正合列
+\[\ess{\mathbb{Z}}{}{S_1(X)}{\epsilon}{\ker \epsilon}\]
+上作用函子$\hom(-,G)$得到链复形
+\[\ess{\hom_{\mathbb{Z}}(\mathbb{Z})}{}{\,{\mathbb{Z}}(S_0(X),G)}{\delta}{\hom_{\mathbb{Z}}(\ker \epsilon,G)}\]
+除了右侧都是正合的,从而得到$\hom_{\mathbb{Z}}(\mathbb{Z})\cong coker ~\delta$.\\
+七.利用定理3.6,不难得到
+\[\tilde{H_q}(X,G)=\tilde{H_q}(X_+,G)\oplus H_q(b,G)\cong \tilde{H_q}(X,G)\]
+事实上再利用同调论公理即可推出这个式子对于上同调同样成立.\\
+八.几何意义上的边界可由$S^n=\{x|||x||=1\}$,即$D^{n+1}=\{x|||x||\leq 1\}$得到.\\
+构造映射
+\[\begin{array}{l}
+u:X\to I ,x \to 1-||x||\\
+H(t,x)=(1-t)x+t\dfrac{x}{||x||}
+\end{array}\]
+即可得到$(D^{n+1},S^n)$为NDR-偶.
+\end{document}
